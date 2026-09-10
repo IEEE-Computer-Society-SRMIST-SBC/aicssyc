@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const TARGET_DATE = new Date("2026-10-08T00:00:00").getTime();
 
@@ -40,18 +39,10 @@ export function Countdown() {
             key={unit.label}
             className="relative flex flex-col items-center justify-center p-1 sm:p-2"
           >
-            <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-light text-[#E2B767] tabular-nums tracking-wide sm:tracking-wider select-none drop-shadow-[0_0_12px_rgba(226,183,103,0.18)]">
-              <AnimatePresence mode="popLayout">
-                <motion.span
-                  key={unit.value}
-                  initial={{ y: 8, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {unit.value.toString().padStart(2, "0")}
-                </motion.span>
-              </AnimatePresence>
+            <div className="font-mono text-2xl sm:text-3xl lg:text-4xl font-light text-[#E2B767] tabular-nums tracking-wide sm:tracking-wider select-none drop-shadow-[0_0_12px_rgba(226,183,103,0.18)] flex items-center justify-center">
+              <span className="inline-block min-w-[2ch] text-center font-mono tabular-nums">
+                {unit.value.toString().padStart(2, "0")}
+              </span>
             </div>
 
             <div className="mt-1 sm:mt-1.5 text-[9px] sm:text-[10px] font-mono tracking-[0.18em] text-white/50 uppercase font-medium">
