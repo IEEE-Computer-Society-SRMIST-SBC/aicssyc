@@ -72,18 +72,18 @@ export function SiteNav() {
           className="pointer-events-auto flex items-center justify-between px-3.5 sm:px-6 md:px-7 py-2.5 sm:py-3 rounded-full backdrop-blur-xl bg-[#060D0A]/90 border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300"
         >
           {/* Dual Institutional Lockup (Top-Left) */}
-          <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-            <Link to="/" className="flex items-center gap-2 sm:gap-3 group py-1">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3 md:gap-4">
+            <Link to="/" className="flex items-center gap-1.5 sm:gap-3 group py-1">
               <img
                 src="/logo.png"
                 alt="AICSSYC 2026"
-                className="h-7 sm:h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-6 sm:h-8 md:h-10 w-auto object-contain transition-transform group-hover:scale-105"
               />
-              <div className="h-5 sm:h-6 md:h-7 w-px bg-white/20" />
+              <div className="h-4 sm:h-6 md:h-7 w-px bg-white/20" />
               <img
                 src="/srm.png"
                 alt="SRM IST"
-                className="h-6 sm:h-7 md:h-9 w-auto object-contain transition-transform group-hover:scale-105"
+                className="h-5 sm:h-7 md:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               />
             </Link>
           </div>
@@ -117,12 +117,12 @@ export function SiteNav() {
 
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-2.5">
-            <a
-              href="https://aicssyc.ieeecssrm.in/ambassador"
+            <Link
+              to="/ambassador"
               className="px-4 py-2 text-xs font-medium text-white/90 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-[#E2B767]/50 rounded-full transition-all flex items-center gap-1.5 min-h-[40px]"
             >
               <span>Ambassador</span>
-            </a>
+            </Link>
 
             <a
               href="#tickets"
@@ -134,17 +134,17 @@ export function SiteNav() {
           </div>
 
           {/* Mobile Right Controls: Compact Pill + Hamburger Toggle */}
-          <div className="flex lg:hidden items-center gap-2">
-            <a
-              href="https://aicssyc.ieeecssrm.in/ambassador"
-              className="text-[11px] sm:text-xs text-white/90 bg-white/[0.06] border border-white/15 px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors"
+          <div className="flex lg:hidden shrink-0 items-center gap-1.5 sm:gap-2">
+            <Link
+              to="/ambassador"
+              className="text-[10px] sm:text-xs text-white/90 bg-white/[0.06] border border-white/15 px-2 sm:px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors whitespace-nowrap"
             >
               Ambassador
-            </a>
+            </Link>
 
             <a
               href="#tickets"
-              className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 rounded-full flex items-center gap-1 shadow-[0_0_12px_rgba(226,183,103,0.3)] min-h-[36px]"
+              className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-[10px] sm:text-xs px-2.5 sm:px-3.5 py-1.5 rounded-full flex items-center gap-1 shadow-[0_0_12px_rgba(226,183,103,0.3)] min-h-[32px] sm:min-h-[36px] whitespace-nowrap"
             >
               <span>Passes</span>
               <span className="font-bold text-xs">→</span>
@@ -152,7 +152,7 @@ export function SiteNav() {
 
             <button
               onClick={() => setOpen(!open)}
-              className="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full text-white hover:bg-white/10 active:bg-white/20 transition-colors"
+              className="min-w-[36px] min-h-[36px] sm:min-w-[40px] sm:min-h-[40px] flex items-center justify-center rounded-full text-white hover:bg-white/10 active:bg-white/20 transition-colors"
               aria-label={open ? "Close Navigation Menu" : "Open Navigation Menu"}
               aria-expanded={open}
             >
@@ -228,14 +228,14 @@ export function SiteNav() {
 
                 {/* Bottom Sheet CTAs */}
                 <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-                  <a
-                    href="https://aicssyc.ieeecssrm.in/ambassador"
+                  <Link
+                    to="/ambassador"
                     onClick={closeMenu}
                     className="min-h-[44px] bg-[#E2B767]/15 hover:bg-[#E2B767]/25 text-[#E2B767] border border-[#E2B767]/40 font-semibold py-3 px-5 rounded-2xl text-center text-xs flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(226,183,103,0.15)]"
                   >
                     <span>Campus Ambassador</span>
                     <ArrowRight size={14} />
-                  </a>
+                  </Link>
 
                   <a
                     href="#tickets"
