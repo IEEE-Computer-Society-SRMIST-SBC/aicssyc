@@ -2,53 +2,68 @@
   "days": [
     {
       "label": "Day 1",
-      "date": "8 October 2026 · Inaugural Day",
-      "title": "Inauguration & opening keynotes",
+      "date": "8 October 2026",
+      "title": "Inauguration & Keynotes",
       "venue": "TP Ganesan Auditorium",
       "blocks": [
-        { "title": "Inauguration Ceremony", "kind": "Ceremony", "room": "Main hall" },
-        { "title": "Keynote Session I", "kind": "Keynote", "room": "Main hall" },
-        { "title": "Keynote Session II", "kind": "Keynote", "room": "Main hall" },
-        { "title": "Expert Panel Discussion", "kind": "Panel", "room": "Main hall" },
-        { "title": "Networking Dinner", "kind": "Reception", "room": "On site" }
+        { "time": "12:30 PM", "title": "Registration setup", "kind": "Setup" },
+        { "time": "1:00 PM – 2:00 PM", "title": "Registration check-in, ID & Gifts distribution", "kind": "Registration" },
+        { "time": "2:30 PM", "title": "Guests arrive", "kind": "Arrival" },
+        { "time": "2:30 PM", "title": "Inauguration (Lamp Lighting, Welcome Address, Felicitation, Chair Address, Event Briefing)", "kind": "Ceremony" },
+        { "time": "3:15 PM – 3:50 PM", "title": "Keynote Session (1)", "kind": "Keynote" },
+        { "time": "3:50 PM – 4:00 PM", "title": "Break (only for guests)", "kind": "Break" },
+        { "time": "4:00 PM – 4:50 PM", "title": "Keynote Session (2)", "kind": "Keynote" },
+        { "time": "5:00 PM – 6:00 PM", "title": "Expert Panel Discussion", "kind": "Panel" },
+        { "time": "7:30 PM – 8:30 PM", "title": "Dinner starts (External participant venue)", "kind": "Dinner" }
       ]
     },
     {
       "label": "Day 2",
-      "date": "9 October 2026 · Innovation & Knowledge Exchange",
-      "title": "Technical tracks, expo & cultural evening",
+      "date": "9 October 2026",
+      "title": "Technical Talks & Cultural Event",
       "venue": "Multiple halls",
       "blocks": [
-        { "title": "Technical Tracks", "kind": "Sessions", "room": "Tracks A–D" },
-        { "title": "Innovation Expo", "kind": "Showcase", "room": "Expo Hall" },
-        { "title": "Chapter Presentations", "kind": "Plenary", "room": "Main hall" },
-        { "title": "Interactive Event Space", "kind": "Open programme", "room": "Open area" },
-        { "title": "Cultural Evening", "kind": "Reception", "room": "Open lawns" },
-        { "title": "Networking Activities", "kind": "Networking", "room": "On site" }
+        { "time": "8:00 AM", "title": "All team members / participants reporting", "kind": "Reporting" },
+        { "time": "9:00 AM", "title": "Guest arrival", "kind": "Arrival" },
+        { "time": "9:30 AM", "title": "Opening Address", "kind": "Address" },
+        { "time": "9:45 AM", "title": "Day 2 Briefing", "kind": "Briefing" },
+        { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" },
+        { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
+        { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
+        { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" },
+        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
+        { "time": "2:30 PM", "title": "Chapter Presentation continues", "kind": "Presentations" },
+        { "time": "3:40 PM", "title": "Technical Talk 4", "kind": "Technical" },
+        { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" },
+        { "time": "4:45 PM – 5:15 PM", "title": "Break", "kind": "Break" },
+        { "time": "5:00 PM – 7:00 PM", "title": "Cultural Event", "kind": "Event" },
+        { "time": "7:00 PM – 8:30 PM", "title": "Networking Dinner", "kind": "Dinner" }
       ]
     },
     {
       "label": "Day 3",
-      "date": "10 October 2026 · Industry & Startup Focus",
-      "title": "Showcases, technical sessions & valedictory",
+      "date": "10 October 2026",
+      "title": "GIC / Startup Submit & Valedictory",
       "venue": "Multiple halls",
       "blocks": [
-        { "title": "Startup Showcase", "kind": "Showcase", "room": "Hall B" },
-        { "title": "Industrial Showcase", "kind": "Showcase", "room": "Hall C" },
-        { "title": "Technical Sessions", "kind": "Sessions", "room": "Tracks A–D" },
-        { "title": "Interactive Event Space", "kind": "Open programme", "room": "Open area" },
-        { "title": "Valedictory Ceremony", "kind": "Ceremony", "room": "Main hall" }
+        { "time": "8:00 AM", "title": "Team reporting", "kind": "Reporting" },
+        { "time": "9:00 AM", "title": "Participant / Guest reporting", "kind": "Reporting" },
+        { "time": "10:30 AM", "title": "GIC / Startup Submit", "kind": "Submit" },
+        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
+        { "time": "2:30 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" },
+        { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" },
+        { "time": "4:00 PM – 5:00 PM", "title": "Valedictory Session (Closing & Appreciation)", "kind": "Ceremony" }
       ]
     },
     {
       "label": "Day 4",
-      "date": "11 October 2026 · Heritage Experience",
-      "title": "Heritage visit & cultural exploration",
+      "date": "11 October 2026",
+      "title": "Departure",
       "venue": "Off-site",
       "blocks": [
-        { "title": "Heritage Visit", "kind": "Excursion", "room": "Off-site" },
-        { "title": "Community Networking", "kind": "Networking", "room": "Off-site" },
-        { "title": "Cultural Exploration", "kind": "Excursion", "room": "Off-site" }
+        { "time": "7:00 AM", "title": "Reporting", "kind": "Reporting" },
+        { "time": "8:00 AM", "title": "Departure", "kind": "Travel" },
+        { "time": "3:30 PM", "title": "Return to SRM", "kind": "Travel" }
       ]
     }
   ]
