@@ -27,14 +27,44 @@
         { "time": "9:00 AM", "title": "Guest arrival", "kind": "Arrival" },
         { "time": "9:30 AM", "title": "Opening Address", "kind": "Address" },
         { "time": "9:45 AM", "title": "Day 2 Briefing", "kind": "Briefing" },
-        { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" },
-        { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
-        { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
-        { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" },
+        { 
+          "time": "10:00 AM – 1:00 PM", 
+          "title": "Parallel Sessions",
+          "kind": "Multiple",
+          "parallelTracks": [
+            {
+              "events": [
+                { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" }
+              ]
+            },
+            {
+              "events": [
+                { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
+                { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
+                { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" }
+              ]
+            }
+          ]
+        },
         { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { "time": "2:30 PM", "title": "Chapter Presentation continues", "kind": "Presentations" },
-        { "time": "3:40 PM", "title": "Technical Talk 4", "kind": "Technical" },
-        { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" },
+        { 
+          "time": "2:30 PM – 5:00 PM",
+          "title": "Parallel Sessions",
+          "kind": "Multiple",
+          "parallelTracks": [
+            {
+              "events": [
+                { "time": "2:30 PM", "title": "Chapter Presentation continues", "kind": "Presentations" }
+              ]
+            },
+            {
+              "events": [
+                { "time": "3:40 PM", "title": "Technical Talk 4", "kind": "Technical" },
+                { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" }
+              ]
+            }
+          ]
+        },
         { "time": "4:45 PM – 5:15 PM", "title": "Break", "kind": "Break" },
         { "time": "5:00 PM – 7:00 PM", "title": "Cultural Event", "kind": "Event" },
         { "time": "7:00 PM – 8:30 PM", "title": "Networking Dinner", "kind": "Dinner" }
@@ -50,8 +80,23 @@
         { "time": "9:00 AM", "title": "Participant / Guest reporting", "kind": "Reporting" },
         { "time": "10:30 AM", "title": "GIC / Startup Submit", "kind": "Submit" },
         { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { "time": "2:30 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" },
-        { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" },
+        { 
+          "time": "2:30 PM – 4:00 PM", 
+          "title": "Parallel Sessions",
+          "kind": "Multiple",
+          "parallelTracks": [
+            {
+              "events": [
+                { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" }
+              ]
+            },
+            {
+              "events": [
+                { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" }
+              ]
+            }
+          ]
+        },
         { "time": "4:00 PM – 5:00 PM", "title": "Valedictory Session (Closing & Appreciation)", "kind": "Ceremony" }
       ]
     },

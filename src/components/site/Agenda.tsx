@@ -133,12 +133,37 @@ export function Agenda() {
 
                     {/* Content (Right side) */}
                     <div className="pl-8 sm:pl-0 flex-1 pb-1">
-                      <h4 className="text-base sm:text-lg font-semibold text-ivory mb-1.5 leading-snug">
-                        {block.title}
-                      </h4>
-                      <span className="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] sm:text-xs font-mono text-slate-mist uppercase tracking-wider">
-                        {block.kind}
-                      </span>
+                      {block.parallelTracks ? (
+                        <div className="mt-1 flex flex-col sm:flex-row gap-4">
+                          {block.parallelTracks.map((track: any, tIdx: number) => (
+                            <div key={tIdx} className="flex-1 bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 space-y-4">
+                              {track.events.map((ev: any, eIdx: number) => (
+                                <div key={eIdx} className="relative">
+                                  <div className="flex items-center gap-1.5 font-mono text-[10px] sm:text-xs text-emerald-400/80 mb-1.5">
+                                    <Clock size={10} className="opacity-70" />
+                                    <span>{ev.time}</span>
+                                  </div>
+                                  <h4 className="text-sm sm:text-base font-semibold text-ivory mb-1.5 leading-snug">
+                                    {ev.title}
+                                  </h4>
+                                  <span className="inline-block px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[9px] sm:text-[10px] font-mono text-slate-mist uppercase tracking-wider">
+                                    {ev.kind}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <>
+                          <h4 className="text-base sm:text-lg font-semibold text-ivory mb-1.5 leading-snug">
+                            {block.title}
+                          </h4>
+                          <span className="inline-block px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[10px] sm:text-xs font-mono text-slate-mist uppercase tracking-wider">
+                            {block.kind}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}
