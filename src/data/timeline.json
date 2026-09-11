@@ -6,15 +6,27 @@
       "title": "Inauguration & Keynotes",
       "venue": "TP Ganesan Auditorium",
       "blocks": [
-        { "time": "12:30 PM", "title": "Registration setup", "kind": "Setup" },
-        { "time": "1:00 PM – 2:00 PM", "title": "Registration check-in, ID & Gifts distribution", "kind": "Registration" },
-        { "time": "2:30 PM", "title": "Guests arrive", "kind": "Arrival" },
-        { "time": "2:30 PM", "title": "Inauguration (Lamp Lighting, Welcome Address, Felicitation, Chair Address, Event Briefing)", "kind": "Ceremony" },
+        { "time": "12:30 PM – 1:00 PM", "title": "Registration setup", "kind": "Setup" },
+        {
+          "time": "1:00 PM – 2:00 PM",
+          "title": "Registration check-in, ID & Gifts distribution",
+          "kind": "Registration"
+        },
+        { "time": "2:00 PM – 2:30 PM", "title": "Guests arrive", "kind": "Arrival" },
+        {
+          "time": "2:30 PM – 3:15 PM",
+          "title": "Inauguration (Lamp Lighting, Welcome Address, Felicitation, Chair Address, Event Briefing)",
+          "kind": "Ceremony"
+        },
         { "time": "3:15 PM – 3:50 PM", "title": "Keynote Session (1)", "kind": "Keynote" },
         { "time": "3:50 PM – 4:00 PM", "title": "Break (only for guests)", "kind": "Break" },
         { "time": "4:00 PM – 4:50 PM", "title": "Keynote Session (2)", "kind": "Keynote" },
         { "time": "5:00 PM – 6:00 PM", "title": "Expert Panel Discussion", "kind": "Panel" },
-        { "time": "7:30 PM – 8:30 PM", "title": "Dinner starts (External participant venue)", "kind": "Dinner" }
+        {
+          "time": "7:30 PM – 8:30 PM",
+          "title": "Dinner starts (External participant venue)",
+          "kind": "Dinner"
+        }
       ]
     },
     {
@@ -23,48 +35,26 @@
       "title": "Technical Talks & Cultural Event",
       "venue": "Multiple halls",
       "blocks": [
-        { "time": "8:00 AM", "title": "All team members / participants reporting", "kind": "Reporting" },
-        { "time": "9:00 AM", "title": "Guest arrival", "kind": "Arrival" },
-        { "time": "9:30 AM", "title": "Opening Address", "kind": "Address" },
-        { "time": "9:45 AM", "title": "Day 2 Briefing", "kind": "Briefing" },
-        { 
-          "time": "10:00 AM – 1:00 PM", 
-          "title": "Parallel Sessions",
-          "kind": "Multiple",
-          "parallelTracks": [
-            {
-              "events": [
-                { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" }
-              ]
-            },
-            {
-              "events": [
-                { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
-                { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
-                { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" }
-              ]
-            }
-          ]
+        {
+          "time": "8:00 AM – 9:00 AM",
+          "title": "All team members / participants reporting",
+          "kind": "Reporting"
         },
+        { "time": "9:00 AM – 9:30 AM", "title": "Guest arrival", "kind": "Arrival" },
+        { "time": "9:30 AM – 9:45 AM", "title": "Opening Address", "kind": "Address" },
+        { "time": "9:45 AM – 10:00 AM", "title": "Day 2 Briefing", "kind": "Briefing" },
+        { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" },
+        { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
+        { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
+        { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" },
         { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { 
-          "time": "2:30 PM – 5:00 PM",
-          "title": "Parallel Sessions",
-          "kind": "Multiple",
-          "parallelTracks": [
-            {
-              "events": [
-                { "time": "2:30 PM", "title": "Chapter Presentation continues", "kind": "Presentations" }
-              ]
-            },
-            {
-              "events": [
-                { "time": "3:40 PM", "title": "Technical Talk 4", "kind": "Technical" },
-                { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" }
-              ]
-            }
-          ]
+        {
+          "time": "2:30 PM – 4:45 PM",
+          "title": "Chapter Presentation continues",
+          "kind": "Presentations"
         },
+        { "time": "3:40 PM – 4:10 PM", "title": "Technical Talk 4", "kind": "Technical" },
+        { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" },
         { "time": "4:45 PM – 5:15 PM", "title": "Break", "kind": "Break" },
         { "time": "5:00 PM – 7:00 PM", "title": "Cultural Event", "kind": "Event" },
         { "time": "7:00 PM – 8:30 PM", "title": "Networking Dinner", "kind": "Dinner" }
@@ -76,28 +66,21 @@
       "title": "GIC / Startup Submit & Valedictory",
       "venue": "Multiple halls",
       "blocks": [
-        { "time": "8:00 AM", "title": "Team reporting", "kind": "Reporting" },
-        { "time": "9:00 AM", "title": "Participant / Guest reporting", "kind": "Reporting" },
-        { "time": "10:30 AM", "title": "GIC / Startup Submit", "kind": "Submit" },
-        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { 
-          "time": "2:30 PM – 4:00 PM", 
-          "title": "Parallel Sessions",
-          "kind": "Multiple",
-          "parallelTracks": [
-            {
-              "events": [
-                { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" }
-              ]
-            },
-            {
-              "events": [
-                { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" }
-              ]
-            }
-          ]
+        { "time": "8:00 AM – 9:00 AM", "title": "Team reporting", "kind": "Reporting" },
+        {
+          "time": "9:00 AM – 10:30 AM",
+          "title": "Participant / Guest reporting",
+          "kind": "Reporting"
         },
-        { "time": "4:00 PM – 5:00 PM", "title": "Valedictory Session (Closing & Appreciation)", "kind": "Ceremony" }
+        { "time": "10:30 AM – 1:00 PM", "title": "GIC / Startup Submit", "kind": "Submit" },
+        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
+        { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" },
+        { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" },
+        {
+          "time": "4:00 PM – 5:00 PM",
+          "title": "Valedictory Session (Closing & Appreciation)",
+          "kind": "Ceremony"
+        }
       ]
     },
     {
@@ -106,9 +89,9 @@
       "title": "Departure",
       "venue": "Off-site",
       "blocks": [
-        { "time": "7:00 AM", "title": "Reporting", "kind": "Reporting" },
-        { "time": "8:00 AM", "title": "Departure", "kind": "Travel" },
-        { "time": "3:30 PM", "title": "Return to SRM", "kind": "Travel" }
+        { "time": "7:00 AM – 8:00 AM", "title": "Reporting", "kind": "Reporting" },
+        { "time": "8:00 AM – 3:30 PM", "title": "Departure & Event out", "kind": "Travel" },
+        { "time": "3:30 PM – 4:30 PM", "title": "Return to SRM", "kind": "Travel" }
       ]
     }
   ]
