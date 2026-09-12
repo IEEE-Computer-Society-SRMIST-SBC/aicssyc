@@ -8,6 +8,7 @@ const navItems = [
   { href: "#themes", label: "Tracks" },
   { href: "#speakers", label: "Speakers" },
   { href: "#agenda", label: "Schedule" },
+  { href: "#featured-events", label: "Highlights" },
   { href: "#tickets", label: "Passes" },
   { href: "#location", label: "Venue" },
   { href: "#contact", label: "Contact" },

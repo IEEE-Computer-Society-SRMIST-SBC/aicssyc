@@ -3,6 +3,25 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Clock, MapPin, Trophy, ExternalLink, Sparkles, Calendar } from "lucide-react";
 import { congressAgenda } from "@/data/agenda";
 
+// Helper to parse time string for sorting
+function parseSingleTime(str: string) {
+  const match = str.match(/(\d+):(\d+)\s*(AM|PM)/i);
+  if (!match) return 0;
+  let [_, h, m, ampm] = match;
+  let hours = parseInt(h);
+  let minutes = parseInt(m);
+  if (ampm.toUpperCase() === 'PM' && hours < 12) hours += 12;
+  if (ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
+  return hours * 60 + minutes;
+}
+
+function parseTimeRange(timeStr: string) {
+  const parts = timeStr.split(/[-–]/).map(s => s.trim());
+  const start = parseSingleTime(parts[0]);
+  const end = parts.length > 1 ? parseSingleTime(parts[1]) : start + 60;
+  return { start, end };
+}
+
 export function Agenda() {
   const [activeDayIndex, setActiveDayIndex] = useState(0); // Default to Day 1 (8 October)
   const currentDay = congressAgenda[activeDayIndex] || congressAgenda[0];

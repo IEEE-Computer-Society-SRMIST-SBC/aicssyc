@@ -6,6 +6,7 @@ import { About } from "@/components/site/About";
 import { Themes } from "@/components/site/Themes";
 import { Speakers } from "@/components/site/Speakers";
 import { Agenda } from "@/components/site/Agenda";
+import { FeaturedEvents } from "@/components/site/FeaturedEvents";
 import { WhyAttend } from "@/components/site/WhyAttend";
 import { Tickets } from "@/components/site/Tickets";
 import { Sponsors } from "@/components/site/Sponsors";
@@ -99,6 +100,7 @@ function Index() {
         <Themes />
         <Speakers />
         <Agenda />
+        <FeaturedEvents />
         <WhyAttend />
         <Tickets />
         <Sponsors />
