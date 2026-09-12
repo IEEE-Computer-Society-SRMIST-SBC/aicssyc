@@ -10,6 +10,9 @@ const photoMap: Record<string, string> = {
   shivam: "/shivam.jpeg",
   nikky: "/nikky.jpeg",
   sarun: "/sarun.png",
+  mini: "/mini.jpeg",
+  mohamed: "/mohamed.jpeg",
+  himani: "/himani.jpeg",
 };
 
 const featured = speakersData.featured;
@@ -25,7 +28,18 @@ const speakerPool = [
   ...speakersData.speakers,
 ];
 
-const displayOrder = ["eric", "andrew", "biswarup", "shivam", "utkarsh", "nikky", "sarun"];
+const displayOrder = [
+  "eric",
+  "andrew",
+  "biswarup",
+  "mini",
+  "mohamed",
+  "himani",
+  "shivam",
+  "utkarsh",
+  "nikky",
+  "sarun",
+];
 const allSpeakers = displayOrder
   .map((key) => speakerPool.find((s) => s.photo === key))
   .filter((s): s is (typeof speakerPool)[number] => Boolean(s));

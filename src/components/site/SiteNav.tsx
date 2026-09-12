@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 
@@ -14,20 +14,18 @@ const navItems = [
 ];
 
 export function SiteNav() {
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
+  const isAmbassadorRoute = location.pathname === "/ambassador";
+  const isHome = location.pathname === "/" || location.pathname === "";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (!isHome) {
+      setActiveSection("");
+      return;
+    }
 
-  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -46,7 +44,7 @@ export function SiteNav() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [isHome]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -91,11 +89,13 @@ export function SiteNav() {
           {/* Centered Minimalist Navigation (Desktop) */}
           <nav className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-3 py-1.5">
             {navItems.map((item) => {
-              const isActive = activeSection === item.href.replace("#", "");
+              const isActive = isHome && activeSection === item.href.replace("#", "");
+              const targetHref = isHome ? item.href : `/${item.href}`;
+
               return (
                 <a
                   key={item.href}
-                  href={item.href}
+                  href={targetHref}
                   className={`relative px-3.5 py-1.5 text-xs font-medium tracking-wide rounded-full transition-all duration-300 ${
                     isActive
                       ? "text-[#E2B767] font-semibold"
@@ -117,15 +117,22 @@ export function SiteNav() {
 
           {/* Desktop Right CTA */}
           <div className="hidden lg:flex items-center gap-2.5 shrink-0">
-            <a
-              href="https://aicssyc.ieeecssrm.in/ambassador"
-              className="px-4 py-2 text-xs font-medium text-white/90 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-[#E2B767]/50 rounded-full transition-all flex items-center gap-1.5 min-h-[40px]"
+            <Link
+              to="/ambassador"
+              className={`px-4 py-2 text-xs font-medium rounded-full transition-all flex items-center gap-1.5 min-h-[40px] ${
+                isAmbassadorRoute
+                  ? "bg-[#E2B767]/20 text-[#E2B767] border border-[#E2B767]/60 shadow-[0_0_15px_rgba(226,183,103,0.3)] font-semibold"
+                  : "text-white/90 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-[#E2B767]/50"
+              }`}
             >
               <span>Ambassador</span>
-            </a>
+              {isAmbassadorRoute && (
+                <span className="w-1.5 h-1.5 rounded-full bg-[#E2B767] animate-pulse" />
+              )}
+            </Link>
 
             <a
-              href="#tickets"
+              href={isHome ? "#tickets" : "/#tickets"}
               className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-xs px-4 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-[0_0_20px_rgba(226,183,103,0.3)] hover:shadow-[0_0_28px_rgba(226,183,103,0.5)] min-h-[40px] group"
             >
               <span>Get Passes</span>
@@ -133,17 +140,21 @@ export function SiteNav() {
             </a>
           </div>
 
-          {/* Mobile Right Controls: Hidden Ambassador on mobile (<md), Passes Pill + Hamburger Toggle */}
-          <div className="flex lg:hidden items-center gap-2 sm:gap-4 shrink-0">
-            <a
-              href="https://aicssyc.ieeecssrm.in/ambassador"
-              className="hidden md:inline-flex items-center text-xs text-white/90 bg-white/[0.06] border border-white/15 px-3 py-1.5 rounded-full hover:bg-white/10 transition-colors whitespace-nowrap"
+          {/* Mobile Right Controls: Ambassador link on tablet, Passes Pill + Hamburger Toggle */}
+          <div className="flex lg:hidden items-center gap-2 sm:gap-3 shrink-0">
+            <Link
+              to="/ambassador"
+              className={`hidden sm:inline-flex items-center text-xs px-3 py-1.5 rounded-full transition-colors whitespace-nowrap ${
+                isAmbassadorRoute
+                  ? "bg-[#E2B767]/20 text-[#E2B767] border border-[#E2B767]/50 font-semibold"
+                  : "text-white/90 bg-white/[0.06] border border-white/15 hover:bg-white/10"
+              }`}
             >
               Ambassador
-            </a>
+            </Link>
 
             <a
-              href="#tickets"
+              href={isHome ? "#tickets" : "/#tickets"}
               className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-[11px] sm:text-xs px-3 sm:px-3.5 py-1.5 rounded-full inline-flex items-center gap-1 shadow-[0_0_12px_rgba(226,183,103,0.3)] min-h-[34px] sm:min-h-[36px] whitespace-nowrap shrink-0 active:scale-95 transition-transform"
             >
               <span>Passes</span>
@@ -202,11 +213,13 @@ export function SiteNav() {
                 {/* Nav Links */}
                 <nav className="flex flex-col gap-1 py-1">
                   {navItems.map((item) => {
-                    const isActive = activeSection === item.href.replace("#", "");
+                    const isActive = isHome && activeSection === item.href.replace("#", "");
+                    const targetHref = isHome ? item.href : `/${item.href}`;
+
                     return (
                       <a
                         key={item.href}
-                        href={item.href}
+                        href={targetHref}
                         onClick={closeMenu}
                         className={`min-h-[44px] px-4 py-2.5 rounded-2xl text-sm font-medium transition-all flex items-center justify-between ${
                           isActive
@@ -228,17 +241,21 @@ export function SiteNav() {
 
                 {/* Bottom Sheet CTAs */}
                 <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-                  <a
-                    href="https://aicssyc.ieeecssrm.in/ambassador"
+                  <Link
+                    to="/ambassador"
                     onClick={closeMenu}
-                    className="min-h-[44px] bg-[#E2B767]/15 hover:bg-[#E2B767]/25 text-[#E2B767] border border-[#E2B767]/40 font-semibold py-3 px-5 rounded-2xl text-center text-xs flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(226,183,103,0.15)]"
+                    className={`min-h-[44px] font-semibold py-3 px-5 rounded-2xl text-center text-xs flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(226,183,103,0.15)] ${
+                      isAmbassadorRoute
+                        ? "bg-[#E2B767]/25 text-[#E2B767] border border-[#E2B767]/60"
+                        : "bg-[#E2B767]/15 hover:bg-[#E2B767]/25 text-[#E2B767] border border-[#E2B767]/40"
+                    }`}
                   >
-                    <span>Campus Ambassador</span>
+                    <span>Campus Ambassador Program</span>
                     <ArrowRight size={14} />
-                  </a>
+                  </Link>
 
                   <a
-                    href="#tickets"
+                    href={isHome ? "#tickets" : "/#tickets"}
                     onClick={closeMenu}
                     className="min-h-[44px] bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold py-3 px-5 rounded-2xl text-center text-xs flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(226,183,103,0.35)]"
                   >
