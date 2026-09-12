@@ -1,12 +1,24 @@
 import { useEffect, useRef, useState, MouseEvent } from "react";
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
-import { Link } from "@tanstack/react-router";
+import {
+  Sparkles,
+  Award,
+  Gift,
+  FileCheck,
+  Users,
+  Trophy,
+  DollarSign,
+  ArrowRight,
+  ExternalLink,
+  ShieldCheck,
+  CheckCircle2,
+  ChevronDown,
+} from "lucide-react";
 
-const FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeIzPzS0WsLFpOAWtqLflseAa7FprCy33iAkgShp5vAESH5gA/viewform";
+const FORM_URL = "https://forms.gle/czdMqi8EezL7VKT17";
 
-/* ─── Interactive Mouse-Reactive Network Background ─── */
-function InteractiveCanvas() {
+/* ─── Interactive Constellation & Node Canvas ─── */
+function InteractiveConstellationCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -32,13 +44,13 @@ function InteractiveCanvas() {
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 55; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        r: Math.random() * 2 + 1,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.35,
+        r: Math.random() * 1.8 + 0.8,
       });
     }
 
@@ -57,7 +69,7 @@ function InteractiveCanvas() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Update and draw nodes
+      // Draw nodes
       for (const n of nodes) {
         n.x += n.vx;
         n.y += n.vy;
@@ -66,7 +78,7 @@ function InteractiveCanvas() {
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(212, 175, 55, 0.4)";
+        ctx.fillStyle = "rgba(226, 183, 103, 0.4)";
         ctx.fill();
       }
 
@@ -76,12 +88,12 @@ function InteractiveCanvas() {
         const dxMouse = nodes[i].x - mouseX;
         const dyMouse = nodes[i].y - mouseY;
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-        if (distMouse < 200) {
+        if (distMouse < 180) {
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(mouseX, mouseY);
-          ctx.strokeStyle = `rgba(6, 182, 212, ${0.4 * (1 - distMouse / 200)})`; // Vibrant cyan glow to mouse
-          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = `rgba(52, 211, 153, ${0.4 * (1 - distMouse / 180)})`;
+          ctx.lineWidth = 1.2;
           ctx.stroke();
         }
 
@@ -90,12 +102,12 @@ function InteractiveCanvas() {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
+          if (dist < 110) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(212, 175, 55, ${0.15 * (1 - dist / 120)})`;
-            ctx.lineWidth = 1;
+            ctx.strokeStyle = `rgba(226, 183, 103, ${0.12 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -112,32 +124,34 @@ function InteractiveCanvas() {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 w-full h-full pointer-events-none z-0" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 w-full h-full pointer-events-none z-0"
+    />
+  );
 }
 
-/* ─── 3D Tilt Card Component ─── */
+/* ─── 3D Tilt Card ─── */
 function TiltCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 20 });
+  const mouseXSpring = useSpring(x, { stiffness: 280, damping: 20 });
+  const mouseYSpring = useSpring(y, { stiffness: 280, damping: 20 });
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-  const glareX = useTransform(mouseXSpring, [-0.5, 0.5], ["100%", "0%"]);
-  const glareY = useTransform(mouseYSpring, [-0.5, 0.5], ["100%", "0%"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["8deg", "-8deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-8deg", "8deg"]);
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 768) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    x.set(xPct);
-    y.set(yPct);
+    x.set(mouseX / width - 0.5);
+    y.set(mouseY / height - 0.5);
   };
 
   const handleMouseLeave = () => {
@@ -152,28 +166,14 @@ function TiltCard({ children, className = "" }: { children: React.ReactNode; cla
       onMouseLeave={handleMouseLeave}
       className={`relative group ${className}`}
     >
-      <div className="absolute inset-0 z-0 overflow-hidden rounded-2xl pointer-events-none">
-        <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background:
-              "radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 60%)",
-            left: glareX,
-            top: glareY,
-            transform: "translate(-50%, -50%)",
-            width: "200%",
-            height: "200%",
-          }}
-        />
-      </div>
-      <div style={{ transform: "translateZ(30px)" }} className="relative z-10 h-full">
+      <div style={{ transform: "translateZ(20px)" }} className="relative z-10 h-full">
         {children}
       </div>
     </motion.div>
   );
 }
 
-/* ─── Expandable Accordion Card ─── */
+/* ─── Expandable Reason Accordion ─── */
 function ExpandableReason({
   reason,
 }: {
@@ -183,81 +183,171 @@ function ExpandableReason({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <motion.div
-      layout
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+    <div
       onClick={() => setIsOpen(!isOpen)}
-      className="group relative rounded-2xl bg-[#0f172a]/60 backdrop-blur-md border border-white/10 hover:border-gold/50 transition-colors cursor-pointer overflow-hidden"
+      className="group rounded-2xl bg-[#061912]/80 backdrop-blur-md border border-emerald-500/20 hover:border-amber-400/40 transition-all duration-300 cursor-pointer overflow-hidden p-5 sm:p-6"
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-gold/0 via-gold/5 to-gold/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      <motion.div
-        layout
-        className="p-6 relative z-10 flex flex-col sm:flex-row gap-5 items-start sm:items-center"
-      >
-        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform duration-300 group-hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-          {reason.emoji}
-        </div>
-        <div className="flex-1">
-          <motion.h3
-            layout="position"
-            className="text-lg font-bold text-ivory group-hover:text-gold transition-colors"
-          >
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-xl bg-white/[0.04] border border-emerald-500/20 flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+            {reason.emoji}
+          </div>
+          <h3 className="text-base sm:text-lg font-serif font-normal text-white group-hover:text-amber-300 transition-colors">
             {reason.title}
-          </motion.h3>
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="mt-3"
-              >
-                <p className="text-ivory/70 text-sm leading-relaxed pr-4">{reason.desc}</p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+          </h3>
         </div>
-        <div className="hidden sm:block text-ivory/30 group-hover:text-gold/80 transition-colors">
-          <motion.div animate={{ rotate: isOpen ? 180 : 0 }}>↓</motion.div>
-        </div>
-      </motion.div>
-    </motion.div>
+        <ChevronDown
+          size={18}
+          className={`text-white/40 group-hover:text-amber-400 transition-transform duration-300 shrink-0 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+        />
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25 }}
+            className="pt-3 text-xs sm:text-sm text-white/70 font-sans leading-relaxed pl-14"
+          >
+            {reason.desc}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
-/* ─── Data ─── */
+/* ─── 6 Key Perks ─── */
+const perks = [
+  {
+    icon: TicketIcon,
+    title: "Free Passes",
+    desc: "Achieve registration milestones to unlock 100% delegate pass and accommodation fee refunds.",
+    highlight: "100% Refundable",
+  },
+  {
+    icon: Gift,
+    title: "Official Swag Kit",
+    desc: "Receive the exclusive AICSSYC 2026 Ambassador kit, custom tees, delegate badge, and event memorabilia.",
+    highlight: "Exclusive Kit",
+  },
+  {
+    icon: FileCheck,
+    title: "IEEE CS Certificate & LOR",
+    desc: "Earn an official IEEE Computer Society Ambassador Certificate and Letter of Recommendation.",
+    highlight: "IEEE Credential",
+  },
+  {
+    icon: Users,
+    title: "VIP Networking",
+    desc: "Direct access to keynote speakers, global IEEE leadership, industry CXOs, and startup mentors.",
+    highlight: "Executive Access",
+  },
+  {
+    icon: Trophy,
+    title: "Stage Recognition",
+    desc: "Public recognition and felicitation on the main stage during the grand Valedictory Ceremony.",
+    highlight: "National Honor",
+  },
+  {
+    icon: DollarSign,
+    title: "Performance Cashbacks",
+    desc: "Unlock lucrative cash rewards and tier-based incentives for driving exceptional campus participation.",
+    highlight: "Cash Rewards",
+  },
+];
+
+function TicketIcon(props: { size?: number; className?: string }) {
+  return <Sparkles {...props} />;
+}
+
+/* ─── Milestone Ladder ─── */
+const milestoneTiers = [
+  {
+    name: "Bronze Tier",
+    badge: "5 Registrations",
+    color: "from-amber-700/30 to-amber-900/20 border-amber-600/40",
+    accent: "text-amber-400",
+    rewards: [
+      "Official Campus Ambassador Certificate",
+      "Exclusive AICSSYC 2026 Digital Badge",
+      "Welcome Ambassador Swag & Sticker Pack",
+    ],
+  },
+  {
+    name: "Silver Tier",
+    badge: "10 Registrations",
+    color: "from-slate-400/20 to-slate-700/20 border-slate-300/40",
+    accent: "text-slate-200",
+    rewards: [
+      "100% Event Registration Fee Refund",
+      "Official Certificate of Excellence",
+      "Silver Ambassador Recognition",
+      "Priority Entry to Flagship Workshops",
+    ],
+  },
+  {
+    name: "Gold Tier",
+    badge: "20 Registrations",
+    color: "from-amber-400/20 to-yellow-600/20 border-amber-400/60 ring-1 ring-amber-400/30 shadow-lg shadow-amber-500/10",
+    accent: "text-amber-300",
+    popular: true,
+    rewards: [
+      "100% Event Registration Fee Refund",
+      "100% Accommodation Fee Refund",
+      "Exclusive IEEE CS Letter of Recommendation",
+      "VIP Delegate Badge & Special Mention",
+    ],
+  },
+  {
+    name: "Platinum Tier",
+    badge: "35+ Registrations",
+    color: "from-emerald-400/20 via-amber-400/15 to-[#061912] border-emerald-400/60 shadow-2xl shadow-emerald-500/15 ring-1 ring-emerald-400/40",
+    accent: "text-emerald-300",
+    rewards: [
+      "Full Registration + Accommodation Refunds",
+      "On-Stage Felicitation at Valedictory Ceremony",
+      "VIP Dinner with IEEE Leadership & Speakers",
+      "Direct Internship & Mentorship Consideration",
+    ],
+  },
+];
+
+/* ─── 6 Steps ─── */
 const steps = [
   {
     emoji: "📝",
-    title: "Register your interest",
-    desc: "Start your journey by filling out the official Campus Ambassador application form. Tell us about your background, your involvement in student communities, and why you are the perfect fit to represent your institution at this prestigious national congress.",
+    title: "1. Register Your Interest",
+    desc: "Fill out the official Campus Ambassador application form with your background, college, and leadership interests.",
   },
   {
     emoji: "✉️",
-    title: "Get selected",
-    desc: "Our team will review your application. If shortlisted, you will receive an official confirmation email outlining your role, responsibilities, and the exciting opportunities that await you as an AICSSYC 2026 Campus Ambassador.",
+    title: "2. Get Shortlisted & Onboarded",
+    desc: "Our team reviews applications and shortlists ambassadors. You will receive an official confirmation and briefing pack.",
   },
   {
     emoji: "🎟️",
-    title: "Register for AICSSYC",
-    desc: "To officially secure your position as an ambassador, you must complete your own registration for the event, including accommodation. This ensures you are fully committed to attending and experiencing the congress firsthand.",
+    title: "3. Register for AICSSYC 2026",
+    desc: "Secure your initial delegate registration to confirm your commitment to representing your institution.",
   },
   {
     emoji: "👥",
-    title: "Join the community",
-    desc: "Gain exclusive access to our dedicated ambassador communication channels. Connect with fellow ambassadors from across the country, access promotional resources, and participate in training sessions to help you succeed.",
+    title: "4. Join the Exclusive Guild",
+    desc: "Gain entry to private ambassador communication channels, promotional toolkits, and mentor syncs.",
   },
   {
     emoji: "🔗",
-    title: "Get your referral code",
-    desc: "Once onboarded, you will receive a unique, personalized referral code. When students from your campus or network use this code during their registration, they will instantly receive a 10% discount on their ticket, and you will get the credit.",
+    title: "5. Get Your Referral Code",
+    desc: "Receive your custom referral code offering delegates a 10% discount while tracking your milestone progress.",
   },
   {
     emoji: "🚀",
-    title: "Promote & earn",
-    desc: "Use your network and the provided marketing materials to spread the word about AICSSYC 2026. As your referrals accumulate, you will unlock exciting milestones, including full refunds for your registration and accommodation fees.",
+    title: "6. Mobilize & Unlock Rewards",
+    desc: "Spread the word across your campus, hit registration tiers, and claim full refunds plus VIP rewards.",
   },
 ];
 
@@ -265,336 +355,354 @@ const eligibility = [
   "Undergraduate Students",
   "Postgraduate Students",
   "Research Scholars",
-  "IEEE Members & Volunteers",
-  "Student Leaders",
-  "Technical Club Reps",
-  "Community Builders",
-  "Anyone passionate about tech",
+  "IEEE Student Branch Officers",
+  "Technical Club Leads",
+  "Community Organizers",
+  "Campus Influencers",
+  "Tech Enthusiasts",
 ];
 
 const reasons = [
   {
     emoji: "🎯",
-    title: "Leadership & Skill Development",
-    desc: "Step out of your comfort zone and take charge. As an ambassador, you will develop crucial real-world skills in marketing, public speaking, event promotion, and community organization that will make your resume stand out to future employers.",
+    title: "Leadership & Real-World Experience",
+    desc: "Develop high-demand skills in event marketing, public speaking, community building, and campaign management that make your portfolio stand out to employers.",
   },
   {
     emoji: "🌐",
-    title: "Nationwide Networking",
-    desc: "Break out of your local bubble and connect with thousands of like-minded students, distinguished researchers, industry professionals, and top IEEE leaders from all corners of the country. Build a professional network that will last a lifetime.",
+    title: "Pan-India Professional Network",
+    desc: "Connect directly with hundreds of student leaders, IEEE fellows, industry researchers, and tech founders from across India.",
   },
   {
     emoji: "🏅",
-    title: "Official IEEE Recognition",
-    desc: "Your hard work won't go unnoticed. Earn official certificates, exclusive badges, and formal recognition from the IEEE Computer Society for your contributions to making this flagship congress a massive success.",
+    title: "Official IEEE Computer Society Recognition",
+    desc: "Receive credentials, merit certificates, and formal recommendations signed by IEEE Computer Society leadership.",
   },
   {
     emoji: "💡",
-    title: "Create Real Impact",
-    desc: "Be the bridge between your institution and a world of technological innovation. By bringing the AICSSYC experience to your campus, you are directly helping your peers discover new opportunities, learn new skills, and advance their careers.",
-  },
-  {
-    emoji: "🤝",
-    title: "Join an Exclusive Community",
-    desc: "You won't be doing this alone. Become part of an elite, passionate group of student leaders who share your drive and ambition. Collaborate, share strategies, and forge lifelong friendships within the ambassador program.",
+    title: "Drive Campus Impact",
+    desc: "Empower your peers with exposure to cutting-edge autonomous AI, high-performance computing, and career-defining opportunities.",
   },
 ];
 
 const notices = [
-  "Selection is not guaranteed — only shortlisted applicants are onboarded.",
-  "Selected ambassadors must register for AICSSYC 2026 including accommodation.",
-  "Fees are paid initially and refunded only after milestones are verified.",
-  "Only completed, verified registrations count toward rewards.",
+  "Ambassador positions are selective — only shortlisted applicants are onboarded.",
+  "Selected ambassadors complete delegate registration to confirm active participation.",
+  "Fee refunds and rewards are processed promptly following verified milestone audits.",
+  "Only completed, verified delegate registrations count towards milestones.",
 ];
 
-/* ════════════════════════════════════════════════
-   MAIN COMPONENT
-   ════════════════════════════════════════════════ */
 export function AmbassadorDashboard() {
   return (
-    <div className="relative bg-[#020617] min-h-screen text-ivory font-sans selection:bg-gold/30 selection:text-gold overflow-hidden pb-32">
-      <InteractiveCanvas />
+    <div className="relative bg-[#040D09] min-h-screen text-ivory font-sans selection:bg-amber-400/30 selection:text-amber-300 overflow-hidden pb-28">
+      <InteractiveConstellationCanvas />
 
-      {/* ── HERO ── */}
-      <section className="relative z-10 pt-40 pb-20 px-6 max-w-7xl mx-auto text-center">
+      {/* Atmospheric Glows */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-20 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none" />
+
+      {/* ── 1. HERO SECTION ── */}
+      <section className="relative z-10 pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-semibold uppercase tracking-widest shadow-[0_0_20px_rgba(6,182,212,0.3)] mb-8"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-950/40 text-cyan-300 text-[11px] sm:text-xs font-mono font-semibold uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(6,182,212,0.25)] mb-6 sm:mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-          Campus Ambassador Program
+          <span>• CAMPUS AMBASSADOR PROGRAM</span>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-          className="text-[clamp(3rem,8vw,6rem)] font-extrabold leading-[0.95] tracking-tight"
+          transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+          className="text-4xl sm:text-6xl md:text-7xl font-serif font-normal tracking-tight leading-[1.05]"
         >
           Lead the charge.
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-yellow-300 to-gold drop-shadow-[0_0_25px_rgba(212,175,55,0.6)]">
+          <span className="font-editorial italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500">
             Own your campus.
           </span>
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="mt-8 text-xl text-ivory/70 max-w-2xl mx-auto font-light"
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          className="mt-6 text-sm sm:text-lg text-white/75 max-w-2xl mx-auto font-sans leading-relaxed font-normal"
         >
           Become the official representative of India's flagship IEEE Computer Society congress.
-          Build your network, unlock exclusive rewards, and make an impact.
+          Build your network, unlock exclusive perks, and lead your institution.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="mt-12 flex flex-col sm:flex-row justify-center gap-6 relative"
+          transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          className="mt-8 sm:mt-10 flex flex-col sm:flex-row justify-center items-center gap-4"
         >
-          <div className="absolute inset-0 bg-gold/20 blur-[80px] rounded-full z-0" />
           <a
             href={FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-10 px-10 py-5 rounded-full bg-gold text-[#020617] font-bold text-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] transition-all duration-300 flex items-center justify-center gap-3"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-black font-sans font-bold text-sm uppercase tracking-wider hover:brightness-110 shadow-xl shadow-amber-400/20 active:scale-95 transition-all cursor-pointer"
           >
-            Apply Now <span className="text-2xl leading-none">🚀</span>
+            <span>Apply Now as Ambassador</span>
+            <ExternalLink size={15} className="shrink-0" />
+          </a>
+          <a
+            href="#perks"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 text-white text-xs font-mono uppercase tracking-wider transition-all"
+          >
+            <span>Explore Perks &amp; Tiers</span>
+            <ArrowRight size={14} />
           </a>
         </motion.div>
       </section>
 
-      {/* ── WHO CAN APPLY ── */}
-      <section className="relative z-10 px-6 py-20 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-gradient-to-br from-white/10 to-transparent p-px shadow-2xl">
-          <div className="rounded-3xl bg-[#0f172a]/90 backdrop-blur-xl p-10 lg:p-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-                Who can apply?
-              </h2>
-              <p className="mt-4 text-emerald-400 text-lg font-medium drop-shadow-[0_0_10px_rgba(52,211,153,0.5)]">
-                If you care about tech & community — you're in.
-              </p>
-              <p className="mt-4 text-ivory/60">No prior ambassador experience needed.</p>
-            </div>
-            <div className="flex-1 flex flex-wrap justify-center lg:justify-start gap-3">
-              {eligibility.map((item, i) => (
-                <motion.span
-                  key={item}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  className="px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-ivory/80 font-medium hover:bg-emerald-500/20 hover:border-emerald-500/50 hover:text-emerald-300 transition-all cursor-default hover:shadow-[0_0_15px_rgba(52,211,153,0.3)]"
-                >
-                  {item}
-                </motion.span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── INTERACTIVE TIMELINE (HOW IT WORKS) ── */}
-      <section
-        id="how-it-works"
-        className="relative z-10 px-6 py-24 max-w-5xl mx-auto scroll-mt-32"
-      >
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">
-            The Journey
+      {/* ── 2. PERKS GRID (6 CARDS) ── */}
+      <section id="perks" className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 max-w-6xl mx-auto scroll-mt-28">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-emerald-400 font-semibold">
+            AMBASSADOR ADVANTAGES
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white mt-2 tracking-tight">
+            Perks <span className="font-editorial italic text-amber-300">&amp;</span> Privileges
           </h2>
-          <p className="mt-6 text-cyan-400 text-xl font-medium tracking-wide drop-shadow-[0_0_10px_rgba(6,182,212,0.5)]">
-            Six steps. That's it.
+          <p className="text-xs sm:text-base text-white/60 max-w-xl mx-auto mt-2.5 font-sans font-normal">
+            Gain executive access, financial rewards, and verified credentials from the IEEE Computer Society.
           </p>
         </div>
 
-        <div className="relative border-l-2 border-white/10 ml-6 md:ml-12 pl-10 md:pl-16 space-y-20">
-          {steps.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="relative group"
-            >
-              {/* Timeline Node */}
-              <div className="absolute -left-[41px] md:-left-[65px] top-1 w-6 h-6 rounded-full bg-[#0f172a] border-4 border-white/20 group-hover:border-cyan-400 group-hover:shadow-[0_0_20px_rgba(6,182,212,0.8)] transition-all duration-300 z-10" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {perks.map((p, idx) => {
+            const Icon = p.icon;
+            return (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.06 }}
+                className="rounded-2xl p-6 bg-gradient-to-b from-[#09241B]/70 via-[#061912]/80 to-[#040D09]/90 border border-emerald-500/20 hover:border-amber-400/40 backdrop-blur-xl shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-11 h-11 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:scale-110 group-hover:bg-amber-400/20 transition-all">
+                      <Icon size={20} />
+                    </div>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider text-amber-300 bg-amber-400/15 border border-amber-400/30">
+                      {p.highlight}
+                    </span>
+                  </div>
 
-              <div className="bg-[#0f172a]/50 backdrop-blur-md border border-white/10 p-8 rounded-2xl group-hover:bg-white/5 transition-colors relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-4xl mb-4 block">{s.emoji}</span>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">
-                  {s.title}
+                  <h3 className="text-lg font-serif font-normal text-white group-hover:text-amber-200 transition-colors">
+                    {p.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-white/70 font-sans mt-2 leading-relaxed font-normal">
+                    {p.desc}
+                  </p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── 3. MILESTONE TIERS (LADDER) ── */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 max-w-6xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-amber-400 font-semibold">
+            PERFORMANCE LADDER
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white mt-2 tracking-tight">
+            Milestone <span className="font-editorial italic text-emerald-400">Tiers</span>
+          </h2>
+          <p className="text-xs sm:text-base text-white/60 max-w-xl mx-auto mt-2.5 font-sans font-normal">
+            The more delegates you inspire, the greater the rewards and refunds you unlock.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {milestoneTiers.map((tier, idx) => (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              className={`rounded-2xl p-5 sm:p-6 bg-gradient-to-b ${tier.color} backdrop-blur-xl border flex flex-col justify-between relative overflow-hidden`}
+            >
+              {tier.popular && (
+                <div className="absolute top-0 right-0">
+                  <span className="px-3 py-1 rounded-bl-xl bg-amber-400 text-black text-[9px] font-mono font-bold uppercase tracking-wider shadow-md">
+                    POPULAR
+                  </span>
+                </div>
+              )}
+
+              <div>
+                <span className={`text-[11px] font-mono uppercase tracking-[0.18em] font-semibold ${tier.accent}`}>
+                  {tier.badge}
+                </span>
+
+                <h3 className="text-xl sm:text-2xl font-serif font-normal text-white mt-1">
+                  {tier.name}
                 </h3>
-                <p className="text-ivory/60 text-lg leading-relaxed">{s.desc}</p>
+
+                <div className="h-px bg-white/10 my-4" />
+
+                <ul className="space-y-3">
+                  {tier.rewards.map((reward, rIdx) => (
+                    <li key={rIdx} className="flex items-start gap-2 text-xs text-white/80 font-sans leading-snug">
+                      <CheckCircle2 size={14} className={`${tier.accent} shrink-0 mt-0.5`} />
+                      <span>{reward}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-white/10">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-white/40 block text-center">
+                  Tier 0{idx + 1}
+                </span>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ── 3D REWARDS CARDS ── */}
-      <section className="relative z-10 px-6 py-24 w-full bg-[#0b1121] border-y border-white/5">
-        <div className="absolute inset-0 bg-gradient-to-b from-gold/5 via-transparent to-transparent opacity-50" />
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-200 drop-shadow-[0_0_20px_rgba(212,175,55,0.4)]">
-              Rewards & Recognition
-            </h2>
-            <p className="mt-6 text-ivory/70 text-xl font-medium tracking-wide">
-              The more you bring, the more you earn.
-            </p>
-          </div>
+      {/* ── 4. HOW IT WORKS / THE JOURNEY ── */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 max-w-5xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-emerald-400 font-semibold">
+            ONBOARDING ROADMAP
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white mt-2 tracking-tight">
+            The <span className="font-editorial italic text-amber-300">Journey</span>
+          </h2>
+          <p className="text-xs sm:text-base text-white/60 max-w-md mx-auto mt-2.5 font-sans font-normal">
+            Six structured milestones to lead your campus and earn recognition.
+          </p>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-[1000px]">
-            {/* 10 Milestone */}
-            <TiltCard className="h-full rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 p-10 shadow-2xl">
-              <div className="flex flex-col h-full">
-                <p className="text-cyan-400 font-bold uppercase tracking-widest text-sm mb-4">
-                  Milestone
-                </p>
-                <p className="text-7xl font-black text-white drop-shadow-lg">10</p>
-                <p className="text-ivory/50 font-medium uppercase tracking-widest mt-2">
-                  Registrations
-                </p>
-                <div className="mt-auto pt-10">
-                  <div className="h-px bg-white/10 mb-6" />
-                  <p className="flex gap-4 items-start text-ivory/80 text-lg font-medium">
-                    <span className="text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] text-xl">
-                      ✓
-                    </span>
-                    Full event registration fee refund
+        <div className="relative pl-6 sm:pl-10 space-y-6 before:absolute before:left-[11px] sm:before:left-[15px] before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-emerald-400/50 before:via-emerald-500/25 before:to-emerald-500/5">
+          {steps.map((s, idx) => (
+            <motion.div
+              key={s.title}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              className="relative group"
+            >
+              <div className="absolute -left-[29px] sm:-left-[33px] top-4 h-3.5 w-3.5 rounded-full bg-emerald-400 border-2 border-[#040D09] shadow-[0_0_10px_#10b981] group-hover:scale-125 transition-transform" />
+
+              <div className="rounded-2xl p-4 sm:p-6 bg-[#061912]/80 border border-emerald-500/15 hover:border-emerald-500/35 transition-all shadow-lg flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <span className="text-3xl p-2 rounded-xl bg-white/[0.03] border border-white/10 shrink-0">
+                  {s.emoji}
+                </span>
+                <div>
+                  <h3 className="text-base sm:text-lg font-serif font-normal text-white group-hover:text-amber-200 transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-white/70 font-sans mt-1 leading-relaxed font-normal">
+                    {s.desc}
                   </p>
                 </div>
               </div>
-            </TiltCard>
-
-            {/* 20 Milestone */}
-            <TiltCard className="h-full rounded-2xl bg-gradient-to-br from-gold/20 to-[#0f172a] border border-gold/40 p-10 shadow-[0_0_40px_rgba(212,175,55,0.15)]">
-              <div className="flex flex-col h-full">
-                <p className="text-gold font-bold uppercase tracking-widest text-sm mb-4 drop-shadow-[0_0_8px_rgba(212,175,55,0.8)]">
-                  Milestone
-                </p>
-                <p className="text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-gold drop-shadow-lg">
-                  20
-                </p>
-                <p className="text-gold/60 font-medium uppercase tracking-widest mt-2">
-                  Registrations
-                </p>
-                <div className="mt-auto pt-10">
-                  <div className="h-px bg-gold/20 mb-6" />
-                  <div className="space-y-4">
-                    <p className="flex gap-4 items-start text-ivory text-lg font-medium">
-                      <span className="text-gold drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] text-xl">
-                        ✓
-                      </span>
-                      Full event registration fee refund
-                    </p>
-                    <p className="flex gap-4 items-start text-ivory text-lg font-medium">
-                      <span className="text-gold drop-shadow-[0_0_8px_rgba(212,175,55,0.8)] text-xl">
-                        ✓
-                      </span>
-                      Full accommodation fee refund
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </TiltCard>
-
-            {/* Top 20 */}
-            <TiltCard className="h-full rounded-2xl bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-white/10 p-10 shadow-2xl">
-              <div className="flex flex-col h-full">
-                <p className="text-emerald-400 font-bold uppercase tracking-widest text-sm mb-4">
-                  Excellence
-                </p>
-                <p className="text-5xl font-black text-white drop-shadow-lg leading-tight mb-2">
-                  Top 20
-                </p>
-                <p className="text-ivory/50 font-medium uppercase tracking-widest">Ambassadors</p>
-                <div className="mt-auto pt-10">
-                  <div className="h-px bg-white/10 mb-6" />
-                  <div className="space-y-4">
-                    {[
-                      "Recognition during event",
-                      "Featured on official platforms",
-                      "Excellence Certificate",
-                      "Special Congress Recognition",
-                    ].map((p) => (
-                      <p key={p} className="flex gap-3 items-start text-ivory/80 font-medium">
-                        <span className="text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] text-lg mt-0.5">
-                          ✓
-                        </span>
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </TiltCard>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* ── EXPANDABLE REASONS & IMPORTANT INFO ── */}
-      <section className="relative z-10 px-6 py-24 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
-          {/* Why Join */}
+      {/* ── 5. WHO CAN APPLY & NOTICES ── */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 py-16 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          {/* Why Join Accordion */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
-              Why join? <br />
-              <span className="text-2xl text-emerald-400 font-medium tracking-wide mt-4 inline-block drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]">
-                It's way more than a referral program.
-              </span>
+            <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-amber-400 font-semibold">
+              WHY BECOME AN AMBASSADOR
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-serif font-normal text-white mt-2 mb-6 tracking-tight">
+              More than a referral <span className="font-editorial italic text-emerald-400">program.</span>
             </h2>
-            <div className="flex flex-col gap-4">
+            <div className="space-y-3">
               {reasons.map((r, i) => (
                 <ExpandableReason key={r.title} reason={r} index={i} />
               ))}
             </div>
           </div>
 
-          {/* Good to Know & Final CTA */}
-          <div className="lg:sticky lg:top-32 space-y-8">
-            <div className="rounded-3xl bg-[#0f172a]/80 backdrop-blur-xl border border-rose-500/30 p-10 shadow-[0_0_30px_rgba(244,63,94,0.1)]">
-              <p className="text-rose-400 font-bold uppercase tracking-widest text-sm mb-8 flex items-center gap-3 drop-shadow-[0_0_8px_rgba(244,63,94,0.6)]">
-                <span className="text-xl">⚠️</span> Good to know
-              </p>
-              <ul className="space-y-5">
-                {notices.map((n, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-4 text-ivory/70 text-base leading-relaxed"
+          {/* Eligibility & Notices */}
+          <div className="space-y-6">
+            <div className="rounded-2xl bg-[#061912]/90 border border-emerald-500/20 p-6 sm:p-8 backdrop-blur-xl">
+              <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-emerald-400 font-semibold">
+                WHO IS ELIGIBLE
+              </span>
+              <h3 className="text-xl sm:text-2xl font-serif font-normal text-white mt-1 mb-4">
+                Open to all passionate student leaders
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {eligibility.map((item) => (
+                  <span
+                    key={item}
+                    className="px-3 py-1.5 rounded-full bg-white/[0.04] border border-emerald-500/25 text-xs text-white/80 font-sans"
                   >
-                    <span className="w-2 h-2 rounded-full bg-rose-500/60 shrink-0 mt-2 shadow-[0_0_8px_rgba(244,63,94,0.8)]" />
-                    {n}
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-gradient-to-br from-rose-950/40 via-[#061912] to-[#040D09] border border-rose-500/30 p-6 sm:p-8 backdrop-blur-xl">
+              <div className="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-wider font-semibold mb-3">
+                <ShieldCheck size={16} />
+                <span>Program Guidelines</span>
+              </div>
+              <ul className="space-y-3">
+                {notices.map((n, i) => (
+                  <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-white/75 font-sans leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-2 shrink-0" />
+                    <span>{n}</span>
                   </li>
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="rounded-3xl bg-gradient-to-br from-gold/10 to-transparent border border-gold/30 p-10 text-center relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <h3 className="text-3xl font-bold text-white mb-4 relative z-10">
-                Ready to rep your campus?
-              </h3>
-              <p className="text-ivory/60 mb-8 relative z-10">
-                Applications are open. Start your journey today.
-              </p>
-              <a
-                href={FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative z-10 inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full bg-gold text-[#020617] font-bold text-lg hover:bg-yellow-400 hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.8)] transition-all duration-300 w-full"
-              >
-                Apply Now →
-              </a>
-            </div>
+      {/* ── 6. FINAL CTA BANNER ── */}
+      <section className="relative z-10 px-4 sm:px-6 lg:px-8 pt-8 max-w-4xl mx-auto text-center">
+        <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-amber-500/15 via-[#09241B] to-[#061912] border-2 border-amber-400/50 shadow-2xl shadow-amber-500/10 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/15 rounded-full blur-3xl pointer-events-none" />
+
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.2em] font-semibold text-amber-300 bg-amber-400/15 border border-amber-400/30 mb-4">
+            <Sparkles size={11} className="text-amber-400" />
+            <span>APPLICATIONS NOW OPEN</span>
+          </span>
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-normal text-white tracking-tight">
+            Ready to lead your <span className="font-editorial italic text-amber-300">campus?</span>
+          </h2>
+
+          <p className="text-xs sm:text-base text-white/70 max-w-lg mx-auto mt-3 font-sans font-normal leading-relaxed">
+            Take the first step toward representing AICSSYC 2026. Submit your application today.
+          </p>
+
+          <div className="mt-8 flex justify-center">
+            <a
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500 text-black font-sans font-bold text-sm uppercase tracking-wider hover:brightness-110 shadow-xl shadow-amber-400/25 active:scale-95 transition-all cursor-pointer"
+            >
+              <span>Apply Now as Ambassador</span>
+              <ExternalLink size={15} className="shrink-0" />
+            </a>
           </div>
         </div>
       </section>

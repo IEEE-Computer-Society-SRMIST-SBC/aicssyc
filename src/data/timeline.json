@@ -2,96 +2,200 @@
   "days": [
     {
       "label": "Day 1",
-      "date": "8 October 2026",
-      "title": "Inauguration & Keynotes",
+      "date": "8 October 2026 · Inaugural Day",
+      "subtitle": "Inauguration & opening keynotes",
       "venue": "TP Ganesan Auditorium",
       "blocks": [
-        { "time": "12:30 PM – 1:00 PM", "title": "Registration setup", "kind": "Setup" },
         {
-          "time": "1:00 PM – 2:00 PM",
-          "title": "Registration check-in, ID & Gifts distribution",
-          "kind": "Registration"
+          "id": "inauguration",
+          "title": "Inauguration Ceremony",
+          "kind": "Ceremony",
+          "time": "MAIN AUDITORIUM · 09:30 – 11:00",
+          "room": "Main hall",
+          "description": "Grand opening of AICSSYC 2026 with distinguished IEEE leadership and dignitaries."
         },
-        { "time": "2:00 PM – 2:30 PM", "title": "Guests arrive", "kind": "Arrival" },
         {
-          "time": "2:30 PM – 3:15 PM",
-          "title": "Inauguration (Lamp Lighting, Welcome Address, Felicitation, Chair Address, Event Briefing)",
-          "kind": "Ceremony"
+          "id": "keynote-1",
+          "title": "Keynote Session I",
+          "kind": "Keynote",
+          "time": "MAIN AUDITORIUM · 11:30 – 13:00",
+          "room": "Main hall",
+          "description": "Visionary insights on autonomous intelligence and the future of human-agent collaboration."
         },
-        { "time": "3:15 PM – 3:50 PM", "title": "Keynote Session (1)", "kind": "Keynote" },
-        { "time": "3:50 PM – 4:00 PM", "title": "Break (only for guests)", "kind": "Break" },
-        { "time": "4:00 PM – 4:50 PM", "title": "Keynote Session (2)", "kind": "Keynote" },
-        { "time": "5:00 PM – 6:00 PM", "title": "Expert Panel Discussion", "kind": "Panel" },
         {
-          "time": "7:30 PM – 8:30 PM",
-          "title": "Dinner starts (External participant venue)",
-          "kind": "Dinner"
+          "id": "keynote-2",
+          "title": "Keynote Session II",
+          "kind": "Keynote",
+          "time": "MAIN AUDITORIUM · 14:00 – 15:30",
+          "room": "Main hall",
+          "description": "Deep-tech frontiers and next-generation computing architectures."
+        },
+        {
+          "id": "panel",
+          "title": "Expert Panel Discussion",
+          "kind": "Panel",
+          "time": "MAIN AUDITORIUM · 16:00 – 17:30",
+          "room": "Main hall",
+          "description": "Industry and academic luminaries debating ethical AI, agents, and workforce readiness."
+        },
+        {
+          "id": "networking-dinner",
+          "title": "Networking Dinner",
+          "kind": "Reception",
+          "time": "BANQUET LAWNS · 19:00 – 21:30",
+          "room": "On site",
+          "description": "High-level networking reception connecting delegates, speakers, and executives."
         }
       ]
     },
     {
       "label": "Day 2",
-      "date": "9 October 2026",
-      "title": "Technical Talks & Cultural Event",
+      "date": "9 October 2026 · Innovation & Knowledge Exchange",
+      "subtitle": "Technical tracks, expo & cultural evening",
       "venue": "Multiple halls",
+      "isFeatured": true,
       "blocks": [
         {
-          "time": "8:00 AM – 9:00 AM",
-          "title": "All team members / participants reporting",
-          "kind": "Reporting"
+          "id": "tech-tracks",
+          "title": "Technical Tracks",
+          "kind": "Sessions",
+          "time": "TRACKS A–D · 09:30 – 13:00",
+          "room": "Tracks A–D",
+          "description": "Parallel deep-dive tracks spanning AI/ML, Cloud, Cyber-Physical Systems, and Quantum."
         },
-        { "time": "9:00 AM – 9:30 AM", "title": "Guest arrival", "kind": "Arrival" },
-        { "time": "9:30 AM – 9:45 AM", "title": "Opening Address", "kind": "Address" },
-        { "time": "9:45 AM – 10:00 AM", "title": "Day 2 Briefing", "kind": "Briefing" },
-        { "time": "10:00 AM – 1:00 PM", "title": "Chapter Presentation", "kind": "Presentations" },
-        { "time": "10:00 AM – 10:50 AM", "title": "Technical Talk 1", "kind": "Technical" },
-        { "time": "11:00 AM – 11:50 AM", "title": "Technical Talk 2", "kind": "Technical" },
-        { "time": "12:00 PM – 12:50 PM", "title": "Technical Talk 3", "kind": "Technical" },
-        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
         {
-          "time": "2:30 PM – 4:45 PM",
-          "title": "Chapter Presentation continues",
-          "kind": "Presentations"
+          "id": "innovation-expo",
+          "title": "Innovation Expo",
+          "kind": "Showcase",
+          "time": "EXPO ARENA · 10:00 – 16:00",
+          "room": "Expo Hall",
+          "description": "Hands-on exhibition featuring sponsor tech, student breakthroughs, and research demos."
         },
-        { "time": "3:40 PM – 4:10 PM", "title": "Technical Talk 4", "kind": "Technical" },
-        { "time": "4:10 PM – 5:00 PM", "title": "Technical Talk 5", "kind": "Technical" },
-        { "time": "4:45 PM – 5:15 PM", "title": "Break", "kind": "Break" },
-        { "time": "5:00 PM – 7:00 PM", "title": "Cultural Event", "kind": "Event" },
-        { "time": "7:00 PM – 8:30 PM", "title": "Networking Dinner", "kind": "Dinner" }
+        {
+          "id": "battle-of-chapters",
+          "title": "Battle of Chapters",
+          "subtitle": "The Ultimate Chapter Showdown · Showcase Your Impact",
+          "time": "MAIN AUDITORIUM · 14:00 – 17:00",
+          "category": "Flagship Competition",
+          "kind": "Flagship Competition",
+          "room": "Main Auditorium",
+          "badge": "🏆 Prizes Worth $500",
+          "isFeatured": true,
+          "registrationUrl": "https://forms.gle/czdMqi8EezL7VKT17",
+          "description": "Step up, showcase your events and impact, and prove your chapter reigns supreme at AICSSIC 2026!"
+        },
+        {
+          "id": "chapter-presentations",
+          "title": "Chapter Presentations",
+          "kind": "Plenary",
+          "time": "HALL B · 14:00 – 16:00",
+          "room": "Main hall",
+          "description": "Showcasing student chapter milestones, community outreach, and technical initiatives."
+        },
+        {
+          "id": "interactive-space",
+          "title": "Interactive Event Space",
+          "kind": "Open programme",
+          "time": "OPEN PAVILION · 15:00 – 18:00",
+          "room": "Open area",
+          "description": "Collaborative sandbox sessions, lightning talks, and informal maker circles."
+        },
+        {
+          "id": "cultural-evening",
+          "title": "Cultural Evening",
+          "kind": "Reception",
+          "time": "OPEN LAWNS · 18:30 – 21:00",
+          "room": "Open lawns",
+          "description": "A celebration of music, dance, art, and pan-India cultural expressions."
+        },
+        {
+          "id": "networking-activities",
+          "title": "Networking Activities",
+          "kind": "Networking",
+          "time": "CENTRAL COURTYARD · 21:00 – 22:00",
+          "room": "On site",
+          "description": "Fireside networking games and community mixers."
+        }
       ]
     },
     {
       "label": "Day 3",
-      "date": "10 October 2026",
-      "title": "GIC / Startup Summit & Valedictory",
+      "date": "10 October 2026 · Industry & Startup Focus",
+      "subtitle": "Showcases, technical sessions & valedictory",
       "venue": "Multiple halls",
       "blocks": [
-        { "time": "8:00 AM – 9:00 AM", "title": "Team reporting", "kind": "Reporting" },
         {
-          "time": "9:00 AM – 10:30 AM",
-          "title": "Participant / Guest reporting",
-          "kind": "Reporting"
+          "id": "startup-showcase",
+          "title": "Startup Showcase",
+          "kind": "Showcase",
+          "time": "HALL B · 09:30 – 12:30",
+          "room": "Hall B",
+          "description": "Pitch stage for early-stage deep-tech founders pitching to venture capitalists and mentors."
         },
-        { "time": "10:30 AM – 1:00 PM", "title": "GIC / Startup Summit", "kind": "Summit" },
-        { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Summit", "kind": "Summit" },
-        { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" },
         {
-          "time": "4:00 PM – 5:00 PM",
-          "title": "Valedictory Session (Closing & Appreciation)",
-          "kind": "Ceremony"
+          "id": "industrial-showcase",
+          "title": "Industrial Showcase",
+          "kind": "Showcase",
+          "time": "HALL C · 10:00 – 13:00",
+          "room": "Hall C",
+          "description": "Enterprise engineering showcases and live industrial robotics & agent demos."
+        },
+        {
+          "id": "technical-sessions",
+          "title": "Technical Sessions",
+          "kind": "Sessions",
+          "time": "TRACKS A–D · 13:30 – 16:00",
+          "room": "Tracks A–D",
+          "description": "Advanced workshops and interactive masterclasses on autonomous agent workflows."
+        },
+        {
+          "id": "interactive-space-d3",
+          "title": "Interactive Event Space",
+          "kind": "Open programme",
+          "time": "OPEN PAVILION · 14:00 – 16:30",
+          "room": "Open area",
+          "description": "Community hack challenges, resume reviews, and portfolio teardowns."
+        },
+        {
+          "id": "valedictory",
+          "title": "Valedictory Ceremony",
+          "kind": "Ceremony",
+          "time": "MAIN AUDITORIUM · 17:00 – 19:30",
+          "room": "Main hall",
+          "description": "Awards presentation, Battle of Chapters winner felicitations, and closing address."
         }
       ]
     },
     {
       "label": "Day 4",
-      "date": "11 October 2026",
-      "title": "Departure",
+      "date": "11 October 2026 · Heritage Experience",
+      "subtitle": "Heritage visit & cultural exploration",
       "venue": "Off-site",
       "blocks": [
-        { "time": "7:00 AM – 8:00 AM", "title": "Reporting", "kind": "Reporting" },
-        { "time": "8:00 AM – 3:30 PM", "title": "Departure & Event out", "kind": "Travel" },
-        { "time": "3:30 PM – 4:30 PM", "title": "Return to SRM", "kind": "Travel" }
+        {
+          "id": "heritage-visit",
+          "title": "Heritage Visit",
+          "kind": "Excursion",
+          "time": "OFF-SITE EXPEDITION · 08:30 – 13:00",
+          "room": "Off-site",
+          "description": "Curated expedition to UNESCO world heritage monuments in Mahabalipuram."
+        },
+        {
+          "id": "community-networking",
+          "title": "Community Networking",
+          "kind": "Networking",
+          "time": "BEACHSIDE RETREAT · 13:30 – 15:30",
+          "room": "Off-site",
+          "description": "Delegates bonding over traditional Tamil coastal luncheon and informal reflection."
+        },
+        {
+          "id": "cultural-exploration",
+          "title": "Cultural Exploration",
+          "kind": "Excursion",
+          "time": "HISTORIC CORRIDOR · 15:30 – 18:00",
+          "room": "Off-site",
+          "description": "Artisanal workshops, local craft immersion, and farewell send-off."
+        }
       ]
     }
   ]
