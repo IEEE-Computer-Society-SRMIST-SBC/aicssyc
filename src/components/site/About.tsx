@@ -34,7 +34,7 @@ export function About() {
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-mist leading-relaxed font-sans">
                 Hosted at SRM Institute of Science and Technology, Kattankulathur, Chennai. Bringing
-                together 1000+ top minds to redefine the boundary where AI agents collide with human
+                together 300+ top minds to redefine the boundary where AI agents collide with human
                 wisdom.
               </p>
 
@@ -80,7 +80,7 @@ export function About() {
             </h2>
 
             <p className="mt-4 sm:mt-6 text-sm sm:text-base text-slate-mist leading-relaxed font-sans">
-              A 4-day national summit bringing together 1,000+ pioneering engineers, researchers,
+              A 4-day national summit bringing together 300+ pioneering engineers, researchers,
               and innovators. Immerse yourself in hands-on agentic hackathons, flagship keynotes,
               and cross-chapter collaboration across 20+ IEEE Sections.
             </p>
@@ -89,10 +89,10 @@ export function About() {
             <div className="mt-8 sm:mt-10 grid grid-cols-3 gap-2.5 sm:gap-4">
               <div className="glass-card rounded-2xl p-3.5 sm:p-5 border border-white/10 text-center">
                 <div className="text-2xl sm:text-3xl font-display font-bold text-gradient-gold">
-                  1000+
+                  300+
                 </div>
                 <div className="mt-1 sm:mt-1.5 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-slate-mist">
-                  Delegates
+                  Participants
                 </div>
               </div>
 

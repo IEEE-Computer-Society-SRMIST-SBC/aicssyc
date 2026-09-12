@@ -64,7 +64,7 @@ function SponsorComponent() {
               <h3 className="font-display text-2xl text-gold">Brand Visibility</h3>
               <ul className="space-y-3 text-ivory/70">
                 <li className="flex gap-3">
-                  <CheckIcon /> Reach 1000+ students and attendees.
+                  <CheckIcon /> Reach 300+ participants and attendees.
                 </li>
                 <li className="flex gap-3">
                   <CheckIcon /> Showcase your brand across event creatives, banners, standees,

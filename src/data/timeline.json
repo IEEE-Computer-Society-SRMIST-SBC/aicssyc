@@ -63,7 +63,7 @@
     {
       "label": "Day 3",
       "date": "10 October 2026",
-      "title": "GIC / Startup Submit & Valedictory",
+      "title": "GIC / Startup Summit & Valedictory",
       "venue": "Multiple halls",
       "blocks": [
         { "time": "8:00 AM – 9:00 AM", "title": "Team reporting", "kind": "Reporting" },
@@ -72,9 +72,9 @@
           "title": "Participant / Guest reporting",
           "kind": "Reporting"
         },
-        { "time": "10:30 AM – 1:00 PM", "title": "GIC / Startup Submit", "kind": "Submit" },
+        { "time": "10:30 AM – 1:00 PM", "title": "GIC / Startup Summit", "kind": "Summit" },
         { "time": "1:00 PM – 2:30 PM", "title": "Lunch Break", "kind": "Break" },
-        { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Submit", "kind": "Submit" },
+        { "time": "2:30 PM – 4:00 PM", "title": "Continue GIC / Startup Summit", "kind": "Summit" },
         { "time": "3:00 PM – 4:00 PM", "title": "Technical Talks", "kind": "Sessions" },
         {
           "time": "4:00 PM – 5:00 PM",

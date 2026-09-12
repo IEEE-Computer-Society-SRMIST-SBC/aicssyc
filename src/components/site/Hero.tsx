@@ -127,7 +127,7 @@ export function Hero() {
                 <div className="flex items-center gap-1.5 justify-center">
                   <Users size={15} className="text-[#E2B767]" />
                   <span>
-                    1000+ <span className="text-white/40">Delegates</span>
+                    300+ <span className="text-white/40">Participants</span>
                   </span>
                 </div>
                 <div className="flex items-center gap-1.5 justify-center">
@@ -178,7 +178,7 @@ export function Hero() {
 
             <div className="flex items-center gap-1.5 sm:gap-2 text-white/80">
               <Users size={14} className="text-[#E2B767]" />
-              <span>1000+ Delegates</span>
+              <span>300+ Participants</span>
             </div>
           </div>
         </motion.div>
