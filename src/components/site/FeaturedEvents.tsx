@@ -28,14 +28,14 @@ const events = [
   },
   {
     id: "startup-summit",
-    title: "Global Incubation Centre",
+    title: "Global Incubation Committee",
     subtitle: "Startup Summit & Pitching",
     description:
       "Pitch your innovative ideas to industry leaders, prominent mentors, and active investors at our dedicated Startup Summit. Compete to secure vital incubation support, feedback, and seed funding to take your startup project to the next level.",
     icon: Rocket,
     previewUrl: "https://globalincubation.vercel.app/",
     links: [
-      { label: "Explore GIC Portal", url: "https://globalincubation.vercel.app/", primary: true }
+      { label: "Explore Global Incubation Committee", url: "https://globalincubation.vercel.app/", primary: true }
     ],
     gradient: "from-yellow-500/20 to-orange-500/0",
     glow: "bg-yellow-500/20",
@@ -115,18 +115,21 @@ export function FeaturedEvents() {
                           <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                           <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F]" />
                         </div>
-                        <div className="mx-auto bg-white/60 px-3 py-1 rounded-md text-[10px] font-mono text-black/50 shadow-sm border border-black/5 truncate max-w-[200px]">
-                          {ev.previewUrl.replace("https://", "")}
+                        <div className="mx-auto bg-white/60 px-4 py-1 rounded-md text-[11px] font-sans font-semibold text-black/60 shadow-sm border border-black/5 truncate max-w-[250px]">
+                          {ev.title}
                         </div>
                         <div className="w-8 shrink-0" />
                       </div>
-                      {/* Live Iframe */}
-                      <iframe 
-                        src={ev.previewUrl} 
-                        className="flex-1 w-full bg-[#F3F2EE] border-none" 
-                        title={ev.title}
-                        loading="lazy"
-                      />
+                      {/* Live Iframe with 2x Scaling to prevent responsive cutoff */}
+                      <div className="flex-1 w-full relative overflow-hidden bg-[#F3F2EE]">
+                        <iframe 
+                          src={ev.previewUrl} 
+                          className="absolute top-0 left-0 border-none bg-[#F3F2EE]" 
+                          style={{ width: '200%', height: '200%', transform: 'scale(0.5)', transformOrigin: 'top left' }}
+                          title={ev.title}
+                          loading="lazy"
+                        />
+                      </div>
                       {/* Overlay to prevent scroll trapping */}
                       <div className="absolute inset-0 top-10 pointer-events-none group-hover:bg-black/5 transition-colors duration-300" />
                     </div>

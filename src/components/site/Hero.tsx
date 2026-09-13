@@ -9,6 +9,7 @@ import {
   Users,
   Cpu,
   Clock,
+  Rocket
 } from "lucide-react";
 import { HeroCanvas3D } from "./HeroCanvas3D";
 import { Countdown } from "./Countdown";
@@ -27,6 +28,8 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 items-center">
           {/* Left Column Editorial Content (Ordered 1->4) */}
           <div className="flex flex-col items-start">
+
+
             {/* 1. Eyebrow Badge */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -100,6 +103,50 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.35 }}
             className="relative w-full mt-2 lg:mt-0"
           >
+            {/* Hyper-realistic Floating GIC Badge */}
+            <motion.a
+              href="#featured-events"
+              animate={{ y: [0, -18, 0], rotate: [-1, 1.5, -1] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-10 lg:-top-14 -right-2 lg:-right-10 z-30 flex items-center gap-3.5 lg:gap-4 p-3 lg:p-4 pr-5 lg:pr-7 rounded-[2rem] cursor-pointer group overflow-hidden backdrop-blur-3xl"
+              style={{
+                background: "linear-gradient(135deg, rgba(226,183,103,0.12) 0%, rgba(226,183,103,0.02) 100%), rgba(10,15,12,0.6)",
+                boxShadow: "0 30px 60px -15px rgba(0,0,0,0.9), inset 0 1px 1px rgba(255,255,255,0.4), inset 0 -1px 1px rgba(0,0,0,0.6), 0 0 25px rgba(226,183,103,0.15)",
+                border: "1px solid rgba(226,183,103,0.25)",
+              }}
+            >
+              {/* Glass Top-Edge Glare */}
+              <div className="absolute top-0 left-0 w-full h-[1.5px] bg-gradient-to-r from-transparent via-[#E2B767]/60 to-transparent opacity-80" />
+              
+              {/* Hover Light Sweep Effect */}
+              <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_ease-out] bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12" />
+
+              {/* 3D Metallic/Glass Orb */}
+              <div 
+                className="relative w-12 h-12 lg:w-14 lg:h-14 rounded-full flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.7),inset_0_-4px_8px_rgba(0,0,0,0.6),0_10px_20px_rgba(0,0,0,0.5)] transition-transform duration-700 group-hover:scale-110"
+                style={{
+                  background: "radial-gradient(circle at 35% 30%, #F3D289 0%, #D49D3A 40%, #5A3D11 90%, #1A1005 100%)",
+                }}
+              >
+                <Rocket size={20} className="text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] group-hover:-translate-y-0.5 transition-transform duration-500 relative z-10" />
+                {/* Orb Specular Highlight */}
+                <div className="absolute top-1.5 left-2 w-3.5 h-3.5 lg:w-4 lg:h-4 bg-white/60 rounded-full blur-[1.5px]" />
+                <div className="absolute bottom-1 right-2 w-5 h-2 bg-[#E2B767]/40 rounded-full blur-[2px] rotate-45" />
+              </div>
+
+              {/* Sophisticated Typography */}
+              <div className="flex flex-col relative z-10">
+                <span className="text-[9px] lg:text-[10px] font-mono font-bold tracking-[0.25em] text-[#E2B767] uppercase drop-shadow-md mb-0.5 lg:mb-1">
+                  Coming Soon
+                </span>
+                <span className="text-xs lg:text-sm font-serif font-medium text-white/95 leading-tight drop-shadow-lg">
+                  Global Incubation
+                  <br />
+                  <span className="text-white/70 italic font-light">Committee</span>
+                </span>
+              </div>
+            </motion.a>
+
             {/* Background Soft Glow */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-[#E2B767]/20 to-emerald-500/20 blur-xl opacity-50 float-slow" />
 
