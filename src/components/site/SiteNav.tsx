@@ -68,11 +68,11 @@ export function SiteNav() {
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 md:px-7 py-2 sm:py-3 rounded-full backdrop-blur-xl bg-[#060D0A]/90 border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 w-full"
+          className="pointer-events-auto flex items-center justify-between gap-2 sm:gap-4 px-3 sm:px-6 py-2 sm:py-3 rounded-full backdrop-blur-xl bg-[#060D0A]/90 border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 w-full"
         >
           {/* Dual Institutional Lockup (Top-Left) */}
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0">
-            <Link to="/" className="flex items-center gap-1.5 sm:gap-3 group py-1">
+            <Link to="/" className="flex items-center gap-1.5 sm:gap-2 group py-1">
               <img
                 src="/logo.png"
                 alt="AICSSYC 2026"
@@ -87,8 +87,11 @@ export function SiteNav() {
             </Link>
           </div>
 
-          {/* Centered Minimalist Navigation (Desktop) */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/[0.03] border border-white/10 rounded-full px-3 py-1.5">
+          {/* Centered Minimalist Navigation (Desktop).
+              The bar is capped at max-w-6xl (72rem), so the full lockup + 8 links + both
+              CTAs only fit once the viewport clears that cap plus a scrollbar — hence the
+              73rem switch instead of `lg`/`xl`. Below it, the compact controls take over. */}
+          <nav className="hidden min-[73rem]:flex items-center gap-0.5 min-w-0 bg-white/[0.03] border border-white/10 rounded-full px-2 py-1.5">
             {navItems.map((item) => {
               const isActive = isHome && activeSection === item.href.replace("#", "");
               const targetHref = isHome ? item.href : `/${item.href}`;
@@ -97,7 +100,7 @@ export function SiteNav() {
                 <a
                   key={item.href}
                   href={targetHref}
-                  className={`relative px-3.5 py-1.5 text-xs font-medium tracking-wide rounded-full transition-all duration-300 ${
+                  className={`relative px-2.5 py-1.5 text-xs font-medium whitespace-nowrap rounded-full transition-all duration-300 ${
                     isActive
                       ? "text-[#E2B767] font-semibold"
                       : "text-white/80 hover:text-white hover:bg-white/[0.06]"
@@ -117,10 +120,10 @@ export function SiteNav() {
           </nav>
 
           {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center gap-2.5 shrink-0">
+          <div className="hidden min-[73rem]:flex items-center gap-2 shrink-0">
             <Link
               to="/ambassador"
-              className={`px-4 py-2 text-xs font-medium rounded-full transition-all flex items-center gap-1.5 min-h-[40px] ${
+              className={`px-3.5 py-2 text-xs font-medium rounded-full transition-all flex items-center gap-1.5 whitespace-nowrap min-h-[40px] ${
                 isAmbassadorRoute
                   ? "bg-[#E2B767]/20 text-[#E2B767] border border-[#E2B767]/60 shadow-[0_0_15px_rgba(226,183,103,0.3)] font-semibold"
                   : "text-white/90 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 hover:border-[#E2B767]/50"
@@ -134,7 +137,7 @@ export function SiteNav() {
 
             <a
               href={isHome ? "#tickets" : "/#tickets"}
-              className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-xs px-4 py-2 rounded-full flex items-center gap-1.5 transition-all shadow-[0_0_20px_rgba(226,183,103,0.3)] hover:shadow-[0_0_28px_rgba(226,183,103,0.5)] min-h-[40px] group"
+              className="bg-[#E2B767] hover:bg-[#d6aa5a] text-[#060D0A] font-semibold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 whitespace-nowrap transition-all shadow-[0_0_20px_rgba(226,183,103,0.3)] hover:shadow-[0_0_28px_rgba(226,183,103,0.5)] min-h-[40px] group"
             >
               <span>Get Passes</span>
               <span className="transition-transform group-hover:translate-x-1 font-bold">→</span>
@@ -142,7 +145,7 @@ export function SiteNav() {
           </div>
 
           {/* Mobile Right Controls: Ambassador link on tablet, Passes Pill + Hamburger Toggle */}
-          <div className="flex lg:hidden items-center gap-2 sm:gap-3 shrink-0">
+          <div className="flex min-[73rem]:hidden items-center gap-2 sm:gap-3 shrink-0">
             <Link
               to="/ambassador"
               className={`hidden sm:inline-flex items-center text-xs px-3 py-1.5 rounded-full transition-colors whitespace-nowrap ${
@@ -185,7 +188,7 @@ export function SiteNav() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.25 }}
               onClick={closeMenu}
-              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm min-[73rem]:hidden"
             />
 
             {/* Slide-Down / Slide-Over Sheet */}
@@ -194,7 +197,7 @@ export function SiteNav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-x-3 top-16 sm:top-20 z-50 lg:hidden rounded-3xl p-5 sm:p-6 bg-[#060D0A]/95 backdrop-blur-xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.9)] max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="fixed inset-x-3 top-16 sm:top-20 z-50 min-[73rem]:hidden mx-auto max-w-xl rounded-3xl p-5 sm:p-6 bg-[#060D0A]/95 backdrop-blur-xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.9)] max-h-[calc(100vh-5rem)] overflow-y-auto"
             >
               <div className="flex flex-col gap-4">
                 {/* Header inside Sheet */}
