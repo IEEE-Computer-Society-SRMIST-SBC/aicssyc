@@ -3,6 +3,7 @@ import { Linkedin, Sparkles } from "lucide-react";
 import speakersData from "@/data/speakers.json";
 
 const photoMap: Record<string, string> = {
+  washizaki: "/washizaki.jpeg",
   andrew: "/andrew.jpeg",
   eric: "/eric.jpeg",
   biswarup: "/biswarup.jpeg",
@@ -29,6 +30,7 @@ const speakerPool = [
 ];
 
 const displayOrder = [
+  "washizaki",
   "eric",
   "andrew",
   "biswarup",

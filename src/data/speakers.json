@@ -10,6 +10,14 @@
   },
   "speakers": [
     {
+      "name": "Prof. Hironori Washizaki",
+      "org": "2025 President IEEE Computer Society",
+      "focus": "Professor, Waseda University",
+      "initials": "HW",
+      "photo": "washizaki",
+      "linkedin": "https://www.linkedin.com/in/hironori-washizaki-aa085184/"
+    },
+    {
       "name": "Biswarup Ray",
       "org": "Chair SYP IEEE CS",
       "focus": "Lead AI Engineer Bayer",
