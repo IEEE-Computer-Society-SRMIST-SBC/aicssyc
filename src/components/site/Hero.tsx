@@ -101,55 +101,15 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-            className="relative w-full mt-16 sm:mt-20 lg:mt-24"
+            className="relative w-full mt-12 sm:mt-16 lg:mt-0 flex justify-center"
           >
             {/* Cinematic Paper Rocket & GIC Reveal Micro-Interaction */}
             <GICAnnouncementAnimation />
 
             {/* Background Soft Glow */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-[#E2B767]/20 to-emerald-500/20 blur-xl opacity-50 float-slow" />
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-[#E2B767]/20 to-emerald-500/20 blur-xl opacity-40 float-slow pointer-events-none" />
 
-            <div className="relative backdrop-blur-xl bg-[#0A1612]/70 rounded-3xl p-4 sm:p-6 border border-white/10 float-slow shadow-2xl">
-              {/* Card Header */}
-              <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <Zap size={16} className="text-[#E2B767] animate-pulse" />
-                  <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-white/90">
-                    ⚡ CONGRESS COUNTDOWN
-                  </span>
-                </div>
-                <span className="text-[9px] sm:text-[10px] uppercase font-mono font-bold tracking-widest px-2.5 sm:px-3 py-1 rounded-full bg-[#E2B767]/15 text-[#E2B767] border border-[#E2B767]/30">
-                  OCT 2026
-                </span>
-              </div>
-
-              {/* Countdown Strip Component */}
-              <div className="py-2 sm:py-3">
-                <Countdown />
-              </div>
-
-              {/* Bottom Sub-stats Row (wrap or horizontal chip bar) */}
-              <div className="flex flex-wrap sm:flex-nowrap items-center justify-between pt-3 sm:pt-4 mt-2 sm:mt-3 border-t border-white/10 text-xs font-mono text-white/90 gap-2">
-                <div className="flex items-center gap-1.5 justify-center">
-                  <Users size={15} className="text-[#E2B767]" />
-                  <span>
-                    300+ <span className="text-white/40">Participants</span>
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 justify-center">
-                  <Cpu size={15} className="text-[#E2B767]" />
-                  <span>
-                    6 <span className="text-white/40">Tracks</span>
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 justify-center">
-                  <Clock size={15} className="text-[#E2B767]" />
-                  <span>
-                    4 <span className="text-white/40">Days</span>
-                  </span>
-                </div>
-              </div>
-            </div>
+            <Countdown />
           </motion.div>
         </div>
 

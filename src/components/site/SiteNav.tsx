@@ -5,7 +5,7 @@ import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 
 const navItems = [
   { href: "#about", label: "About" },
-  { href: "#themes", label: "Tracks" },
+  { href: "#themes", label: "Pillars" },
   { href: "#speakers", label: "Speakers" },
   { href: "#agenda", label: "Schedule" },
   { href: "#featured-events", label: "Highlights" },

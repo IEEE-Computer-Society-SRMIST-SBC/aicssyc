@@ -1,7 +1,7 @@
 {
   "navigation": [
     { "label": "About", "href": "#about" },
-    { "label": "Themes", "href": "#themes" },
+    { "label": "Pillars", "href": "#themes" },
     { "label": "Speakers", "href": "#speakers" },
     { "label": "Agenda", "href": "#agenda" },
     { "label": "Passes", "href": "#tickets" },

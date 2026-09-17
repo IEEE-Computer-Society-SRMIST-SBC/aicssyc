@@ -1,128 +1,140 @@
-export interface AgendaItem {
+export interface ScheduleBlock {
   id: string;
-  timeRange: string;
-  timelineAnchor?: string; // e.g., "8:00 AM", "10:00 AM" for the vertical rail
+  time: string;
   title: string;
   subtitle?: string;
-  tag: string;
+  kind: string;
   isParallel?: boolean;
   parallelSlot?: "left" | "right";
   isFeatured?: boolean;
   badge?: string;
   registrationUrl?: string;
+  details?: string[];
 }
 
-export interface DayAgenda {
+export interface DayTimeline {
   dayNumber: number;
+  label: string;
   date: string;
-  tabLabel: string;
   title: string;
   venue: string;
-  items: AgendaItem[];
+  badge?: string;
+  blocks: ScheduleBlock[];
 }
 
-export const congressAgenda: DayAgenda[] = [
+export const timelineData: DayTimeline[] = [
   {
     dayNumber: 1,
+    label: "Day 1",
     date: "8 October 2026",
-    tabLabel: "8 October 2026",
     title: "Inauguration & Keynotes",
     venue: "TP Ganesan Auditorium",
-    items: [
-      { id: "d1-1", timelineAnchor: "12:30 PM", timeRange: "12:30 PM – 1:00 PM", title: "Registration setup", tag: "SETUP" },
-      { id: "d1-2", timelineAnchor: "1:00 PM", timeRange: "1:00 PM – 2:00 PM", title: "Registration check-in, ID & Gifts distribution", tag: "REGISTRATION" },
-      { id: "d1-3", timelineAnchor: "2:00 PM", timeRange: "2:00 PM – 2:30 PM", title: "Guests arrive", tag: "ARRIVAL" },
-      { id: "d1-4", timelineAnchor: "2:30 PM", timeRange: "2:30 PM – 3:15 PM", title: "Inauguration (Lamp Lighting, Welcome Address, Felicitation, Chair Address, Event Briefing)", tag: "CEREMONY" },
-      { id: "d1-5", timelineAnchor: "3:15 PM", timeRange: "3:15 PM – 3:50 PM", title: "Keynote Session (1)", tag: "KEYNOTE" },
-      { id: "d1-6", timelineAnchor: "3:50 PM", timeRange: "3:50 PM – 4:00 PM", title: "Break (only for guests)", tag: "BREAK" },
-      { id: "d1-7", timelineAnchor: "4:00 PM", timeRange: "4:00 PM – 4:50 PM", title: "Keynote Session (2)", tag: "KEYNOTE" },
-      { id: "d1-8", timelineAnchor: "5:00 PM", timeRange: "5:00 PM – 6:00 PM", title: "Expert Panel Discussion", tag: "PANEL" },
-      { id: "d1-9", timelineAnchor: "7:30 PM", timeRange: "7:30 PM – 8:30 PM", title: "Dinner starts (External participant venue)", tag: "DINNER" }
+    blocks: [
+      { id: "d1-1", time: "12:30 PM", title: "Registration setup", kind: "Setup" },
+      { id: "d1-2", time: "1:00 PM", title: "Registration check-in, ID & Gifts distribution", kind: "Registration" },
+      { id: "d1-3", time: "2:30 PM", title: "Guests arrive", kind: "Arrival" },
+      {
+        id: "d1-4",
+        time: "2:30 PM – 3:15 PM",
+        title: "Inauguration Ceremony",
+        subtitle: "Lamp Lighting · Welcome Address (Godfrey Sir) · Guest Felicitation · Chair Address · Event Briefing",
+        kind: "Ceremony"
+      },
+      { id: "d1-5", time: "3:15 PM – 3:50 PM", title: "Keynote Session (1)", kind: "Keynote" },
+      { id: "d1-6", time: "3:50 PM – 4:00 PM", title: "Break (only for guests)", kind: "Break" },
+      { id: "d1-7", time: "4:00 PM – 4:50 PM", title: "Keynote Session (2)", kind: "Keynote" },
+      { id: "d1-8", time: "5:00 PM – 6:00 PM", title: "Expert Panel Discussion", kind: "Panel" },
+      { id: "d1-9", time: "7:30 PM – 8:30 PM", title: "Networking Dinner & Evening Session", kind: "Dinner" }
     ]
   },
   {
     dayNumber: 2,
+    label: "Day 2",
     date: "9 October 2026",
-    tabLabel: "9 October 2026",
     title: "Technical Talks & Cultural Event",
     venue: "Multiple halls",
-    items: [
-      { id: "d2-1", timelineAnchor: "8:00 AM", timeRange: "8:00 AM – 9:00 AM", title: "All team members / participants reporting", tag: "REPORTING" },
-      { id: "d2-2", timelineAnchor: "9:00 AM", timeRange: "9:00 AM – 9:30 AM", title: "Guest arrival", tag: "ARRIVAL" },
-      { id: "d2-3", timelineAnchor: "9:30 AM", timeRange: "9:30 AM – 9:45 AM", title: "Opening Address", tag: "ADDRESS" },
-      { id: "d2-4", timelineAnchor: "9:45 AM", timeRange: "9:45 AM – 10:00 AM", title: "Day 2 Briefing", tag: "BRIEFING" },
+    badge: "FLAGSHIP",
+    blocks: [
+      { id: "d2-1", time: "8:00 AM", title: "All team members / participants reporting", kind: "Reporting" },
+      { id: "d2-2", time: "9:00 AM", title: "Guest arrival", kind: "Arrival" },
+      { id: "d2-3", time: "9:30 AM", title: "Opening Address", kind: "Address" },
+      { id: "d2-4", time: "9:45 AM", title: "Day 2 Briefing", kind: "Briefing" },
 
       // Morning Parallel Track (10:00 AM - 1:00 PM)
       {
-        id: "d2-boc-1",
-        timelineAnchor: "10:00 AM",
-        timeRange: "10:00 AM – 1:00 PM",
+        id: "d2-boc-morning",
+        time: "10:00 AM – 1:00 PM",
         title: "Battle of Chapters",
         subtitle: "The Ultimate Chapter Showdown · Showcase your events and impact",
-        tag: "PRESENTATIONS",
+        kind: "Flagship",
         badge: "Prizes Worth $500",
         isFeatured: true,
         isParallel: true,
         parallelSlot: "left",
-        registrationUrl: "https://forms.gle/czdMqi8EezL7VKT17"
+        registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdiiY58U8j74rQVQKuI1vyOCrdUaXSPEKV-D8aXNGF0mq65nw/viewform?usp=send_form"
       },
-      { id: "d2-t1", timeRange: "10:00 AM – 10:50 AM", title: "Technical Talk 1", tag: "TECHNICAL", isParallel: true, parallelSlot: "right" },
-      { id: "d2-t2", timeRange: "11:00 AM – 11:50 AM", title: "Technical Talk 2", tag: "TECHNICAL", isParallel: true, parallelSlot: "right" },
-      { id: "d2-t3", timeRange: "12:00 PM – 12:50 PM", title: "Technical Talk 3", tag: "TECHNICAL", isParallel: true, parallelSlot: "right" },
+      { id: "d2-t1", time: "10:00 AM – 10:50 AM", title: "Technical Talk 1", kind: "Technical", isParallel: true, parallelSlot: "right" },
+      { id: "d2-t2", time: "11:00 AM – 11:50 AM", title: "Technical Talk 2", kind: "Technical", isParallel: true, parallelSlot: "right" },
+      { id: "d2-t3", time: "12:00 PM – 12:50 PM", title: "Technical Talk 3", kind: "Technical", isParallel: true, parallelSlot: "right" },
 
-      { id: "d2-lunch", timelineAnchor: "1:00 PM", timeRange: "1:00 PM – 2:30 PM", title: "Lunch Break", tag: "BREAK" },
+      { id: "d2-lunch", time: "1:00 PM – 2:30 PM", title: "Lunch Break", kind: "Break" },
 
       // Afternoon Parallel Track (2:30 PM - 7:00 PM)
       {
-        id: "d2-boc-2",
-        timelineAnchor: "2:30 PM",
-        timeRange: "2:30 PM – 4:45 PM",
+        id: "d2-boc-afternoon",
+        time: "2:30 PM – 4:45 PM",
         title: "Battle of Chapters (Presentations Continue)",
-        subtitle: "Chapter defense and final judging rounds",
-        tag: "PRESENTATIONS",
+        subtitle: "The Ultimate Chapter Showdown · Chapter presentations and judging",
+        kind: "Flagship",
         badge: "Prizes Worth $500",
         isFeatured: true,
         isParallel: true,
         parallelSlot: "left",
-        registrationUrl: "https://forms.gle/czdMqi8EezL7VKT17"
+        registrationUrl: "https://docs.google.com/forms/d/e/1FAIpQLSdiiY58U8j74rQVQKuI1vyOCrdUaXSPEKV-D8aXNGF0mq65nw/viewform?usp=send_form"
       },
-      { id: "d2-brk", timeRange: "4:45 PM – 5:15 PM", title: "Break", tag: "BREAK", isParallel: true, parallelSlot: "left" },
-      { id: "d2-t4", timeRange: "3:40 PM – 4:10 PM", title: "Technical Talk 4", tag: "TECHNICAL", isParallel: true, parallelSlot: "right" },
-      { id: "d2-t5", timeRange: "4:10 PM – 5:00 PM", title: "Technical Talk 5", tag: "TECHNICAL", isParallel: true, parallelSlot: "right" },
-      { id: "d2-cult", timeRange: "5:00 PM – 7:00 PM", title: "Cultural Event", tag: "EVENT", isParallel: true, parallelSlot: "right" },
+      { id: "d2-break", time: "4:45 PM – 5:15 PM", title: "Break", kind: "Break", isParallel: true, parallelSlot: "left" },
+      { id: "d2-t4", time: "3:40 PM – 4:10 PM", title: "Technical Talk 4", kind: "Technical", isParallel: true, parallelSlot: "right" },
+      { id: "d2-t5", time: "4:10 PM – 5:00 PM", title: "Technical Talk 5", kind: "Technical", isParallel: true, parallelSlot: "right" },
+      { id: "d2-cultural", time: "5:00 PM – 7:00 PM", title: "Cultural Event", kind: "Event", isParallel: true, parallelSlot: "right" },
 
-      { id: "d2-dinner", timelineAnchor: "7:00 PM", timeRange: "7:00 PM – 8:30 PM", title: "Networking Dinner", tag: "DINNER" }
+      { id: "d2-dinner", time: "7:00 PM – 8:30 PM", title: "Networking Dinner", kind: "Dinner" }
     ]
   },
   {
     dayNumber: 3,
+    label: "Day 3",
     date: "10 October 2026",
-    tabLabel: "10 October 2026",
     title: "GIC / Startup Summit & Valedictory",
     venue: "Multiple halls",
-    items: [
-      { id: "d3-1", timelineAnchor: "8:00 AM", timeRange: "8:00 AM – 9:00 AM", title: "Team reporting", tag: "REPORTING" },
-      { id: "d3-2", timelineAnchor: "9:00 AM", timeRange: "9:00 AM – 10:30 AM", title: "Participant / Guest reporting", tag: "REPORTING" },
-      { id: "d3-3", timelineAnchor: "10:30 AM", timeRange: "10:30 AM – 1:00 PM", title: "GIC / Startup Summit", tag: "SUMMIT" },
-      { id: "d3-4", timelineAnchor: "1:00 PM", timeRange: "1:00 PM – 2:30 PM", title: "Lunch Break", tag: "BREAK" },
-
-      // Afternoon Parallel Track
-      { id: "d3-5a", timelineAnchor: "2:30 PM", timeRange: "2:30 PM – 4:00 PM", title: "Continue GIC / Startup Summit", tag: "SUMMIT", isParallel: true, parallelSlot: "left" },
-      { id: "d3-5b", timeRange: "3:00 PM – 4:00 PM", title: "Technical Talks", tag: "SESSIONS", isParallel: true, parallelSlot: "right" },
-
-      { id: "d3-6", timelineAnchor: "4:00 PM", timeRange: "4:00 PM – 5:00 PM", title: "Valedictory Session (Closing & Appreciation)", tag: "CEREMONY" }
+    blocks: [
+      { id: "d3-1", time: "8:00 AM", title: "Team reporting", kind: "Reporting" },
+      { id: "d3-2", time: "9:00 AM", title: "Participants / Guest reporting", kind: "Reporting" },
+      { id: "d3-3", time: "10:30 AM – 1:00 PM", title: "GIC / Startup Summit", kind: "Summit" },
+      { id: "d3-4", time: "1:00 PM – 2:30 PM", title: "Lunch break", kind: "Break" },
+      { id: "d3-5a", time: "2:30 PM – 4:00 PM", title: "Continue GIC / Startup Summit", kind: "Summit", isParallel: true, parallelSlot: "left" },
+      { id: "d3-5b", time: "3:00 PM – 4:00 PM", title: "Technical Talks", kind: "Technical", isParallel: true, parallelSlot: "right" },
+      {
+        id: "d3-6",
+        time: "4:00 PM – 5:00 PM",
+        title: "Valedictory Session",
+        subtitle: "Closing & Ending · Awards & Appreciation Ceremony",
+        kind: "Ceremony"
+      }
     ]
   },
   {
     dayNumber: 4,
+    label: "Day 4",
     date: "11 October 2026",
-    tabLabel: "11 October 2026",
     title: "Departure",
     venue: "Off-site",
-    items: [
-      { id: "d4-1", timelineAnchor: "7:00 AM", timeRange: "7:00 AM – 8:00 AM", title: "Reporting", tag: "REPORTING" },
-      { id: "d4-2", timelineAnchor: "8:00 AM", timeRange: "8:00 AM – 3:30 PM", title: "Departure & Event out", tag: "TRAVEL" },
-      { id: "d4-3", timelineAnchor: "3:30 PM", timeRange: "3:30 PM – 4:30 PM", title: "Return to SRM", tag: "TRAVEL" }
+    blocks: [
+      { id: "d4-1", time: "7:00 AM", title: "Reporting", kind: "Reporting" },
+      { id: "d4-2", time: "8:00 AM – 3:30 PM", title: "Departure", kind: "Travel" },
+      { id: "d4-3", time: "3:30 PM", title: "Return to SRM", kind: "Travel" }
     ]
   }
 ];
+
+// Alias for backward compatibility
+export const congressAgenda = timelineData;
