@@ -99,13 +99,13 @@ export const majorHighlights: MajorHighlight[] = [
     highlightTag: "HOSTING APPLICATION",
     deadline: "1 October 2026",
     ctaText: "Apply to Host AICSSYC 2027",
-    ctaUrl: "https://aicssyc.in",
+    ctaUrl: "https://docs.google.com/forms/d/e/1FAIpQLScMSV4uBZ5evBHPNZne6F32s49el7YWaA6ycsrEgUEAYos-6Q/viewform",
     posterUrl: "/call-for-host-poster.png",
     isFeatured: true,
     links: [
       {
         label: "Apply to Host AICSSYC 2027",
-        url: "https://aicssyc.in",
+        url: "https://docs.google.com/forms/d/e/1FAIpQLScMSV4uBZ5evBHPNZne6F32s49el7YWaA6ycsrEgUEAYos-6Q/viewform",
         primary: true,
       },
     ],
