@@ -40,7 +40,7 @@ export function Footer() {
               Venue &amp; Dates
             </h4>
             <p className="text-xs text-slate-mist leading-relaxed font-sans">
-              TP Ganesan Auditorium
+              Hippocrates Hall &amp; Vendhar Square
               <br />
               SRM Institute of Science and Technology
               <br />

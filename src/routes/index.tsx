@@ -55,7 +55,7 @@ export const Route = createFileRoute("/")({
           eventStatus: "https://schema.org/EventScheduled",
           location: {
             "@type": "Place",
-            name: "TP Ganesan Auditorium, SRM Institute of Science and Technology",
+            name: "Hippocrates Hall, SRM Institute of Science and Technology",
             address: "Kattankulathur, Tamil Nadu, India",
           },
           description,
