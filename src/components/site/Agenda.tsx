@@ -40,7 +40,7 @@ function BlockCard({
     <div
       className={`relative rounded-xl sm:rounded-2xl p-4 sm:p-5 transition-all duration-300 flex flex-col justify-between ${
         block.isFeatured
-          ? "bg-gradient-to-r from-amber-500/10 via-[#0A2218] to-[#071711] border border-amber-400/50 shadow-lg shadow-amber-500/10 ring-1 ring-amber-400/30"
+          ? "bg-gradient-to-r from-amber-500/10 via-[#0A2218] to-[#071711] border border-amber-400/50 shadow-lg shadow-amber-500/10"
           : "bg-[#071711]/90 border border-emerald-900/40 hover:border-emerald-500/40 shadow-md"
       }`}
     >
@@ -61,7 +61,7 @@ function BlockCard({
             )}
 
             {block.badge && (
-              <span className="text-[9px] font-bold text-amber-300 bg-amber-400/15 border border-amber-400/35 px-2 py-0.5 rounded-full whitespace-nowrap shadow-sm shadow-amber-500/10">
+              <span className="text-[9px] font-mono font-bold text-amber-300 bg-amber-400/15 border border-amber-400/35 px-2 py-0.5 rounded-full">
                 🏆 {block.badge}
               </span>
             )}
@@ -88,6 +88,14 @@ function BlockCard({
           <p className="text-xs sm:text-sm text-emerald-100/75 mt-1.5 leading-relaxed font-sans font-normal">
             {block.subtitle}
           </p>
+        )}
+
+        {/* Venue Tag */}
+        {block.venue && (
+          <div className="mt-2.5 flex items-center gap-1.5 text-[11px] font-mono text-emerald-300/80">
+            <MapPin className="w-3 h-3 text-emerald-400 shrink-0" />
+            <span>{block.venue}</span>
+          </div>
         )}
       </div>
 
@@ -158,7 +166,7 @@ export function Agenda() {
             transition={{ delay: 0.2 }}
             className="text-xs sm:text-base text-white/70 max-w-xl mx-auto text-center mt-2.5 font-sans leading-relaxed font-normal"
           >
-            8–11 October 2026 · TP Ganesan Auditorium &amp; SRMIST Campuses, Chennai
+            8–11 October 2026 · Hippocrates Hall, Vendhar Square &amp; SRMIST Campuses, Chennai
           </motion.p>
         </div>
 
@@ -166,7 +174,6 @@ export function Agenda() {
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar snap-x snap-mandatory px-1 pb-2 mb-6 sm:justify-center">
           {timelineData.map((day) => {
             const isActive = activeDay === day.dayNumber;
-            const isDay2 = day.dayNumber === 2;
 
             return (
               <button
@@ -186,7 +193,7 @@ export function Agenda() {
                   >
                     DAY 0{day.dayNumber}
                   </span>
-                  {isDay2 && (
+                  {day.badge && (
                     <span
                       className={`text-[8px] font-mono px-1.5 py-0.5 rounded-full border uppercase font-semibold ${
                         isActive
@@ -194,7 +201,7 @@ export function Agenda() {
                           : "bg-amber-400/10 text-amber-300/80 border-amber-400/30"
                       }`}
                     >
-                      FLAGSHIP
+                      {day.badge}
                     </span>
                   )}
                 </div>
@@ -204,6 +211,9 @@ export function Agenda() {
                   }`}
                 >
                   {day.date.split("2026")[0].trim()}
+                </div>
+                <div className="text-[10px] font-sans text-emerald-300/60 hidden sm:block">
+                  {day.dayOfWeek}
                 </div>
               </button>
             );
@@ -224,7 +234,7 @@ export function Agenda() {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="px-2 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-[0.18em] font-semibold bg-emerald-950/80 border border-emerald-500/30 text-emerald-300">
-                    Day 0{currentDay.dayNumber} of 04
+                    Day 0{currentDay.dayNumber} of 04 • {currentDay.dayOfWeek}
                   </span>
                   <span className="text-[11px] font-mono tracking-wider text-amber-400/90 uppercase">
                     • {currentDay.date}
@@ -244,8 +254,8 @@ export function Agenda() {
               </div>
 
               <div className="flex items-center gap-2 self-start sm:self-auto">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-sans text-neutral-300 bg-[#0A1D16] border border-emerald-900/50">
-                  <MapPin className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span className="inline-flex items-center gap-1.5 text-xs font-sans text-emerald-300 bg-[#0A2218] border border-emerald-800/40 px-3 py-1 rounded-full">
+                  <span>📍</span>
                   <span>{currentDay.venue}</span>
                 </span>
               </div>
@@ -261,7 +271,7 @@ export function Agenda() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
-            className="relative pl-4 sm:pl-6 border-l border-emerald-800/30 space-y-4 sm:space-y-6"
+            className="relative pl-4 sm:pl-6 border-l border-emerald-800/30 space-y-3 sm:space-y-4"
           >
             {sections.map((section, sIdx) => {
               if (section.type === "single") {
@@ -283,6 +293,15 @@ export function Agenda() {
               }
 
               // Parallel Section (Track A & Track B)
+              const leftTitle =
+                currentDay.dayNumber === 2
+                  ? "Track A · Technical Workshop (TP2)"
+                  : "Track A · Campus Activity & Fun Event";
+              const rightTitle =
+                currentDay.dayNumber === 2
+                  ? "Track B · Battle of Chapters (Flagship)"
+                  : "Track B · GIC Startup Summit";
+
               return (
                 <div key={`parallel-${sIdx}`} className="relative group">
                   {/* Timeline Indicator Dot */}
@@ -307,10 +326,10 @@ export function Agenda() {
 
                     {/* Dual Column Layout (Stacked on mobile, 2 cols on md+) */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                      {/* Left Track (Flagship / Summit) */}
-                      <div className="space-y-3 flex flex-col">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-amber-400/90 font-semibold px-1">
-                          Track A · Flagship &amp; Main Stage
+                      {/* Left Track */}
+                      <div className="space-y-3 sm:space-y-4 flex flex-col">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/90 font-semibold px-1">
+                          {leftTitle}
                         </div>
                         {section.left.map((block) => (
                           <BlockCard
@@ -321,10 +340,10 @@ export function Agenda() {
                         ))}
                       </div>
 
-                      {/* Right Track (Technical Talks & Cultural) */}
-                      <div className="space-y-3 flex flex-col">
-                        <div className="text-[10px] font-mono uppercase tracking-widest text-emerald-400/90 font-semibold px-1">
-                          Track B · Technical Talks &amp; Events
+                      {/* Right Track */}
+                      <div className="space-y-3 sm:space-y-4 flex flex-col">
+                        <div className="text-[10px] font-mono uppercase tracking-widest text-amber-400/90 font-semibold px-1">
+                          {rightTitle}
                         </div>
                         {section.right.map((block) => (
                           <BlockCard
