@@ -14,6 +14,7 @@ const photoMap: Record<string, string> = {
   mini: "/mini.jpeg",
   mohamed: "/mohamed.jpeg",
   himani: "/himani.jpeg",
+  koteeswaran: "/koteeswaran.jpg",
 };
 
 const featured = speakersData.featured;
@@ -36,6 +37,7 @@ const displayOrder = [
   "biswarup",
   "mini",
   "mohamed",
+  "koteeswaran",
   "himani",
   "shivam",
   "utkarsh",
