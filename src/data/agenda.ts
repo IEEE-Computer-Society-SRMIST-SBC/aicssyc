@@ -28,7 +28,7 @@ export const timelineData: DayTimeline[] = [
   {
     dayNumber: 1,
     label: "Day 1",
-    dayOfWeek: "Wednesday",
+    dayOfWeek: "Thursday",
     date: "8 October 2026",
     title: "Inauguration & Keynotes",
     venue: "Hippocrates Hall",
@@ -54,7 +54,7 @@ export const timelineData: DayTimeline[] = [
   {
     dayNumber: 2,
     label: "Day 2",
-    dayOfWeek: "Thursday",
+    dayOfWeek: "Friday",
     date: "9 October 2026",
     title: "Technical Talks, Battle of Chapters & Cultural Night",
     venue: "Hippocrates Hall & Vendhar Square",
@@ -102,7 +102,7 @@ export const timelineData: DayTimeline[] = [
   {
     dayNumber: 3,
     label: "Day 3",
-    dayOfWeek: "Friday",
+    dayOfWeek: "Saturday",
     date: "10 October 2026",
     title: "GIC Startup Summit & Valedictory",
     venue: "Hippocrates Hall & Campus",
@@ -152,7 +152,7 @@ export const timelineData: DayTimeline[] = [
   {
     dayNumber: 4,
     label: "Day 4",
-    dayOfWeek: "Saturday",
+    dayOfWeek: "Sunday",
     date: "11 October 2026",
     title: "Mahabalipuram Cultural Excursion",
     venue: "Mahabalipuram Heritage Site",
