@@ -16,7 +16,7 @@ import { GICAnnouncementAnimation } from "./GICAnnouncementAnimation";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-28 sm:pt-36 pb-16 sm:pb-20 overflow-hidden text-white bg-[#060D0A]">
+    <section className="relative flex items-center justify-center pt-24 sm:pt-32 pb-8 sm:pb-12 overflow-hidden text-white bg-[#060D0A]">
       {/* Interactive 3D Particle Constellation WebGL Canvas (15% Opacity) */}
       <HeroCanvas3D />
 
@@ -118,7 +118,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-12 sm:mt-16 lg:mt-20 flex justify-center w-full"
+          className="mt-8 sm:mt-10 lg:mt-12 flex justify-center w-full"
         >
           <div className="glass-pill rounded-2xl sm:rounded-full py-3 sm:py-3.5 px-4 sm:px-6 md:px-8 border border-white/10 shadow-xl flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90 font-medium bg-[#060D0A]/70 backdrop-blur-md">
             <div className="flex items-center gap-1.5 sm:gap-2">

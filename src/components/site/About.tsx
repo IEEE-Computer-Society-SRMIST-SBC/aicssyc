@@ -5,7 +5,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory"
+      className="relative scroll-mt-24 sm:scroll-mt-32 pt-6 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12 overflow-hidden text-ivory"
     >
       {/* Ambient background glow (Constrained for mobile) */}
       <div className="absolute top-1/3 right-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-emerald-500/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
