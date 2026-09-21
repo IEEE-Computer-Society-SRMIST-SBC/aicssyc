@@ -7,6 +7,7 @@ import { Themes } from "@/components/site/Themes";
 import { Speakers } from "@/components/site/Speakers";
 import { Agenda } from "@/components/site/Agenda";
 import { FeaturedEvents } from "@/components/site/FeaturedEvents";
+import { SneakPeek } from "@/components/SneakPeek";
 import { WhyAttend } from "@/components/site/WhyAttend";
 import { Tickets } from "@/components/site/Tickets";
 import { Sponsors } from "@/components/site/Sponsors";
@@ -101,6 +102,7 @@ function Index() {
         <Speakers />
         <Agenda />
         <FeaturedEvents />
+        <SneakPeek />
         <WhyAttend />
         <Tickets />
         <Sponsors />

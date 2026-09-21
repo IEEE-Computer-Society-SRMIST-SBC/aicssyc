@@ -217,7 +217,7 @@ export function Themes() {
   return (
     <section
       id="themes"
-      className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory"
+      className="relative scroll-mt-24 sm:scroll-mt-32 pt-8 sm:pt-12 md:pt-14 pb-14 sm:pb-20 overflow-hidden text-ivory"
     >
       {/* Background Ambient Glows (Constrained for mobile) */}
       <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
@@ -225,7 +225,7 @@ export function Themes() {
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12 lg:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
