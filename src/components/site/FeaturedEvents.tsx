@@ -32,6 +32,7 @@ export function FeaturedEvents() {
       id="featured-events"
       className="relative scroll-mt-24 sm:scroll-mt-32 py-16 sm:py-28 overflow-hidden bg-[var(--obsidian)]"
     >
+      <span id="highlights" className="absolute -top-32" />
       {/* Ambient background */}
       <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-amber-900/10 rounded-full blur-[150px] pointer-events-none" />

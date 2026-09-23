@@ -219,6 +219,7 @@ export function Themes() {
       id="themes"
       className="relative scroll-mt-24 sm:scroll-mt-32 pt-8 sm:pt-12 md:pt-14 pb-14 sm:pb-20 overflow-hidden text-ivory"
     >
+      <span id="pillars" className="absolute -top-32" />
       {/* Background Ambient Glows (Constrained for mobile) */}
       <div className="absolute top-1/2 left-0 w-72 sm:w-96 h-72 sm:h-96 bg-emerald-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-72 sm:w-96 h-72 sm:h-96 bg-amber-500/10 rounded-full blur-[100px] sm:blur-[130px] pointer-events-none" />
