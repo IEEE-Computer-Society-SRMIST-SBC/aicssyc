@@ -24,7 +24,7 @@ export function About() {
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-gold-glow/20 rounded-full blur-3xl" />
 
               <span className="text-[11px] sm:text-xs font-mono tracking-widest text-emerald-glow uppercase font-semibold flex items-center gap-2 mb-3 sm:mb-4">
-                <Sparkles size={13} /> ✨ ABOUT AICSSYC 2026
+                <Sparkles size={13} /> ABOUT AICSSYC 2026
               </span>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight text-ivory">
@@ -43,7 +43,7 @@ export function About() {
                     <Globe size={18} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-ivory">🌐 Pan-India</div>
+                    <div className="text-xs font-bold text-ivory">Pan-India</div>
                     <div className="text-[11px] text-slate-mist">20+ IEEE Sections</div>
                   </div>
                 </div>
@@ -53,7 +53,7 @@ export function About() {
                     <Award size={18} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-ivory">🏛️ IEEE Flagship</div>
+                    <div className="text-xs font-bold text-ivory">IEEE Flagship</div>
                     <div className="text-[11px] text-slate-mist">SRMIST Chennai</div>
                   </div>
                 </div>

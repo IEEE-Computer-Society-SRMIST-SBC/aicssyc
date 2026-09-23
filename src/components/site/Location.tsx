@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { ScrollSection } from "./ScrollSection";
-import { MapPin, Train, Bus, Car, Clock } from "lucide-react";
+import { MapPin, Train, Bus, BusFront, Car, Clock } from "lucide-react";
 
 export function Location() {
   return (
     <ScrollSection
       id="location"
-      className="relative section-rhythm bg-transparent text-ivory grain overflow-hidden"
+      className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm bg-transparent text-ivory grain overflow-hidden"
     >
+      <span id="venue" className="absolute -top-32" />
       <div className="container-editorial">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,12 +82,21 @@ export function Location() {
                 />
                 <DirectionItem
                   icon={<Bus />}
-                  title="By Bus"
+                  title="By MTC Bus"
                   desc="MTC/SETC buses towards Chengalpattu / Mahabalipuram via GST Road. Get down at SRM College / Potheri stop."
+                />
+                <DirectionItem
+                  icon={<BusFront className="text-[#E2B767]" />}
+                  title="By Intercity / Outstation Bus"
+                  desc={
+                    <span>
+                      Most government (SETC, TNSTC, KSRTC) and private omni-buses traversing GST Road (NH 45) offer direct boarding and drop-off right in front of the <strong className="text-ivory font-medium">SRM University / Potheri</strong> stop. If your bus terminates at <strong className="text-ivory font-medium">Kalaignar Centenary Bus Terminus (KCBT / Kilambakkam)</strong>, the campus is just 10 km away (~15–20 mins by cab, auto, or MTC bus).
+                    </span>
+                  }
                 />
                 <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ivory/5 border border-ivory/10 text-xs text-ivory/70">
                   <Clock className="w-3.5 h-3.5 text-[#E2B767]" />
-                  <span>Est. Travel Time: 1.5-2 hours (public transit)</span>
+                  <span>Est. Travel Time: 1.5-2 hours (public transit) • Direct drop for GST Road buses</span>
                 </div>
               </div>
             </motion.div>
@@ -132,6 +142,42 @@ export function Location() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Card 3: Intercity & Outstation Buses */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/70 backdrop-blur-md p-5 sm:p-7 md:p-8"
+            >
+              <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-white/5">
+                <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-full bg-amber-400/10 flex items-center justify-center shrink-0">
+                  <BusFront className="w-5 sm:w-6 h-5 sm:h-6 text-amber-300" />
+                </div>
+                <div>
+                  <h3 className="font-display text-lg sm:text-xl text-ivory">
+                    From Kilambakkam (KCBT) &amp; Outstation Routes
+                  </h3>
+                </div>
+              </div>
+
+              <div className="space-y-4 sm:space-y-6">
+                <DirectionItem
+                  icon={<BusFront className="text-amber-300" />}
+                  title="By Intercity / Outstation Bus"
+                  desc={
+                    <span>
+                      Most state (SETC, TNSTC, KSRTC) and private omni-buses passing through GST Road (NH 45) provide direct passenger drops at the <strong className="text-ivory font-medium">SRM University / Potheri</strong> highway stop. If arriving at <strong className="text-ivory font-medium">KCBT (Kilambakkam Bus Terminus)</strong>, SRM IST is just 10 km away (~15–20 mins via auto, taxi, or local MTC bus).
+                    </span>
+                  }
+                />
+                <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ivory/5 border border-ivory/10 text-xs text-ivory/70">
+                  <Clock className="w-3.5 h-3.5 text-amber-300" />
+                  <span>Est. Travel Time: 15–20 mins from KCBT • Direct drop on GST Road</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -146,7 +192,7 @@ function DirectionItem({
 }: {
   icon: React.ReactNode;
   title: string;
-  desc: string;
+  desc: React.ReactNode;
 }) {
   return (
     <div className="flex gap-3.5 sm:gap-4">
@@ -155,7 +201,7 @@ function DirectionItem({
       </div>
       <div>
         <p className="text-xs sm:text-sm font-medium text-ivory/90 mb-0.5">{title}</p>
-        <p className="text-xs sm:text-sm text-ivory/60 leading-relaxed">{desc}</p>
+        <div className="text-xs sm:text-sm text-ivory/60 leading-relaxed">{desc}</div>
       </div>
     </div>
   );
