@@ -65,7 +65,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-white/70 max-w-xl font-sans leading-relaxed"
+              className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 max-w-2xl leading-relaxed font-sans"
             >
               India’s premier 4-day student and young professional congress, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
             </motion.p>

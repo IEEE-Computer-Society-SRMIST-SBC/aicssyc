@@ -15,6 +15,7 @@ const photoMap: Record<string, string> = {
   mohamed: "/mohamed.jpeg",
   himani: "/himani.jpeg",
   koteeswaran: "/koteeswaran.jpg",
+  balaji: "/balaji.png",
 };
 
 const featured = speakersData.featured;
@@ -43,6 +44,7 @@ const displayOrder = [
   "utkarsh",
   "nikky",
   "sarun",
+  "balaji",
 ];
 const allSpeakers = displayOrder
   .map((key) => speakerPool.find((s) => s.photo === key))
