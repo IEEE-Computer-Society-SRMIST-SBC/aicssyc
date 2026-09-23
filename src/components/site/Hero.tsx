@@ -67,9 +67,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-white/70 max-w-xl font-sans leading-relaxed"
             >
-              India's premier gathering of student leaders, young professionals, and AI researchers.
-              Convening at SRMIST, Chennai to shape the next era of autonomous systems and human-AI
-              synergy.
+              India’s premier 4-day student and young professional congress, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
             </motion.p>
 
             {/* 4. Primary & Secondary CTA Buttons: Full-width stacked on mobile */}
@@ -144,7 +142,7 @@ export function Hero() {
 
             <div className="flex items-center gap-1.5 sm:gap-2 text-white/80">
               <Users size={14} className="text-[#E2B767]" />
-              <span>300+ Participants</span>
+              <span>300+ Delegates</span>
             </div>
           </div>
         </motion.div>
