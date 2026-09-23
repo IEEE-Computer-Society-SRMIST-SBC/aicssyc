@@ -33,9 +33,7 @@ export function About() {
               </h3>
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-mist leading-relaxed font-sans">
-                Hosted at SRM Institute of Science and Technology, Kattankulathur, Chennai. Bringing
-                together 300+ top minds to redefine the boundary where AI agents collide with human
-                wisdom.
+                Hosted at SRM Institute of Science and Technology, Kattankulathur, Chennai. Convening visionary delegates, researchers, and industry pioneers to explore the frontier where autonomous intelligence converges with human ingenuity.
               </p>
 
               {/* Metric Badges */}
@@ -79,10 +77,8 @@ export function About() {
               .
             </h2>
 
-            <p className="mt-4 sm:mt-6 text-sm sm:text-base text-slate-mist leading-relaxed font-sans">
-              A 4-day national summit bringing together 300+ pioneering engineers, researchers,
-              and innovators. Immerse yourself in hands-on agentic hackathons, flagship keynotes,
-              and cross-chapter collaboration across 20+ IEEE Sections.
+            <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 max-w-2xl leading-relaxed font-sans">
+              India’s premier 4-day student and young professional congress, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
             </p>
 
             {/* Stats Grid with Full Responsive Text */}
@@ -92,7 +88,7 @@ export function About() {
                   300+
                 </div>
                 <div className="mt-1 sm:mt-1.5 text-[10px] sm:text-xs font-mono font-semibold uppercase tracking-wider text-slate-mist">
-                  Participants
+                  Delegates
                 </div>
               </div>
 

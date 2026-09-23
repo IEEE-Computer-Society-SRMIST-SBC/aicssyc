@@ -23,7 +23,7 @@
         { "id": "d1-6", "time": "3:50 PM – 4:00 PM", "title": "Break (Guests Only)", "venue": "Hippocrates Hall", "kind": "Break" },
         { "id": "d1-7", "time": "4:00 PM – 4:50 PM", "title": "Keynote Session 2", "venue": "Hippocrates Hall", "kind": "Keynote" },
         { "id": "d1-8", "time": "5:00 PM – 6:00 PM", "title": "Expert Panel Discussion", "venue": "Hippocrates Hall", "kind": "Panel" },
-        { "id": "d1-9", "time": "7:30 PM – 8:30 PM", "title": "Networking Dinner", "venue": "External Participants' Venue", "kind": "Dinner" }
+        { "id": "d1-9", "time": "7:30 PM – 8:30 PM", "title": "Dinner", "venue": "External Participants' Venue", "kind": "Dinner" }
       ]
     },
     {

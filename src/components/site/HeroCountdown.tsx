@@ -126,7 +126,7 @@ export function HeroCountdown() {
         <div className="grid grid-cols-3 gap-1 pt-3 border-t border-emerald-900/40 text-[10px] sm:text-xs font-sans text-neutral-300">
           <div className="flex items-center justify-center gap-1">
             <Users className="w-3 h-3 text-amber-300" />
-            <span>300+</span>
+            <span>300+ Delegates</span>
           </div>
           <div className="flex items-center justify-center gap-1 border-x border-emerald-900/40">
             <Layers className="w-3 h-3 text-emerald-400" />
