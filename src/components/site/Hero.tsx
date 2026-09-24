@@ -25,7 +25,7 @@ export function Hero() {
       <div className="absolute bottom-1/3 right-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none glow-gold-pulse" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 sm:gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-y-0 gap-x-8 sm:gap-x-12 lg:gap-16 items-center">
           {/* Left Column Editorial Content (Ordered 1->4) */}
           <div className="flex flex-col items-start">
 
@@ -99,15 +99,20 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-            className="relative w-full mt-12 sm:mt-16 lg:mt-0 flex justify-center"
+            className="relative w-full mt-0 lg:mt-0 flex flex-col items-center lg:block"
           >
             {/* Cinematic Paper Rocket & GIC Reveal Micro-Interaction */}
-            <GICAnnouncementAnimation />
+            <div className="w-full flex justify-center mt-9 sm:mt-11 mb-9 sm:mb-11 lg:mt-0 lg:mb-0 lg:block lg:w-auto">
+              <GICAnnouncementAnimation />
+            </div>
 
-            {/* Background Soft Glow */}
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-[#E2B767]/20 to-emerald-500/20 blur-xl opacity-40 float-slow pointer-events-none" />
+            {/* Countdown card container with its background glow */}
+            <div className="relative w-full max-w-[420px] lg:max-w-none">
+              {/* Background Soft Glow */}
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-[#E2B767]/20 to-emerald-500/20 blur-xl opacity-40 float-slow pointer-events-none" />
 
-            <Countdown />
+              <Countdown />
+            </div>
           </motion.div>
         </div>
 

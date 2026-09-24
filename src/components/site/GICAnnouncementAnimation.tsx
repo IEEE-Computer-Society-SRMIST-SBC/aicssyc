@@ -80,6 +80,16 @@ export function GICAnnouncementAnimation() {
 
   const continuousAngleRef = useRef<number | null>(null);
   const lockedHeadingRef = useRef<number>(175);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth < 1024);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     // Accessibility check: immediately show final Step 1 state if user prefers reduced motion
@@ -98,19 +108,31 @@ export function GICAnnouncementAnimation() {
       setPhase("step7-flying");
 
       // Calculate curve points relative to landing anchor
-      let startX = 230;
-      let startY = -340;
+      let startX = 350;
+      let startY = -140;
 
       if (landingAnchorRef.current) {
         const rect = landingAnchorRef.current.getBoundingClientRect();
-        startX = Math.min(270, Math.max(160, window.innerWidth - rect.right - 20));
-        startY = Math.max(-380, -rect.top + 20);
+        const screenW = window.innerWidth;
+
+        if (screenW < 1024) {
+          // MOBILE: Must originate completely OFF-SCREEN from beyond the right/bottom-right edge
+          // (screenW - rect.left) + 100 guarantees that at t=0, the plane's screen X position
+          // is ~100px past the screen's right edge, never appearing inside the screen.
+          startX = (screenW - rect.left) + 100;
+          // Sweeps in from slightly above landing level
+          startY = -140;
+        } else {
+          // DESKTOP: Off-screen beyond top-right viewport corner
+          startX = Math.max(screenW - rect.right + 140, 320);
+          startY = Math.max(-420, -rect.top - 80);
+        }
       }
 
-      // Smooth sweeping trajectory curve
+      // Smooth sweeping trajectory curve from off-screen into center landing slot
       const p0 = { x: startX, y: startY };
-      const p1 = { x: startX + 15, y: startY + (-startY) * 0.45 };
-      const p2 = { x: startX * 0.4, y: 0 };
+      const p1 = { x: startX * 0.65, y: startY * 0.35 };
+      const p2 = { x: startX * 0.22, y: 10 };
       const p3 = { x: 0, y: 0 };
 
       const animateFlight = (timestamp: number) => {
@@ -203,7 +225,7 @@ export function GICAnnouncementAnimation() {
   return (
     <div
       ref={landingAnchorRef}
-      className="absolute -top-[88px] sm:-top-[92px] lg:-top-[96px] right-4 sm:right-6 lg:right-6 z-30 select-none pointer-events-none"
+      className="relative lg:absolute w-[280px] sm:w-[310px] lg:w-auto mx-auto lg:mx-0 lg:-top-[96px] lg:right-6 z-30 min-h-[60px] sm:min-h-[64px] lg:min-h-0 select-none pointer-events-none"
       style={{ perspective: 1200 }}
     >
       {/* ========================================================================= */}
@@ -211,41 +233,42 @@ export function GICAnnouncementAnimation() {
       {/* Completely plain on the exterior — matches Step 7 in the tutorial drawing  */}
       {/* ========================================================================= */}
       {(phase === "step7-flying" || phase === "step7-landing") && (
-        <div
-          className="absolute top-0 right-0 z-50 pointer-events-none"
-          style={{
-            transform: `translate3d(${rocketPos.x}px, ${rocketPos.y}px, 0) rotate(${rocketPos.angle}deg)`,
-            transformOrigin: "center center",
-            willChange: "transform",
-          }}
-        >
-          <motion.div
-            initial={{ scale: 0.85 }}
-            animate={
-              phase === "step7-landing"
-                ? {
-                  y: [0, 5, -2, 0],
-                  scaleY: [1, 0.92, 1.02, 1],
-                  scaleX: [1, 1.04, 0.99, 1],
-                }
-                : { scale: rocketPos.scale }
-            }
-            transition={
-              phase === "step7-landing"
-                ? { duration: 0.28, times: [0, 0.25, 0.65, 1], ease: "easeOut" }
-                : { duration: 0.05, ease: "linear" }
-            }
-            className="relative"
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 z-50 pointer-events-none">
+          <div
+            style={{
+              transform: `translate3d(${rocketPos.x}px, ${rocketPos.y}px, 0) rotate(${rocketPos.angle}deg)`,
+              transformOrigin: "center center",
+              willChange: "transform",
+            }}
           >
-            {/* Soft Organic Paper Drop Shadow */}
-            <div
-              className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-black/40 rounded-full blur-[3px] pointer-events-none"
-              style={{ transform: `scale(${0.8 + 0.2 * rocketPos.scale})` }}
-            />
+            <motion.div
+              initial={{ scale: 0.85 }}
+              animate={
+                phase === "step7-landing"
+                  ? {
+                    y: [0, 5, -2, 0],
+                    scaleY: [1, 0.92, 1.02, 1],
+                    scaleX: [1, 1.04, 0.99, 1],
+                  }
+                  : { scale: rocketPos.scale }
+              }
+              transition={
+                phase === "step7-landing"
+                  ? { duration: 0.28, times: [0, 0.25, 0.65, 1], ease: "easeOut" }
+                  : { duration: 0.05, ease: "linear" }
+              }
+              className="relative"
+            >
+              {/* Soft Organic Paper Drop Shadow */}
+              <div
+                className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-16 h-3 bg-black/40 rounded-full blur-[3px] pointer-events-none"
+                style={{ transform: `scale(${0.8 + 0.2 * rocketPos.scale})` }}
+              />
 
-            {/* Plain Step 7 Paper Airplane SVG */}
-            <PlainStep7AirplaneSVG filterId={filterId} />
-          </motion.div>
+              {/* Plain Step 7 Paper Airplane SVG */}
+              <PlainStep7AirplaneSVG filterId={filterId} />
+            </motion.div>
+          </div>
         </div>
       )}
 
@@ -255,20 +278,23 @@ export function GICAnnouncementAnimation() {
       {/* ========================================================================= */}
       {phase === "step6-wings" && (
         <div
-          className="absolute top-0 right-0 z-40 pointer-events-none"
-          style={{
-            transform: `translate3d(0px, 0px, 0) rotate(${lockedHeadingRef.current}deg)`,
-            transformOrigin: "center center",
-            perspective: 900,
-          }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 z-40 pointer-events-none"
+          style={{ perspective: 900 }}
         >
-          <motion.div
-            initial={{ rotateX: 30, scale: 1 }}
-            animate={{ rotateX: 0, scale: 1.04 }}
-            transition={{ duration: 0.24, ease: "easeOut" }}
+          <div
+            style={{
+              transform: `rotate(${lockedHeadingRef.current}deg)`,
+              transformOrigin: "center center",
+            }}
           >
-            <PlainStep7AirplaneSVG filterId={filterId} isWingsLifting />
-          </motion.div>
+            <motion.div
+              initial={{ rotateX: 30, scale: 1 }}
+              animate={{ rotateX: 0, scale: 1.04 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+            >
+              <PlainStep7AirplaneSVG filterId={filterId} isWingsLifting />
+            </motion.div>
+          </div>
         </div>
       )}
 
@@ -279,17 +305,14 @@ export function GICAnnouncementAnimation() {
       {/* ========================================================================= */}
       {phase === "step4-spine" && (
         <div
-          className="absolute top-0 right-0 z-40 pointer-events-none"
-          style={{
-            transform: `translate3d(0px, 0px, 0)`,
-            transformOrigin: "center right",
-            perspective: 1000,
-          }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 z-40 pointer-events-none"
+          style={{ perspective: 1000 }}
         >
           <motion.div
             initial={{ rotateY: 45, scale: 1 }}
             animate={{ rotateY: 0, scale: 1.06 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
+            style={{ transformOrigin: "center center" }}
           >
             <Step3FoldedSheetSVG filterId={filterId} />
           </motion.div>
@@ -303,17 +326,14 @@ export function GICAnnouncementAnimation() {
       {/* ========================================================================= */}
       {phase === "step3-flaps" && (
         <div
-          className="absolute top-0 right-0 z-40 pointer-events-none"
-          style={{
-            transform: `translate3d(0px, 0px, 0)`,
-            transformOrigin: "center right",
-            perspective: 1000,
-          }}
+          className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 z-40 pointer-events-none"
+          style={{ perspective: 1000 }}
         >
           <motion.div
             initial={{ scale: 1.06 }}
             animate={{ scale: 1.08 }}
             transition={{ duration: 0.25 }}
+            style={{ transformOrigin: "center center" }}
           >
             <Step2FlapsOpeningSVG filterId={filterId} />
           </motion.div>
@@ -326,55 +346,57 @@ export function GICAnnouncementAnimation() {
       {/* into the completely flat rectangular paper sheet of Step 1               */}
       {/* ========================================================================= */}
       {phase === "step2-corners" && (
-        <motion.div
-          initial={{ width: 120, height: 60, opacity: 1 }}
-          animate={{
-            width: [120, 185, 255],
-            height: [60, 62, 64],
-          }}
-          transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute top-0 right-0 z-40 overflow-hidden border-2 border-[#07090D] shadow-[3px_3px_0px_0px_#07090D] p-1.5 flex items-center"
-          style={{
-            transformStyle: "preserve-3d",
-            backgroundColor: GIC_THEME.paper,
-          }}
-        >
-          {/* Authentic Archival Paper Texture on the unfolding sheet */}
-          <div
-            className="absolute inset-0 opacity-12 pointer-events-none"
-            style={{
-              backgroundImage: "radial-gradient(#07090D 1px, transparent 1px)",
-              backgroundSize: "12px 12px",
-            }}
-          />
-
-          {/* Left Corner Triangle Peeling Open Outward */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0 z-40">
           <motion.div
-            initial={{ rotateZ: 0, rotateX: 0 }}
-            animate={{ rotateZ: -120, rotateX: -160 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="absolute top-0 left-0 w-14 h-10 border-r border-b border-[#07090D]/40 origin-top-left shadow-sm"
-            style={{
-              backgroundColor: GIC_THEME.paperDark,
-              transformStyle: "preserve-3d",
+            initial={{ width: 128, height: 60, opacity: 1 }}
+            animate={{
+              width: [128, 195, 275],
+              height: [60, 62, 64],
             }}
-          />
-
-          {/* Right Corner Triangle Peeling Open Outward */}
-          <motion.div
-            initial={{ rotateZ: 0, rotateX: 0 }}
-            animate={{ rotateZ: 120, rotateX: 160 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="absolute top-0 right-0 w-14 h-10 border-l border-b border-[#07090D]/40 origin-top-right shadow-sm"
+            transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden border-2 border-[#07090D] shadow-[3px_3px_0px_0px_#07090D] p-1.5 flex items-center"
             style={{
-              backgroundColor: GIC_THEME.paperDark,
               transformStyle: "preserve-3d",
+              backgroundColor: GIC_THEME.paper,
             }}
-          />
+          >
+            {/* Authentic Archival Paper Texture on the unfolding sheet */}
+            <div
+              className="absolute inset-0 opacity-12 pointer-events-none"
+              style={{
+                backgroundImage: "radial-gradient(#07090D 1px, transparent 1px)",
+                backgroundSize: "12px 12px",
+              }}
+            />
 
-          {/* Vertical center crease line from Step 1 */}
-          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] bg-[#07090D]/30" />
-        </motion.div>
+            {/* Left Corner Triangle Peeling Open Outward */}
+            <motion.div
+              initial={{ rotateZ: 0, rotateX: 0 }}
+              animate={{ rotateZ: -120, rotateX: -160 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="absolute top-0 left-0 w-14 h-10 border-r border-b border-[#07090D]/40 origin-top-left shadow-sm"
+              style={{
+                backgroundColor: GIC_THEME.paperDark,
+                transformStyle: "preserve-3d",
+              }}
+            />
+
+            {/* Right Corner Triangle Peeling Open Outward */}
+            <motion.div
+              initial={{ rotateZ: 0, rotateX: 0 }}
+              animate={{ rotateZ: 120, rotateX: 160 }}
+              transition={{ duration: 0.25, ease: "easeInOut" }}
+              className="absolute top-0 right-0 w-14 h-10 border-l border-b border-[#07090D]/40 origin-top-right shadow-sm"
+              style={{
+                backgroundColor: GIC_THEME.paperDark,
+                transformStyle: "preserve-3d",
+              }}
+            />
+
+            {/* Vertical center crease line from Step 1 */}
+            <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1px] bg-[#07090D]/30" />
+          </motion.div>
+        </div>
       )}
 
       {/* ========================================================================= */}
@@ -383,15 +405,23 @@ export function GICAnnouncementAnimation() {
       {/* ========================================================================= */}
       {phase === "step1-revealed" && (
         <motion.div
-          animate={{
-            y: [0, -6, 0],
-            rotate: [-0.3, 0.4, -0.3],
-          }}
-          transition={{
-            duration: 5.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          animate={
+            isMobile
+              ? { y: 0, rotate: 0 }
+              : {
+                  y: [0, -6, 0],
+                  rotate: [-0.3, 0.4, -0.3],
+                }
+          }
+          transition={
+            isMobile
+              ? { duration: 0.2 }
+              : {
+                  duration: 5.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }
+          }
           className="relative pointer-events-auto"
         >
           {/* Minimal AICSSYC Subtle Glowing Border Frame */}
