@@ -29,7 +29,7 @@ export const sneakPeeks: SneakPeekItem[] = [
     id: "mahabalipuram",
     badge: "Exclusive Excursion",
     badgeColor: "bg-sky-500/10 text-sky-600 dark:text-sky-400 border-sky-500/20",
-    title: "The Heritage Expedition — UNESCO Marvels of Mahabalipuram",
+    title: "The Heritage Visit — UNESCO Marvels of Mahabalipuram",
     tagline: "Where 7th-century heritage meets modern innovation.",
     description:
       "Step away from the screens for a guided coastal excursion through the ancient rock-cut marvels and sea breezes of Mamallapuram.",

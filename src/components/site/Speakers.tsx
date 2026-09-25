@@ -15,6 +15,7 @@ const photoMap: Record<string, string> = {
   mohamed: "/mohamed.jpeg",
   himani: "/himani.jpeg",
   koteeswaran: "/koteeswaran.jpg",
+  suceendran: "/suceendran.jpg",
   balaji: "/balaji.png",
 };
 
@@ -40,6 +41,7 @@ const displayOrder = [
   "mohamed",
   "koteeswaran",
   "himani",
+  "suceendran",
   "shivam",
   "utkarsh",
   "nikky",
