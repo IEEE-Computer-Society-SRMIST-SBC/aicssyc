@@ -4,6 +4,7 @@ import speakersData from "@/data/speakers.json";
 
 const photoMap: Record<string, string> = {
   washizaki: "/washizaki.jpeg",
+  rebekah: "/rebekah.png",
   andrew: "/andrew.jpeg",
   eric: "/eric.jpeg",
   biswarup: "/biswarup.jpeg",
@@ -34,6 +35,7 @@ const speakerPool = [
 
 const displayOrder = [
   "washizaki",
+  "rebekah",
   "eric",
   "andrew",
   "biswarup",
