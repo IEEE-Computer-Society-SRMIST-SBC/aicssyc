@@ -11,8 +11,88 @@ type Partner = {
 
 const partners: Partner[] = partnersData.partners as Partner[];
 
+const UNTIERED = "Partners";
+
+/**
+ * Group partners by tier, preserving the order tiers first appear in
+ * partners.json — so the running order is controlled from the data, not here.
+ */
+function groupByTier(list: Partner[]) {
+  const groups = new Map<string, Partner[]>();
+  for (const p of list) {
+    const tier = p.tier?.trim() || UNTIERED;
+    const bucket = groups.get(tier);
+    if (bucket) bucket.push(p);
+    else groups.set(tier, [p]);
+  }
+  return [...groups.entries()];
+}
+
+/**
+ * One sponsor tile: a uniform ivory plate with the logo contained inside it.
+ *
+ * The plate is deliberate rather than decorative — the supplied logo files
+ * carry baked-in white backgrounds (eqvento.png has no alpha channel at all),
+ * so putting every mark on the same plate reads as a design choice instead of
+ * two mismatched white rectangles. Swap in transparent assets and this still
+ * works; drop `bg-ivory` at that point if you'd rather they float.
+ *
+ * Fixing the plate size also normalises optical weight: a 1:1 mark and a
+ * 2.4:1 wordmark end up carrying the same visual mass.
+ */
+function SponsorTile({ partner }: { partner: Partner }) {
+  const inner = (
+    <>
+      <div className="flex h-24 w-44 items-center justify-center rounded-xl bg-ivory p-4 shadow-[0_8px_24px_rgba(0,0,0,0.45)] ring-1 ring-ivory/10 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_14px_32px_rgba(0,0,0,0.55)] group-hover:ring-gold-bright/60 sm:h-28 sm:w-52">
+        {partner.logo ? (
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            loading="lazy"
+            className="max-h-full max-w-full object-contain"
+          />
+        ) : (
+          <span className="font-display text-3xl text-[#07090D]/40">{partner.name[0]}</span>
+        )}
+      </div>
+      <p className="mt-3 text-center font-display text-sm font-semibold tracking-tight text-ivory/90 transition-colors group-hover:text-ivory">
+        {partner.name}
+      </p>
+      {partner.tier && (
+        <p className="mt-1 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-gold-bright/80">
+          {partner.tier}
+        </p>
+      )}
+    </>
+  );
+
+  // The blurb stays available as a native tooltip rather than as a permanent
+  // line only some sponsors have — keeps the wall visually even.
+  const title = partner.description;
+
+  return partner.url ? (
+    <a
+      href={partner.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={title}
+      className="group flex flex-col items-center rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-gold-bright focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+    >
+      {inner}
+    </a>
+  ) : (
+    <div title={title} className="group flex flex-col items-center">
+      {inner}
+    </div>
+  );
+}
+
 export function Sponsors() {
   const hasPartners = partners.length > 0;
+  // Tier grouping drives running order only: sponsors sharing a tier sit
+  // together in the wall. Separate tier header rows read worse here — with one
+  // sponsor per tier they produced a tall stack of single-logo rows.
+  const ordered = groupByTier(partners).flatMap(([, group]) => group);
 
   return (
     <section id="sponsors" className="relative scroll-mt-24 sm:scroll-mt-32 py-20 sm:py-28 overflow-hidden bg-transparent">
