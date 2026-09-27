@@ -90,7 +90,7 @@ export function Location() {
                   title="By Intercity / Outstation Bus"
                   desc={
                     <span>
-                      Most government (SETC, TNSTC, KSRTC) and private omni-buses traversing GST Road (NH 45) offer direct boarding and drop-off right in front of the <strong className="text-ivory font-medium">SRM University / Potheri</strong> stop. If your bus terminates at <strong className="text-ivory font-medium">Kalaignar Centenary Bus Terminus (KCBT / Kilambakkam)</strong>, the campus is just 10 km away (~15–20 mins by cab, auto, or MTC bus).
+                      Most government (SETC, TNSTC, KSRTC) and private omni-buses traversing GST Road (NH 45) offer direct boarding and drop-off right in front of the <strong className="text-ivory font-medium">SRM University / Potheri</strong> stop. If your bus terminates at <strong className="text-ivory font-medium">Kalaignar Centenary Bus Terminus (KCBT / Kilambakkam)</strong>, the campus is approximately 13–15 km away (~20–25 mins by cab, auto, or MTC bus).
                     </span>
                   }
                 />
@@ -168,13 +168,13 @@ export function Location() {
                   title="By Intercity / Outstation Bus"
                   desc={
                     <span>
-                      Most state (SETC, TNSTC, KSRTC) and private omni-buses passing through GST Road (NH 45) provide direct passenger drops at the <strong className="text-ivory font-medium">SRM University / Potheri</strong> highway stop. If arriving at <strong className="text-ivory font-medium">KCBT (Kilambakkam Bus Terminus)</strong>, SRM IST is just 10 km away (~15–20 mins via auto, taxi, or local MTC bus).
+                      Most state (SETC, TNSTC, KSRTC) and private omni-buses passing through GST Road (NH 45) provide direct passenger drops at the <strong className="text-ivory font-medium">SRM University / Potheri</strong> highway stop. If arriving at <strong className="text-ivory font-medium">KCBT (Kilambakkam Bus Terminus)</strong>, SRM IST is approximately 13–15 km away (~20–25 mins via auto, taxi, or local MTC bus).
                     </span>
                   }
                 />
                 <div className="mt-3 sm:mt-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-ivory/5 border border-ivory/10 text-xs text-ivory/70">
                   <Clock className="w-3.5 h-3.5 text-amber-300" />
-                  <span>Est. Travel Time: 15–20 mins from KCBT • Direct drop on GST Road</span>
+                  <span>Est. Travel Time: 20–25 mins from KCBT (approx. 13–15 km) • Direct drop on GST Road</span>
                 </div>
               </div>
             </motion.div>

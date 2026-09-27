@@ -46,7 +46,7 @@ export function Hero() {
               <span className="text-white/30">•</span>
               <span className="text-[#E2B767] font-bold uppercase">ALL INDIA SYP CONGRESS</span>
               <span className="text-white/30">•</span>
-              <span className="text-emerald-400 font-bold uppercase">INTERNATIONAL EVENT</span>
+              <span className="text-emerald-400 font-bold uppercase">NATIONAL FLAGSHIP</span>
             </motion.div>
 
             {/* 2. Main Editorial Headline */}
@@ -157,7 +157,7 @@ export function Hero() {
 
             <div className="flex items-center gap-1.5 sm:gap-2 text-emerald-400">
               <Globe size={14} className="text-emerald-400" />
-              <span>International Event</span>
+              <span>National Flagship</span>
             </div>
           </div>
         </motion.div>

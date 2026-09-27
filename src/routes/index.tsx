@@ -19,9 +19,9 @@ import { Footer } from "@/components/site/Footer";
 
 import faqs from "@/data/faqs.json";
 
-const title = "All India Computer Society Student & Young Professional Congress 2026 — International Event";
+const title = "All India Computer Society Student & Young Professional Congress 2026 — National Flagship";
 const description =
-  "AICSSYC 2026: IEEE Computer Society SYP Congress & Premier International Event at SRM IST, Kattankulathur. Theme: Where Agents Meet Humans. 8–11 October 2026.";
+  "AICSSYC 2026: IEEE Computer Society SYP Congress & Premier National Flagship Event at SRM IST, Kattankulathur. Theme: Where Agents Meet Humans. 8–11 October 2026.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
