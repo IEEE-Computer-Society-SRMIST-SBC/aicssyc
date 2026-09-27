@@ -24,7 +24,7 @@ export function About() {
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-gold-glow/20 rounded-full blur-3xl" />
 
               <span className="text-[11px] sm:text-xs font-mono tracking-widest text-emerald-glow uppercase font-semibold flex items-center gap-2 mb-3 sm:mb-4">
-                <Sparkles size={13} /> ABOUT AICSSYC 2026 • INTERNATIONAL EVENT
+                <Sparkles size={13} /> ABOUT AICSSYC 2026 • ALL INDIA CONGRESS
               </span>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight text-ivory">
@@ -33,7 +33,7 @@ export function About() {
               </h3>
 
               <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-400">
-                <Globe size={12} /> Premier International Event
+                <Globe size={12} /> Premier National Flagship
               </div>
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-mist leading-relaxed font-sans">
@@ -47,8 +47,8 @@ export function About() {
                     <Globe size={18} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-ivory">International Event</div>
-                    <div className="text-[11px] text-slate-mist">20+ IEEE Sections & Global Leaders</div>
+                    <div className="text-xs font-bold text-ivory">Pan-India Reach</div>
+                    <div className="text-[11px] text-slate-mist">20+ IEEE Sections Across India</div>
                   </div>
                 </div>
 
@@ -82,7 +82,7 @@ export function About() {
             </h2>
 
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 max-w-2xl leading-relaxed font-sans">
-              India’s premier 4-day student and young professional congress and flagship international event, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
+              Step into four immersive days of frontier engineering, cross-border dialogue, and technical mastery. As India’s flagship international congress for emerging technologists and young professionals, AICSSYC 2026 brings together 300+ visionaries representing over 20 IEEE Sections nationwide. Engage directly in hands-on agentic workshops, learn from pioneering keynote speakers, and collaborate across an elite national network where human ingenuity meets intelligent systems.
             </p>
 
             {/* Stats Grid with Full Responsive Text */}

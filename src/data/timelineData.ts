@@ -80,12 +80,6 @@ export const timelineData: DaySchedule[] = [
         category: "general"
       },
       {
-        time: "8:00 AM",
-        activity: "Arrival & Reporting – All Team Members & Participants",
-        venue: "Hippocrates Hall",
-        category: "general"
-      },
-      {
         time: "8:15 AM – 8:30 AM",
         activity: "Lucky Draw for Participants",
         venue: "Hippocrates Hall",
@@ -202,7 +196,7 @@ export const timelineData: DaySchedule[] = [
       {
         time: "9:00 AM – 10:15 AM",
         activity: "Technical Talk: SPACECRAFT MISSION DEFINITION (The Journey from Mission Concept to Orbit)",
-        speaker: "Himani Saini",
+        speaker: "Dr. Himani Saini",
         venue: "Hippocrates Hall",
         category: "keynote"
       },
@@ -214,14 +208,14 @@ export const timelineData: DaySchedule[] = [
       {
         time: "10:30 AM – 11:30 AM",
         activity: "Technical Talk: The Role of Decision Intelligence in the Age of AI",
-        speaker: "Balaji Sir",
+        speaker: "Mr. Balaji Palanidurai",
         venue: "Hippocrates Hall",
         category: "keynote"
       },
       {
         time: "11:30 AM – 1:00 PM",
         activity: "Global Incubation Committee (GIC) – Startup Summit",
-        speaker: "Nikky Kumar Jha",
+        speaker: "Mr. Nikky Kumar Jha",
         venue: "Hippocrates Hall",
         category: "workshop",
         tag: "Innovation"

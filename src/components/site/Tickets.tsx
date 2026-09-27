@@ -73,10 +73,10 @@ export function Tickets() {
             </div>
             <div>
               <div className="text-xs sm:text-sm font-semibold text-ivory">
-                Hostel Accommodation Add-On
+                Hotel Accommodation Add-On
               </div>
               <div className="text-[11px] sm:text-xs text-slate-mist">
-                Include 4-night stay on SRMIST Campus (+ ₹2,000)
+                Include 4-night stay Near SRMIST Campus (+ ₹2,000)
               </div>
             </div>
           </div>
@@ -150,7 +150,7 @@ export function Tickets() {
                     {accommodation && (
                       <li className="flex items-start gap-2.5 text-xs text-emerald-glow leading-relaxed font-medium">
                         <Check size={14} className="text-emerald-glow mt-0.5 shrink-0" />
-                        <span>4-Night SRMIST Hostel Accommodation</span>
+                        <span>4-Night Hotel Accommodation Near SRMIST Campus</span>
                       </li>
                     )}
                   </ul>

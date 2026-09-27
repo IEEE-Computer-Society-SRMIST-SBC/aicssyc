@@ -46,7 +46,7 @@ export function FeaturedEvents() {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/5 text-xs font-mono text-emerald-400 uppercase tracking-widest mb-4"
           >
             <Sparkles size={14} />
-            <span>Flagship &amp; International Initiatives</span>
+            <span>Flagship &amp; Signature Initiatives</span>
           </motion.div>
 
           <motion.h2
@@ -60,7 +60,7 @@ export function FeaturedEvents() {
             <span className="font-editorial italic font-normal text-emerald-400">
               Highlights
             </span>{" "}
-            &amp; International Events
+            &amp; Signature Initiatives
           </motion.h2>
 
           <motion.p
@@ -71,7 +71,7 @@ export function FeaturedEvents() {
             className="mt-4 text-sm sm:text-lg text-white/60 font-sans max-w-2xl mx-auto leading-relaxed"
           >
             Beyond keynotes, immerse yourself in our flagship competitions, incubation summits, and
-            international event opportunities shaping the future of computing.
+            signature opportunities shaping the future of computing.
           </motion.p>
         </div>
 
