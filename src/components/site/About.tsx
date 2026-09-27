@@ -24,13 +24,17 @@ export function About() {
               <div className="absolute -top-12 -right-12 w-40 h-40 bg-gold-glow/20 rounded-full blur-3xl" />
 
               <span className="text-[11px] sm:text-xs font-mono tracking-widest text-emerald-glow uppercase font-semibold flex items-center gap-2 mb-3 sm:mb-4">
-                <Sparkles size={13} /> ABOUT AICSSYC 2026
+                <Sparkles size={13} /> ABOUT AICSSYC 2026 • INTERNATIONAL EVENT
               </span>
 
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-display leading-tight text-ivory">
                 India's Flagship <br />
                 <span className="text-gradient-gold">IEEE CS SYP Congress</span>
               </h3>
+
+              <div className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-[11px] font-mono font-semibold uppercase tracking-wider text-emerald-400">
+                <Globe size={12} /> Premier International Event
+              </div>
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-slate-mist leading-relaxed font-sans">
                 Hosted at SRM Institute of Science and Technology, Kattankulathur, Chennai. Convening visionary delegates, researchers, and industry pioneers to explore the frontier where autonomous intelligence converges with human ingenuity.
@@ -43,8 +47,8 @@ export function About() {
                     <Globe size={18} />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-ivory">Pan-India</div>
-                    <div className="text-[11px] text-slate-mist">20+ IEEE Sections</div>
+                    <div className="text-xs font-bold text-ivory">International Event</div>
+                    <div className="text-[11px] text-slate-mist">20+ IEEE Sections & Global Leaders</div>
                   </div>
                 </div>
 
@@ -78,7 +82,7 @@ export function About() {
             </h2>
 
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 max-w-2xl leading-relaxed font-sans">
-              India’s premier 4-day student and young professional congress, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
+              India’s premier 4-day student and young professional congress and flagship international event, convening over 300 distinguished delegates, researchers, and technical visionaries across 20+ IEEE Sections. Engage in cutting-edge agentic masterclasses, visionary keynote addresses, and high-impact nationwide collaboration.
             </p>
 
             {/* Stats Grid with Full Responsive Text */}
