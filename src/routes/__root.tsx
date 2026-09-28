@@ -87,7 +87,7 @@ const eventJsonLd = {
   image: ["https://aicssyc.ieeecssrm.in/banner.jpg", "https://aicssyc.ieeecssrm.in/logo.png"],
   location: {
     "@type": "Place",
-    name: "Dr. TP Ganesan Auditorium, SRM Institute of Science and Technology",
+    name: "Dr. T.P. Ganesan Auditorium, SRM Institute of Science and Technology",
     address: {
       "@type": "PostalAddress",
       streetAddress: "SRM Nagar, Kattankulathur",

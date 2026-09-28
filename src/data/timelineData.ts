@@ -20,38 +20,38 @@ export const timelineData: DaySchedule[] = [
     day: "Day 1",
     date: "Thursday, 8th October 2026",
     title: "Inauguration & Visionary Keynotes",
-    venueHighlight: "T.P Ganesan Auditorium",
+    venueHighlight: "Dr. T.P. Ganesan Auditorium",
     schedule: [
       {
         time: "2:00 PM",
         activity: "Guest Arrival",
-        venue: "T.P Ganesan Auditorium",
+        venue: "Dr. T.P. Ganesan Auditorium",
         category: "general"
       },
       {
         time: "2:30 PM – 3:30 PM",
         activity: "Inauguration Ceremony",
-        venue: "T.P Ganesan Auditorium",
+        venue: "Dr. T.P. Ganesan Auditorium",
         category: "general"
       },
       {
         time: "3:30 PM – 4:30 PM",
         activity: "Keynote Session 1",
         speaker: "Mr. Shivam Shivam",
-        venue: "T.P Ganesan Auditorium",
+        venue: "Dr. T.P. Ganesan Auditorium",
         category: "keynote"
       },
       {
         time: "4:30 PM – 4:40 PM",
         activity: "Break (Guests Only) & Lucky Draw",
-        venue: "T.P Ganesan Auditorium",
+        venue: "Dr. T.P. Ganesan Auditorium",
         category: "general"
       },
       {
         time: "5:00 PM – 6:30 PM",
-        activity: "Expert Panel Discussion: 'AI empowering our future or weakening our thinking'",
+        activity: "Expert Panel Discussion: 'AI: Empowering Our Future or Weakening Our Thinking'",
         speaker: "Mr. Shivam Shivam",
-        venue: "T.P Ganesan Auditorium",
+        venue: "Dr. T.P. Ganesan Auditorium",
         category: "panel"
       },
       {

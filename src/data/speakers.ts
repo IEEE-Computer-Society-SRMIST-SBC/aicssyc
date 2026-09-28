@@ -1,0 +1,200 @@
+export interface Speaker {
+  id: string;
+  name: string;
+  role: string;
+  affiliation: string;
+  image?: string;
+  tag?: string;
+  initials?: string;
+  linkedin?: string;
+}
+
+export const speakersData: Speaker[] = [
+  // ROW 1: Global Leadership & Keynotes
+  {
+    id: "hironori-washizaki",
+    name: "Mr. Hironori Washizaki",
+    role: "Professor, Waseda University",
+    affiliation: "2025 President, IEEE Computer Society",
+    tag: "Global President",
+    image: "/washizaki.jpeg",
+    initials: "HW",
+    linkedin: "https://www.linkedin.com/in/hironori-washizaki-aa085184/"
+  },
+  {
+    id: "andrew-seely",
+    name: "Dr. Andrew Seely",
+    role: "Vice President, CS Membership & Geographic Activities",
+    affiliation: "IEEE Computer Society",
+    tag: "Global Leadership",
+    image: "/andrew.jpeg",
+    initials: "AS",
+    linkedin: "https://www.linkedin.com/in/andrewseelytampa/"
+  },
+  {
+    id: "rebekah-stacha",
+    name: "Rebekah Stacha",
+    role: "Executive Director",
+    affiliation: "IEEE Computer Society",
+    tag: "Executive Leadership",
+    image: "/rebekah.png",
+    initials: "RS",
+    linkedin: "https://www.linkedin.com/in/rstacha"
+  },
+  {
+    id: "eric-berkowitz",
+    name: "Mr. Eric Berkowitz",
+    role: "Director of Membership",
+    affiliation: "IEEE Computer Society",
+    tag: "Global Operations",
+    image: "/eric.jpeg",
+    initials: "EB",
+    linkedin: "https://www.linkedin.com/in/ericberkowitz/"
+  },
+  {
+    id: "shivam-shivam",
+    name: "Mr. Shivam Shivam",
+    role: "Director, Tech Innovation Lab",
+    affiliation: "ZS Associates",
+    tag: "Keynote Speaker",
+    image: "/shivam.png",
+    initials: "SS",
+    linkedin: "https://www.linkedin.com/in/shivamshivam96/"
+  },
+  {
+    id: "utkarsh-siddharth",
+    name: "Mr. Utkarsh Siddharth",
+    role: "Co-Founder & CTO",
+    affiliation: "Equartis Technologies",
+    tag: "Industry Pioneer",
+    image: "/utkarsh.jpeg",
+    initials: "US",
+    linkedin: "https://www.linkedin.com/in/utkarsh-siddharth-5bb11b126/"
+  },
+
+  // ROW 2: Research, Industry & Regional Leadership
+  {
+    id: "nikky-kumar-jha",
+    name: "Mr. Nikky Kumar Jha",
+    role: "Founder & CEO",
+    affiliation: "Saptkrishi (Sabjikothi)",
+    tag: "Startup & Innovation",
+    image: "/nikky.jpeg",
+    initials: "NJ",
+    linkedin: "https://www.linkedin.com/in/nikkykumarjha/"
+  },
+  {
+    id: "rawidean-kassim",
+    name: "Md Rawidean Kassim",
+    role: "Chair & Geographic Activities Committee",
+    affiliation: "IEEE Computer Society",
+    tag: "IEEE Leadership",
+    image: "/mohamed.jpeg",
+    initials: "MR",
+    linkedin: "https://www.linkedin.com/in/mohamed-rawidean-mohd-kassim-977580200/"
+  },
+  {
+    id: "himani-saini",
+    name: "Dr. Himani Saini",
+    role: "Senior Scientist",
+    affiliation: "UR Rao Satellite Centre, ISRO",
+    tag: "Space & AI Keynote",
+    image: "/himani.jpeg",
+    initials: "HS",
+    linkedin: "https://www.linkedin.com/in/dr-himani-saini-b4950614/"
+  },
+  {
+    id: "biswarup-ray",
+    name: "Mr. Biswarup Ray",
+    role: "Chair, SYP IEEE CS | Lead AI Engineer",
+    affiliation: "Bayer",
+    tag: "SYP Leadership",
+    image: "/biswarup.jpeg",
+    initials: "BR",
+    linkedin: "https://www.linkedin.com/in/biswarup-ray-915726173/"
+  },
+  {
+    id: "sarun-natarajan",
+    name: "Mr. Sarun Natarajan",
+    role: "IEEE ECSP Chair",
+    affiliation: "AI Architect for Life Science",
+    tag: "AI Architecture",
+    image: "/sarun.png",
+    initials: "SN",
+    linkedin: "https://www.linkedin.com/in/sarun-natarajan/"
+  },
+  {
+    id: "km-suceendran",
+    name: "Dr. K. M. Suceendran",
+    role: "Head, Academic Alliances Group",
+    affiliation: "Tata Consultancy Services",
+    tag: "Industry Leader",
+    image: "/suceendran.jpg",
+    initials: "KS",
+    linkedin: "https://www.linkedin.com/in/kmsuceendran/"
+  },
+
+  // ROW 3: Academic Visionaries & Section Leadership
+  {
+    id: "revathi-venkataraman",
+    name: "Dr. Revathi Venkataraman",
+    role: "Professor & Chairperson (School of Computing)",
+    affiliation: "SRM Institute of Science and Technology",
+    tag: "SRMIST Leadership",
+    image: "/revathi.png",
+    initials: "RV",
+    linkedin: "https://www.linkedin.com/in/revathi-venkataraman-6345a764/"
+  },
+  {
+    id: "balaji-palanidurai",
+    name: "Mr. Balaji Palanidurai",
+    role: "Founder",
+    affiliation: "Happiverse LLP",
+    tag: "Industry Keynote",
+    image: "/balaji.png",
+    initials: "BP",
+    linkedin: "https://www.linkedin.com/in/bpalanidurai/"
+  },
+  {
+    id: "mini-ulanat",
+    name: "Dr. Mini Ulanat",
+    role: "R10 CS Regional Coordinator 1 | Chair",
+    affiliation: "TEMS IEEE Kerala Section",
+    tag: "IEEE R10 Leadership",
+    image: "/mini.jpeg",
+    initials: "MU",
+    linkedin: "https://www.linkedin.com/in/mini-ulanat/"
+  },
+  {
+    id: "maya-jagan",
+    name: "Mrs. Maya Jagan",
+    role: "Principal",
+    affiliation: "Lake Mount Public School",
+    tag: "Distinguished Guest",
+    image: "/maya.png",
+    initials: "MJ",
+    linkedin: "https://www.linkedin.com/"
+  },
+  {
+    id: "p-sakthivel",
+    name: "Dr. P. Sakthivel",
+    role: "Chairman",
+    affiliation: "IEEE Madras Section",
+    tag: "Section Leadership",
+    image: "/sakthivel.png",
+    initials: "PS",
+    linkedin: "https://www.linkedin.com/"
+  },
+  {
+    id: "s-koteeswaran",
+    name: "Dr. S. Koteeswaran",
+    role: "Chairman",
+    affiliation: "IEEE CS – Madras Section",
+    tag: "Section Leadership",
+    image: "/koteeswaran.jpg",
+    initials: "SK",
+    linkedin: "https://www.linkedin.com/"
+  }
+];
+
+export default speakersData;

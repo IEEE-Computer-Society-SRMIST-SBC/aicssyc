@@ -1,71 +1,63 @@
-import { motion } from "framer-motion";
-import { Linkedin, Sparkles } from "lucide-react";
-import speakersData from "@/data/speakers.json";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Linkedin, Sparkles, Layers } from "lucide-react";
+import { speakersData, Speaker } from "@/data/speakers";
 
-const photoMap: Record<string, string> = {
-  washizaki: "/washizaki.jpeg",
-  rebekah: "/rebekah.png",
-  andrew: "/andrew.jpeg",
-  eric: "/eric.jpeg",
-  biswarup: "/biswarup.jpeg",
-  utkarsh: "/utkarsh.jpeg",
-  shivam: "/shivam.jpeg",
-  nikky: "/nikky.jpeg",
-  sarun: "/sarun.png",
-  mini: "/mini.jpeg",
-  mohamed: "/mohamed.jpeg",
-  himani: "/himani.jpeg",
-  koteeswaran: "/koteeswaran.jpg",
-  suceendran: "/suceendran.jpg",
-  balaji: "/balaji.png",
-};
+export type { Speaker };
+export { speakersData };
 
-const featured = speakersData.featured;
-const speakerPool = [
+interface SpeakerCategory {
+  id: string;
+  title: string;
+  subtitle: string;
+  tagline: string;
+  speakers: Speaker[];
+}
+
+export const speakerCategories: SpeakerCategory[] = [
   {
-    name: featured.name,
-    org: featured.role,
-    focus: featured.topic,
-    initials: featured.initials,
-    photo: featured.photo,
-    linkedin: featured.linkedin,
+    id: "global",
+    title: "Global Leadership & Keynotes",
+    subtitle: "Row 1 • International Leaders & Keynotes",
+    tagline: "Visionary leadership from the global stage of IEEE and cutting-edge tech industry",
+    speakers: speakersData.slice(0, 6),
   },
-  ...speakersData.speakers,
+  {
+    id: "research",
+    title: "Research, Industry & Regional Leadership",
+    subtitle: "Row 2 • Founders, Scientists & Technical Visionaries",
+    tagline: "Trailblazing innovators across space exploration, life sciences, and startups",
+    speakers: speakersData.slice(6, 12),
+  },
+  {
+    id: "academic",
+    title: "Academic Visionaries & Section Leadership",
+    subtitle: "Row 3 • Academic Chairs & Section Presidents",
+    tagline: "Distinguished academic deans, principals, and IEEE regional section heads",
+    speakers: speakersData.slice(12, 18),
+  },
 ];
-
-const displayOrder = [
-  "washizaki",
-  "rebekah",
-  "eric",
-  "andrew",
-  "biswarup",
-  "mini",
-  "mohamed",
-  "koteeswaran",
-  "himani",
-  "suceendran",
-  "shivam",
-  "utkarsh",
-  "nikky",
-  "sarun",
-  "balaji",
-];
-const allSpeakers = displayOrder
-  .map((key) => speakerPool.find((s) => s.photo === key))
-  .filter((s): s is (typeof speakerPool)[number] => Boolean(s));
 
 export function Speakers() {
+  const [activeTab, setActiveTab] = useState<string>("all");
+
+  const displayedCategories =
+    activeTab === "all"
+      ? speakerCategories
+      : speakerCategories.filter((cat) => cat.id === activeTab);
+
   return (
     <section
       id="speakers"
       className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory"
     >
-      {/* Background glow (Constrained for mobile) */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[600px] lg:w-[700px] h-[320px] sm:h-[600px] lg:h-[700px] bg-emerald-500/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
+      {/* Background glow effects */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] lg:w-[850px] h-[350px] sm:h-[650px] lg:h-[850px] bg-emerald-500/10 rounded-full blur-[110px] sm:blur-[180px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="container-editorial relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 lg:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +66,7 @@ export function Speakers() {
           >
             <Sparkles size={13} />
             <span>
-              KEYNOTE SPEAKERS <span className="text-[#E2B767]">&amp;</span> LUMINARIES
+              OFFICIAL CONGRESS SPEAKERS <span className="text-[#E2B767]">&amp;</span> LUMINARIES
             </span>
           </motion.div>
 
@@ -96,74 +88,163 @@ export function Speakers() {
             transition={{ delay: 0.2 }}
             className="text-sm sm:text-base md:text-lg text-white/60 max-w-2xl mx-auto text-center mt-2.5 sm:mt-3 font-sans"
           >
-            World-class researchers, founders, engineers, and IEEE leaders shaping autonomous
-            systems.
+            18 world-class researchers, founders, engineers, and IEEE leaders shaping autonomous systems across 3 official congress poster tracks.
           </motion.p>
+
+          {/* Row Filter Pills */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5"
+          >
+            <button
+              onClick={() => setActiveTab("all")}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 flex items-center gap-1.5 ${
+                activeTab === "all"
+                  ? "bg-[#E2B767] text-neutral-950 font-semibold shadow-lg shadow-[#E2B767]/20"
+                  : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+              }`}
+            >
+              <Layers size={12} />
+              <span>All 18 Speakers</span>
+            </button>
+            {speakerCategories.map((cat, idx) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveTab(cat.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 ${
+                  activeTab === cat.id
+                    ? "bg-[#E2B767] text-neutral-950 font-semibold shadow-lg shadow-[#E2B767]/20"
+                    : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+                }`}
+              >
+                <span>Row {idx + 1}: {cat.title.split("&")[0].trim()}</span>
+              </button>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Adaptive Speakers Grid: 2-col on mobile -> 3-col on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-6 lg:gap-8">
-          {allSpeakers.map((speaker, i) => {
-            const photoUrl = speaker.photo ? photoMap[speaker.photo] : undefined;
-            return (
+        {/* Rows of 6 Speakers Each */}
+        <div className="space-y-12 sm:space-y-16">
+          <AnimatePresence mode="wait">
+            {displayedCategories.map((category, catIdx) => (
               <motion.div
-                key={speaker.name}
+                key={category.id}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.06 }}
-                className="glass-card glass-card-hover rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 border border-white/10 group flex flex-col justify-between"
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, delay: catIdx * 0.1 }}
+                className="relative"
               >
-                <div>
-                  <div className="relative aspect-[4/5] rounded-xl sm:rounded-2xl overflow-hidden mb-1.5 sm:mb-2 bg-white/[0.03] border border-white/10">
-                    {photoUrl ? (
-                      <img
-                        src={photoUrl}
-                        alt={speaker.name}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center font-serif text-2xl sm:text-4xl text-[#E2B767]">
-                        {speaker.initials}
-                      </div>
-                    )}
+                {/* Row Subheader */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5 sm:mb-6 pb-3 border-b border-white/10">
+                  <div>
+                    <span className="text-[11px] font-mono tracking-widest uppercase text-[#E2B767]/90 font-semibold">
+                      {category.subtitle}
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                      {category.title}
+                    </h3>
                   </div>
-
-                  <h3 className="text-base sm:text-xl font-serif text-white mt-2.5 sm:mt-4 group-hover:text-[#E2B767] transition-colors leading-tight">
-                    {speaker.name}
-                  </h3>
-
-                  <p className="mt-0.5 sm:mt-1 text-[11px] sm:text-xs text-[#E2B767] tracking-wider uppercase font-mono leading-tight">
-                    {speaker.org}
-                  </p>
-
-                  <p className="mt-2 text-xs text-white/60 leading-relaxed font-sans line-clamp-2 sm:line-clamp-none">
-                    {speaker.focus}
+                  <p className="text-xs text-white/50 max-w-md sm:text-right hidden md:block">
+                    {category.tagline}
                   </p>
                 </div>
 
-                <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between text-xs min-h-[44px]">
-                  <a
-                    href={speaker.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-white/70 hover:text-[#E2B767] active:text-[#E2B767] transition-colors py-2"
-                    aria-label={`${speaker.name} LinkedIn Profile`}
-                  >
-                    <Linkedin size={14} className="shrink-0" />
-                    <span className="hidden sm:inline">LinkedIn Profile</span>
-                    <span className="sm:hidden text-[11px]">LinkedIn</span>
-                  </a>
-                  <span className="text-[9px] sm:text-[10px] uppercase font-mono tracking-widest text-white/40">
-                    Keynote
-                  </span>
+                {/* Grid: 2 cols on mobile, 3 cols on tablet, 6 cols on XL desktop */}
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 lg:gap-4">
+                  {category.speakers.map((speaker, idx) => {
+                    const globalIdx = speakersData.findIndex((s) => s.id === speaker.id);
+                    return (
+                      <motion.div
+                        key={speaker.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: idx * 0.05 }}
+                        className="glass-card glass-card-hover rounded-2xl p-3 sm:p-4 border border-white/10 hover:border-[#E2B767]/40 group flex flex-col justify-between transition-all duration-300"
+                      >
+                        <div>
+                          {/* Photo Frame */}
+                          <div className="relative aspect-[4/5] rounded-xl overflow-hidden mb-2.5 bg-neutral-900/60 border border-white/10">
+                            {speaker.image ? (
+                              <img
+                                src={speaker.image}
+                                alt={speaker.name}
+                                className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center font-serif text-2xl text-[#E2B767] bg-white/[0.02]">
+                                {speaker.initials || "SP"}
+                              </div>
+                            )}
+
+                            {/* Poster Sequence Badge */}
+                            <div className="absolute top-2 left-2 px-1.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-mono text-white/70">
+                              #{globalIdx + 1}
+                            </div>
+
+                            {/* Tag Badge */}
+                            {speaker.tag && (
+                              <div className="absolute bottom-2 inset-x-2">
+                                <span className="block truncate text-center px-1.5 py-0.5 rounded-md bg-neutral-950/80 backdrop-blur-md border border-[#E2B767]/30 text-[9px] font-mono text-[#E2B767] uppercase tracking-wide">
+                                  {speaker.tag}
+                                </span>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Speaker Name */}
+                          <h4 className="text-sm sm:text-base font-serif text-white font-medium group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
+                            {speaker.name}
+                          </h4>
+
+                          {/* Role */}
+                          <p className="mt-1 text-[10px] sm:text-[11px] text-[#E2B767] font-mono uppercase tracking-wider leading-snug line-clamp-2">
+                            {speaker.role}
+                          </p>
+
+                          {/* Affiliation */}
+                          <p className="mt-1.5 text-[11px] sm:text-xs text-white/60 leading-relaxed font-sans line-clamp-2">
+                            {speaker.affiliation}
+                          </p>
+                        </div>
+
+                        {/* Card Footer: LinkedIn */}
+                        <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between text-xs">
+                          {speaker.linkedin ? (
+                            <a
+                              href={speaker.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-white/60 hover:text-[#E2B767] transition-colors py-1 text-[11px]"
+                              aria-label={`${speaker.name} LinkedIn Profile`}
+                            >
+                              <Linkedin size={12} className="shrink-0 text-[#E2B767]" />
+                              <span>LinkedIn</span>
+                            </a>
+                          ) : (
+                            <span className="text-[10px] text-white/30 font-mono">IEEE SYP</span>
+                          )}
+
+                          <span className="text-[9px] font-mono text-white/40 uppercase">
+                            Keynote
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
-            );
-          })}
+            ))}
+          </AnimatePresence>
         </div>
       </div>
     </section>
   );
 }
+
+export default Speakers;

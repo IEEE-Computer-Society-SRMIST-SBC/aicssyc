@@ -1,0 +1,622 @@
+[
+  {
+    "id": "kishore-anthuvan",
+    "name": "Dr. K. Kishore Anthuvan Sahayaraj",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Design",
+    "tag": "DESIGN",
+    "image": "/committee/dr-k-kishore-anthuvan-sahayaraj.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sujatha-v",
+    "name": "Mrs. V. Sujatha",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Design",
+    "tag": "DESIGN",
+    "image": "/committee/mrs-v-sujatha.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "balamurugan-g",
+    "name": "Dr. G. Balamurugan",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Website",
+    "tag": "WEBSITE",
+    "image": "/committee/dr-g-balamurugan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "babeetha-s",
+    "name": "Mrs. S. Babeetha",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Website",
+    "tag": "WEBSITE",
+    "image": "/committee/mrs-s-babeetha.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "baskar-m",
+    "name": "Dr. M. Baskar",
+    "designation": "Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Stalls & Battle of Chapters",
+    "tag": "STALLS",
+    "image": "/committee/dr-m-baskar.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vinod-d",
+    "name": "Dr. D. Vinod",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Stalls",
+    "tag": "STALLS",
+    "image": "/committee/dr-d-vinod.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "gnanavel-s",
+    "name": "Dr. S. Gnanavel",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hall Arrangement",
+    "tag": "HALL",
+    "image": "/committee/dr-s-gnanavel.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "rajmohan-r",
+    "name": "Dr. R. Rajmohan",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hall Arrangement",
+    "tag": "HALL",
+    "image": "/committee/dr-r-rajmohan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "christina-sweetline",
+    "name": "Mrs. B. Christina Sweetline",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hall Arrangement",
+    "tag": "HALL",
+    "image": "/committee/mrs-b-christina-sweetline.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "deeban-chakravarthy",
+    "name": "Dr. V. Deeban Chakravarthy",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Sponsorship & Finance",
+    "tag": "FINANCE",
+    "image": "/committee/dr-v-deeban-chakravarthy.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "arunachalam-n",
+    "name": "Dr. N. Arunachalam",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Sponsorship & Finance",
+    "tag": "FINANCE",
+    "image": "/committee/dr-n-arunachalam.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "archana-r",
+    "name": "Dr. R. Archana",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Sponsorship & Finance",
+    "tag": "FINANCE",
+    "image": "/committee/dr-r-archana.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "arulalan-v",
+    "name": "Dr. V. Arulalan",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Publicity and Media",
+    "tag": "MEDIA",
+    "image": "/committee/dr-v-arulalan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "debie-shajie-a",
+    "name": "Dr. A. Debie Shajie",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Publicity and Media",
+    "tag": "MEDIA",
+    "image": "/committee/dr-a-debie-shajie.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "ramkumar-jayaraman",
+    "name": "Dr. Ramkumar Jayaraman",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Publicity and Media",
+    "tag": "MEDIA",
+    "image": "/committee/dr-ramkumar-jayaraman.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vijayakumar-k",
+    "name": "Dr. K. Vijayakumar",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Publicity and Media",
+    "tag": "MEDIA",
+    "image": "/committee/dr-k-vijayakumar.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "selvin-paul-peter",
+    "name": "Dr. J. Selvin Paul Peter",
+    "designation": "Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-j-selvin-paul-peter.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "eliazer-m",
+    "name": "Dr. M. Eliazer",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-m-eliazer.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "saravanan-s",
+    "name": "Dr. S. Saravanan",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-s-saravanan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "girirajan-s",
+    "name": "Dr. S. Girirajan",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-s-girirajan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "hemavathi-s",
+    "name": "Dr. S. Hemavathi",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-s-hemavathi.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "jeeva-k",
+    "name": "Mrs. K. Jeeva",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/mrs-k-jeeva.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "muralidharan-c",
+    "name": "Dr. C. Muralidharan",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-c-muralidharan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "nithiyanandam-n",
+    "name": "Dr. N. Nithiyanandam",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/dr-n-nithiyanandam.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "bharani-h",
+    "name": "Mrs. H. Bharani",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Hospitality & Logistics",
+    "tag": "HOSPITALITY",
+    "image": "/committee/mrs-h-bharani.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vidhayalakshmi-a-m",
+    "name": "Dr. A. M. Vidhayalakshmi",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Registration & Participation",
+    "tag": "REGISTRATION",
+    "image": "/committee/dr-a-m-vidhayalakshmi.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "jagadeesh-m",
+    "name": "Dr. M. Jagadeesh",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Registration & Participation",
+    "tag": "REGISTRATION",
+    "image": "/committee/dr-m-jagadeesh.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "madhura-r",
+    "name": "Dr. R. Madhura",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Registration & Participation",
+    "tag": "REGISTRATION",
+    "image": "/committee/dr-r-madhura.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "ashwini-s",
+    "name": "Dr. S. Ashwini",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Registration & Participation",
+    "tag": "REGISTRATION",
+    "image": "/committee/dr-s-ashwini.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vijaya-k",
+    "name": "Dr. K. Vijaya",
+    "designation": "Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-k-vijaya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "anitha-k",
+    "name": "Dr. K. Anitha",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-k-anitha.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "anto-arockia-rosaline",
+    "name": "Dr. R. Anto Arockia Rosaline",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-r-anto-arockia-rosaline.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sadhiya-g-k",
+    "name": "Dr. G. K. Sadhiya",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-g-k-sadhiya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "thilagavathy-r",
+    "name": "Dr. R. Thilagavathy",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-r-thilagavathy.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "karthikeyan-m",
+    "name": "Dr. M. Karthikeyan",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-m-karthikeyan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "karthikeyan-u",
+    "name": "Dr. U. Karthikeyan",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-u-karthikeyan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "ranjani-m",
+    "name": "Dr. M. Ranjani",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-m-ranjani.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sathyapriya-l",
+    "name": "Dr. L. Sathyapriya",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Session Management",
+    "tag": "SESSIONS",
+    "image": "/committee/dr-l-sathyapriya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "akilandeswari-p",
+    "name": "Dr. P. Akilandeswari",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Startup Pitch",
+    "tag": "STARTUP",
+    "image": "/committee/dr-p-akilandeswari.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "bagiyalakshmi-n",
+    "name": "Mrs. N. Bagiyalakshmi",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Startup Pitch",
+    "tag": "STARTUP",
+    "image": "/committee/mrs-n-bagiyalakshmi.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sumathy-v",
+    "name": "Mrs. V. Sumathy",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Startup Pitch",
+    "tag": "STARTUP",
+    "image": "/committee/mrs-v-sumathy.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "pandian-a",
+    "name": "Dr. A. Pandian",
+    "designation": "Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Battle of Chapters",
+    "tag": "CHAPTERS",
+    "image": "/committee/dr-a-pandian.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "gokulakrishnan-d",
+    "name": "Dr. D. Gokulakrishnan",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Battle of Chapters",
+    "tag": "CHAPTERS",
+    "image": "/committee/dr-d-gokulakrishnan.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "gayathri-m",
+    "name": "Dr. M. Gayathri",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Industry & Speakers",
+    "tag": "INDUSTRY",
+    "image": "/committee/dr-m-gayathri.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "nikkath-bushra-s",
+    "name": "Dr. S. Nikkath Bushra",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Industry & Speakers",
+    "tag": "INDUSTRY",
+    "image": "/committee/dr-s-nikkath-bushra.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "agalya-a",
+    "name": "Mrs. A. Agalya",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Industry & Speakers",
+    "tag": "INDUSTRY",
+    "image": "/committee/mrs-a-agalya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "deeba-k",
+    "name": "Dr. K. Deeba",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Cultural",
+    "tag": "CULTURAL",
+    "image": "/committee/dr-k-deeba.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "padmapriya-g",
+    "name": "Dr. G. Padmapriya",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Cultural",
+    "tag": "CULTURAL",
+    "image": "/committee/dr-g-padmapriya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "anbarasi-a",
+    "name": "Dr. A. Anbarasi",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Cultural",
+    "tag": "CULTURAL",
+    "image": "/committee/dr-a-anbarasi.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "delsi-robinsha-s",
+    "name": "Dr. S. Delsi Robinsha",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Cultural",
+    "tag": "CULTURAL",
+    "image": "/committee/dr-s-delsi-robinsha.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "saranya-v-g",
+    "name": "Dr. V. G. Saranya",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Cultural",
+    "tag": "CULTURAL",
+    "image": "/committee/dr-v-g-saranya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "muruganantham-b",
+    "name": "Dr. B. Muruganantham",
+    "designation": "Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-b-muruganantham.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "jeya-r",
+    "name": "Dr. R. Jeya",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-r-jeya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "pradeep-mohan-kumar-k",
+    "name": "Dr. K. Pradeep Mohan Kumar",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-k-pradeep-mohan-kumar.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "aswathy-k-cherian",
+    "name": "Dr. Aswathy K Cherian",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-aswathy-k-cherian.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sowmiya-b",
+    "name": "Dr. B. Sowmiya",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-b-sowmiya.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vidhayalakshmi-m-k",
+    "name": "Dr. M.K. Vidhayalakshmi",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-m-k-vidhayalakshmi.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "ida-seraphim-b",
+    "name": "Dr. B. Ida Seraphim",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-b-ida-seraphim.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "sivakumar-t-k",
+    "name": "Dr. T. K. Sivakumar",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Networking Dinner",
+    "tag": "DINNER",
+    "image": "/committee/dr-t-k-sivakumar.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "jebakumar-r",
+    "name": "Dr. R. Jebakumar",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Heritage Visit",
+    "tag": "HERITAGE",
+    "image": "/committee/dr-r-jebakumar.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "vijayakumaran-c",
+    "name": "Dr. C. Vijayakumaran",
+    "designation": "Associate Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Heritage Visit",
+    "tag": "HERITAGE",
+    "image": "/committee/dr-c-vijayakumaran.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "shanmugam-s",
+    "name": "Dr. S. Shanmugam",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Heritage Visit",
+    "tag": "HERITAGE",
+    "image": "/committee/dr-s-shanmugam.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  }
+]
