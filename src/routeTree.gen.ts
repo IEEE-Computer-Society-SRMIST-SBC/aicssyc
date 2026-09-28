@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SponsorRouteImport } from './routes/sponsor'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as CommitteeRouteImport } from './routes/committee'
 import { Route as CodeOfConductRouteImport } from './routes/code-of-conduct'
 import { Route as AmbassadorRouteImport } from './routes/ambassador'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PrivacyRoute = PrivacyRouteImport.update({
   id: '/privacy',
   path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommitteeRoute = CommitteeRouteImport.update({
+  id: '/committee',
+  path: '/committee',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CodeOfConductRoute = CodeOfConductRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ambassador': typeof AmbassadorRoute
   '/code-of-conduct': typeof CodeOfConductRoute
+  '/committee': typeof CommitteeRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sponsor': typeof SponsorRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ambassador': typeof AmbassadorRoute
   '/code-of-conduct': typeof CodeOfConductRoute
+  '/committee': typeof CommitteeRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sponsor': typeof SponsorRoute
@@ -68,6 +76,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ambassador': typeof AmbassadorRoute
   '/code-of-conduct': typeof CodeOfConductRoute
+  '/committee': typeof CommitteeRoute
   '/privacy': typeof PrivacyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sponsor': typeof SponsorRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ambassador'
     | '/code-of-conduct'
+    | '/committee'
     | '/privacy'
     | '/sitemap.xml'
     | '/sponsor'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ambassador'
     | '/code-of-conduct'
+    | '/committee'
     | '/privacy'
     | '/sitemap.xml'
     | '/sponsor'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ambassador'
     | '/code-of-conduct'
+    | '/committee'
     | '/privacy'
     | '/sitemap.xml'
     | '/sponsor'
@@ -103,6 +115,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AmbassadorRoute: typeof AmbassadorRoute
   CodeOfConductRoute: typeof CodeOfConductRoute
+  CommitteeRoute: typeof CommitteeRoute
   PrivacyRoute: typeof PrivacyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SponsorRoute: typeof SponsorRoute
@@ -129,6 +142,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy'
       fullPath: '/privacy'
       preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/committee': {
+      id: '/committee'
+      path: '/committee'
+      fullPath: '/committee'
+      preLoaderRoute: typeof CommitteeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/code-of-conduct': {
@@ -159,6 +179,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AmbassadorRoute: AmbassadorRoute,
   CodeOfConductRoute: CodeOfConductRoute,
+  CommitteeRoute: CommitteeRoute,
   PrivacyRoute: PrivacyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SponsorRoute: SponsorRoute,

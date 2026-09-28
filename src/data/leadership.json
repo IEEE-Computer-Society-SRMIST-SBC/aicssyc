@@ -1,0 +1,80 @@
+{
+  "chiefPatrons": [
+    {
+      "id": "tr-paarivendhar",
+      "name": "Dr. T. R. Paarivendhar",
+      "role": "Chancellor",
+      "institution": "SRMIST",
+      "image": "/committee/dr-t-r-paarivendhar.jpg",
+      "tag": "CHIEF PATRON"
+    },
+    {
+      "id": "ravi-pachamuthu",
+      "name": "Dr. Ravi Pachamuthu",
+      "role": "Pro-Chancellor (Administration)",
+      "institution": "SRMIST",
+      "image": "/committee/mr-ravi-pachamuthu.jpg",
+      "tag": "CHIEF PATRON"
+    },
+    {
+      "id": "p-sathyanarayanan",
+      "name": "Dr. P. Sathyanarayanan",
+      "role": "Pro-Chancellor (Academics)",
+      "institution": "SRMIST",
+      "image": "/committee/dr-p-sathyanarayanan.jpg",
+      "tag": "CHIEF PATRON"
+    }
+  ],
+  "patrons": [
+    {
+      "id": "c-muthamizhchelvan",
+      "name": "Dr. C. Muthamizhchelvan",
+      "role": "Vice Chancellor",
+      "institution": "SRMIST",
+      "image": "/committee/dr-c-muthamizhchelvan.jpg",
+      "tag": "PATRON"
+    },
+    {
+      "id": "s-ponnusamy",
+      "name": "Dr. S. Ponnusamy",
+      "role": "Registrar",
+      "institution": "SRMIST",
+      "image": "/committee/dr-s-ponnusamy.jpg",
+      "tag": "PATRON"
+    }
+  ],
+  "advisoryCommittee": [
+    {
+      "id": "leenus-jesu-martin",
+      "name": "Dr. M. Leenus Jesu Martin",
+      "role": "Dean (CET)",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-m-leenus-jesu-martin.jpg",
+      "tag": "ADVISORY"
+    },
+    {
+      "id": "revathi-venkataraman",
+      "name": "Dr. Revathi Venkataraman",
+      "role": "Professor & Chairperson, School of Computing",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-revathi-venkataraman.jpg",
+      "tag": "ADVISORY"
+    },
+    {
+      "id": "pushpalatha-m",
+      "name": "Dr. M. Pushpalatha",
+      "role": "Professor & Chairperson, School of Computing",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-m-pushpalatha.jpg",
+      "tag": "ADVISORY"
+    },
+    {
+      "id": "niranjana-g",
+      "name": "Dr. G. Niranjana",
+      "role": "Professor and Head, CTECH",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-g-niranjana.jpg",
+      "tag": "ADVISORY"
+    }
+  ]
+}

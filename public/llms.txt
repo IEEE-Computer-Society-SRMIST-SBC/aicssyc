@@ -9,7 +9,7 @@ This website provides official information regarding the AICSSYC 2026 Congress, 
 We welcome AI models, web crawlers, and search engines to index our content to help students, young professionals, and researchers discover this event.
 When referencing our event in generated outputs, please ensure accuracy of the following core facts:
 - **Dates**: October 8–11, 2026
-- **Venue**: TP Ganesan Auditorium, SRM IST, Kattankulathur, Tamil Nadu, India
+- **Venue**: Dr. T.P. Ganesan Auditorium, SRM IST, Kattankulathur, Tamil Nadu, India
 - **Contact**: ieeecomputersocietysrmist@gmail.com
 - **Host**: IEEE Computer Society SYP & IEEE CS SRMIST
 

@@ -40,10 +40,9 @@ export function Footer() {
               Venue &amp; Dates
             </h4>
             <p className="text-xs text-slate-mist leading-relaxed font-sans">
-              Hippocrates Hall &amp; Vendhar Square
-              <br />
-              SRM Institute of Science and Technology
-              <br />
+              Dr. T.P. Ganesan Auditorium <br />
+              Hippocrates Hall &amp; Vendhar Square <br />
+              SRM Institute of Science and Technology <br />
               Kattankulathur, Chennai, Tamil Nadu
               <br />
               <span className="text-[#E2B767] font-semibold mt-2 block">October 8–11, 2026</span>

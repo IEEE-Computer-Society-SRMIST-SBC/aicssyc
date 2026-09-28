@@ -7,6 +7,7 @@ type Partner = {
   tier?: string;
   url?: string;
   logo?: string;
+  description?: string;
 };
 
 const partners: Partner[] = partnersData.partners as Partner[];

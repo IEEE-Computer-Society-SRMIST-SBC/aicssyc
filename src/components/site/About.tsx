@@ -76,9 +76,8 @@ export function About() {
               Where Human Ingenuity <br className="hidden sm:block" />
               Meets{" "}
               <span className="font-editorial italic font-normal text-gradient-emerald">
-                Autonomous Intelligence
+                Autonomous Intelligence.
               </span>
-              .
             </h2>
 
             <p className="mt-4 sm:mt-6 text-base sm:text-lg text-slate-300 dark:text-slate-400 max-w-2xl leading-relaxed font-sans">

@@ -138,6 +138,12 @@ export default function Navbar() {
         {/* Right: Action Buttons */}
         <div className="flex items-center gap-3 shrink-0">
           <a
+            href="/committee"
+            className="px-5 py-2 text-sm font-medium text-slate-200 rounded-full border border-white/20 bg-white/[0.04] hover:bg-white/10 transition-colors whitespace-nowrap"
+          >
+            Committee
+          </a>
+          <a
             href="https://aicssyc.ieeecssrm.in/ambassador"
             className="px-5 py-2 text-sm font-medium text-slate-200 rounded-full border border-white/20 bg-white/[0.04] hover:bg-white/10 transition-colors whitespace-nowrap"
           >
