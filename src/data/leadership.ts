@@ -13,6 +13,7 @@ export interface LeadershipData {
   chiefPatrons: LeadershipMember[];
   patrons: LeadershipMember[];
   advisoryCommittee: LeadershipMember[];
+  convenor?: LeadershipMember;
 }
 
 export const leadershipData: LeadershipData = leadershipJson as LeadershipData;

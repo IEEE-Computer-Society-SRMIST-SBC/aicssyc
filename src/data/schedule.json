@@ -1,0 +1,333 @@
+[
+  {
+    "day": 1,
+    "dayLabel": "DAY 1",
+    "weekday": "Thursday",
+    "date": "8th October 2026",
+    "title": "Inauguration & Visionary Keynotes",
+    "mainVenue": "Dr. T.P. Ganesan Auditorium",
+    "events": [
+      {
+        "time": "2:00 PM",
+        "title": "Guest Arrival",
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "GENERAL"
+      },
+      {
+        "time": "2:30 PM – 3:30 PM",
+        "title": "Inauguration Ceremony",
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "CEREMONY"
+      },
+      {
+        "time": "3:30 PM – 4:30 PM",
+        "title": "Keynote Session 1",
+        "speakers": ["Mr. Shivam Shivam (Director, Tech Innovation Lab, ZS Associates)"],
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "KEYNOTE"
+      },
+      {
+        "time": "4:30 PM – 4:40 PM",
+        "title": "Break (Guests Only) & Lucky Draw",
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "GENERAL"
+      },
+      {
+        "time": "5:00 PM – 6:30 PM",
+        "title": "Expert Panel Discussion: 'AI Empowering Our Future or Weakening Our Thinking'",
+        "moderator": "Mr. Shivam Shivam",
+        "panelists": [
+          "Dr. Revathi Venkataraman",
+          "Dr. K. M. Suceendran",
+          "Dr. Andrew Seely",
+          "Mrs. Maya Jagan"
+        ],
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "PANEL DISCUSSION"
+      },
+      {
+        "time": "6:30 PM – 7:00 PM",
+        "title": "Networking for Participants",
+        "venue": "T.P. Ganesan Auditorium",
+        "category": "NETWORKING"
+      },
+      {
+        "time": "7:00 PM – 8:30 PM",
+        "title": "Dinner (for External Participants Only)",
+        "venue": "External Participants' Venue",
+        "category": "NETWORKING"
+      }
+    ]
+  },
+  {
+    "day": 2,
+    "dayLabel": "DAY 2",
+    "weekday": "Friday",
+    "date": "9th October 2026",
+    "title": "Agentic Intelligence, Competitions & Cultural Gala",
+    "mainVenue": "TP2 7th Floor & Vendhar Square",
+    "events": [
+      {
+        "time": "8:00 AM",
+        "title": "Registration, Check-In & Gift Kit Distribution",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "8:00 AM",
+        "title": "Arrival & Reporting — All Team Members & Participants",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "8:15 AM – 8:30 AM",
+        "title": "Lucky Draw for Participants",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "9:00 AM",
+        "title": "Guest Arrival & Reporting",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "9:00 AM – 1:00 PM",
+        "title": "Workshop: Agentic AI & DRDO (Paid Masterclass)",
+        "speakers": ["Defense & AI Research Specialists (TBD)"],
+        "venue": "TP2 7th Floor",
+        "category": "WORKSHOP"
+      },
+      {
+        "time": "10:30 AM – 10:45 AM",
+        "title": "Morning Refreshment Break",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "10:45 AM – 12:30 PM",
+        "title": "Battle of Chapters: Chapter Presentations",
+        "speakers": [
+          "Mr. Biswarup Ray",
+          "Mr. Nikky Kumar Jha",
+          "Dr. Andrew Seely",
+          "Mr. Eric Berkowitz"
+        ],
+        "venue": "TP2 7th Floor",
+        "category": "COMPETITION"
+      },
+      {
+        "time": "1:00 PM – 2:00 PM",
+        "title": "Lunch Break",
+        "venue": "TP2 7th Floor",
+        "category": "NETWORKING"
+      },
+      {
+        "time": "2:00 PM – 3:30 PM",
+        "title": "Parallel Tracks: Prompt Wars (TP2) & Campus Treasure Hunt (SRMIST KTR)",
+        "venue": "TP2 7th Floor / SRMIST Campus",
+        "category": "COMPETITION"
+      },
+      {
+        "time": "3:30 PM – 3:45 PM",
+        "title": "Afternoon Break",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "3:45 PM – 5:30 PM",
+        "title": "Continuation: Prompt Wars & Campus Treasure Hunt",
+        "venue": "TP2 7th Floor / SRMIST Campus",
+        "category": "COMPETITION"
+      },
+      {
+        "time": "6:00 PM – 7:00 PM",
+        "title": "Cultural Night",
+        "coordinators": ["Dr. K. Deeba", "Dr. G. Padmapriya"],
+        "venue": "Inside Vendhar Square",
+        "category": "CULTURAL"
+      },
+      {
+        "time": "7:00 PM – 8:30 PM",
+        "title": "DJ Night (Paid Entry for SRM Students)",
+        "coordinators": [
+          "Dr. Aswathy K Cherian",
+          "Dr. B. Sowmiya",
+          "Dr. M.K. Vidhyalakshmi",
+          "Dr. B. Ida Seraphim"
+        ],
+        "venue": "Inside Vendhar Square",
+        "category": "CULTURAL"
+      },
+      {
+        "time": "7:30 PM – 9:00 PM",
+        "title": "Networking Dinner",
+        "coordinators": [
+          "Dr. B. Muruganantham",
+          "Dr. R. Jeya",
+          "Dr. K. Pradeep MohanKumar"
+        ],
+        "venue": "VIP Lane",
+        "category": "NETWORKING"
+      },
+      {
+        "time": "9:00 PM – 10:00 PM",
+        "title": "Event Wind-Up & Closing of Day 2",
+        "venue": "VIP Lane / Vendhar Square",
+        "category": "GENERAL"
+      }
+    ]
+  },
+  {
+    "day": 3,
+    "dayLabel": "DAY 3",
+    "weekday": "Saturday",
+    "date": "10th October 2026",
+    "title": "Space Systems, Startup Summit & Valedictory",
+    "mainVenue": "TP2 7th Floor",
+    "events": [
+      {
+        "time": "8:00 AM",
+        "title": "Arrival & Reporting — All Team Members & Participants",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "8:15 AM – 8:30 AM",
+        "title": "Lucky Draw for Participants",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "9:00 AM – 10:15 AM",
+        "title": "Technical Talk: Spacecraft Mission Definition — From Concept to Orbit",
+        "speakers": ["Dr. Himani Saini (Senior Scientist, UR Rao Satellite Centre, ISRO)"],
+        "venue": "TP2 7th Floor",
+        "category": "KEYNOTE"
+      },
+      {
+        "time": "10:15 AM – 10:30 AM",
+        "title": "Morning Tea Break",
+        "venue": "TP2 7th Floor",
+        "category": "GENERAL"
+      },
+      {
+        "time": "10:30 AM – 11:30 AM",
+        "title": "Technical Talk: The Role of Decision Intelligence in the Age of AI",
+        "speakers": ["Mr. Balaji Palanidurai (Founder, Happiverse LLP)"],
+        "venue": "TP2 7th Floor",
+        "category": "KEYNOTE"
+      },
+      {
+        "time": "11:30 AM – 1:00 PM",
+        "title": "Global Incubation Committee (GIC) — Startup Summit",
+        "speakers": [
+          "Mr. Nikky Kumar Jha (Founder & CEO, Saptkrishi)",
+          "Mrs. Rashmi Jha (Co-Founder, Saptkrishi)"
+        ],
+        "venue": "TP2 7th Floor",
+        "category": "SUMMIT"
+      },
+      {
+        "time": "1:00 PM – 2:00 PM",
+        "title": "Lunch Break",
+        "venue": "TP2 7th Floor",
+        "category": "NETWORKING"
+      },
+      {
+        "time": "2:00 PM – 3:00 PM",
+        "title": "Distinguished Workshop",
+        "speakers": ["Dr. Mini Ulanat (R10 IEEE Computer Society Coordinator)"],
+        "venue": "TP2 7th Floor",
+        "category": "WORKSHOP"
+      },
+      {
+        "time": "3:00 PM – 3:30 PM",
+        "title": "Micro Mentoring Session",
+        "speakers": ["SYP Volunteers & Leaders"],
+        "venue": "TP2 7th Floor",
+        "category": "MENTORSHIP"
+      },
+      {
+        "time": "3:30 PM – 4:00 PM",
+        "title": "CSS Session & Quiz",
+        "speakers": ["SYP Volunteers"],
+        "venue": "TP2 7th Floor",
+        "category": "INTERACTIVE"
+      },
+      {
+        "time": "4:00 PM – 5:00 PM",
+        "title": "Valedictory Session & Grand Conclusion",
+        "description": "Closing remarks, awards presentation, appreciation ceremony & acknowledgements for AICSSYC 2026.",
+        "venue": "TP2 7th Floor",
+        "category": "VALEDICTORY"
+      }
+    ]
+  },
+  {
+    "day": 4,
+    "dayLabel": "DAY 4",
+    "weekday": "Sunday",
+    "date": "11th October 2026",
+    "title": "The Heritage Expedition — UNESCO Marvels of Mahabalipuram",
+    "mainVenue": "Mahabalipuram & SRMIST KTR",
+    "events": [
+      {
+        "time": "7:00 AM",
+        "title": "Reporting of All Participants",
+        "venue": "SRMIST KTR Campus",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "8:00 AM",
+        "title": "Boarding & Bus Departure to Mahabalipuram",
+        "venue": "SRMIST KTR Campus",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "10:40 AM",
+        "title": "Arrival at Mahabalipuram",
+        "venue": "Mahabalipuram",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "10:40 AM – 11:30 AM",
+        "title": "UNESCO Shore Temple Guided Visit",
+        "venue": "Shore Temple, Mahabalipuram",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "11:30 AM – 12:30 PM",
+        "title": "Krishna's Butter Ball & Monumental Rock Reliefs",
+        "venue": "Mahabalipuram Heritage Zone",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "12:30 PM – 12:45 PM",
+        "title": "Return & Regroup Near the Coaches",
+        "description": "All participants must regroup at the bus parking bay by 12:30 PM.",
+        "venue": "Mahabalipuram Bus Bay",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "12:45 PM – 1:30 PM",
+        "title": "Delegates Coastal Lunch",
+        "venue": "Mahabalipuram",
+        "category": "NETWORKING"
+      },
+      {
+        "time": "1:30 PM",
+        "title": "Return Departure to Chennai",
+        "venue": "Mahabalipuram",
+        "category": "EXCURSION"
+      },
+      {
+        "time": "3:30 PM – 4:00 PM",
+        "title": "Arrival at SRMIST KTR & Official Congress Farewell",
+        "description": "Faculty In-Charge: Dr. R. Jebakumar & Dr. C. Vijayakumaran",
+        "venue": "SRMIST KTR",
+        "category": "EXCURSION"
+      }
+    ]
+  }
+]

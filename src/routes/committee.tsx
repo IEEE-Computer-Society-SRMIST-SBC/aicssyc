@@ -43,6 +43,12 @@ const TEAMS = [
   "Heritage Visit",
 ];
 
+const formatRole = (role: string) => {
+  if (!role) return "";
+  const trimmed = role.trim();
+  return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
+};
+
 function LeadershipCard({ member }: { member: LeadershipMember }) {
   return (
     <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10">
@@ -72,12 +78,16 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
           <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
             {member.name}
           </h3>
-          <p className="mt-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-[#E2B767] line-clamp-1">
-            {member.role}
+          <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-2 min-h-[1.25rem]">
+            {formatRole(member.role)}
           </p>
-          <p className="mt-1 text-xs text-white/60 leading-relaxed font-sans line-clamp-1">
-            {member.institution}
-          </p>
+          <div className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
+            {member.institution.split("\n").map((line, idx) => (
+              <p key={idx} className={idx > 0 ? "mt-0.5 text-white/50" : ""}>
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -126,8 +136,8 @@ function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
           <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
             {member.name}
           </h3>
-          <p className="mt-1 text-[11px] font-mono font-semibold uppercase tracking-wider text-[#E2B767] line-clamp-1">
-            {member.designation}
+          <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-1">
+            {formatRole(member.designation)}
           </p>
           <p className="mt-1 text-xs text-white/60 leading-relaxed font-sans line-clamp-1">
             {member.department}
@@ -348,6 +358,24 @@ export function CommitteePage() {
               Faculty committee members driving the specialized event tracks and operations.
             </p>
 
+            {/* Conference Convenor */}
+            {leadershipData.convenor && (
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="mt-8 max-w-xs sm:max-w-sm mx-auto text-left"
+              >
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  <span className="px-3 py-1 rounded-full border border-[#E2B767]/30 bg-[#E2B767]/10 text-[#E2B767] text-[11px] font-mono font-semibold uppercase tracking-widest shadow-[0_0_15px_rgba(226,183,103,0.15)]">
+                    CONVENOR AICSSYC
+                  </span>
+                </div>
+                <LeadershipCard member={leadershipData.convenor} />
+              </motion.div>
+            )}
+
             {/* Search Bar */}
             <div className="mt-6 max-w-md mx-auto relative">
               <div className="relative flex items-center">
@@ -394,12 +422,15 @@ export function CommitteePage() {
 
           {/* Members Count Summary */}
           <div className="mb-6 flex items-center justify-between text-xs text-white/50 font-mono border-b border-white/10 pb-3">
-            <span>
-              SHOWING <strong className="text-[#E2B767]">{filteredMembers.length}</strong> FACULTY COMMITTEE MEMBERS
+            <span className="inline-flex items-center gap-1.5">
+              <span>SHOWING</span>
+              <strong className="text-[#E2B767]">{filteredMembers.length}</strong>
+              <span>FACULTY COMMITTEE MEMBERS</span>
             </span>
             {activeTab !== "All" && (
-              <span className="text-white/60">
-                Filtered by: <span className="text-white font-medium">{activeTab}</span>
+              <span className="text-white/60 inline-flex items-center gap-1.5">
+                <span>Filtered by:</span>
+                <span className="text-white font-medium">{activeTab}</span>
               </span>
             )}
           </div>
@@ -431,7 +462,7 @@ export function CommitteePage() {
                               {group.title}
                             </h3>
                             <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold border ${group.badgeColor}`}>
-                              {group.members.length} {group.members.length === 1 ? "Member" : "Members"}
+                              {`${group.members.length} ${group.members.length === 1 ? "Member" : "Members"}`}
                             </span>
                           </div>
                           <p className="text-xs text-white/50 font-sans mt-0.5">

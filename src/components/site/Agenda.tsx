@@ -16,8 +16,9 @@ import {
 } from "lucide-react";
 import { timelineData, ScheduleItem, DaySchedule } from "@/data/timelineData";
 
-function getCategoryConfig(category?: ScheduleItem["category"]) {
-  switch (category) {
+function getCategoryConfig(category?: string) {
+  const cat = (category || "").toLowerCase();
+  switch (cat) {
     case "keynote":
       return {
         label: "Keynote",
@@ -33,6 +34,7 @@ function getCategoryConfig(category?: ScheduleItem["category"]) {
         dotColor: "border-cyan-400 bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.5)]",
       };
     case "panel":
+    case "panel discussion":
       return {
         label: "Panel Discussion",
         icon: MessageSquare,
@@ -41,10 +43,40 @@ function getCategoryConfig(category?: ScheduleItem["category"]) {
       };
     case "competition":
       return {
-        label: "Challenge",
+        label: "Competition",
         icon: Trophy,
         badgeClass: "text-amber-400 bg-amber-500/10 border-amber-500/30",
         dotColor: "border-amber-400 bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]",
+      };
+    case "cultural":
+      return {
+        label: "Cultural",
+        icon: Music,
+        badgeClass: "text-pink-300 bg-pink-500/10 border-pink-500/30",
+        dotColor: "border-pink-400 bg-pink-400 shadow-[0_0_10px_rgba(244,114,182,0.5)]",
+      };
+    case "summit":
+      return {
+        label: "Summit",
+        icon: Sparkles,
+        badgeClass: "text-amber-300 bg-amber-500/10 border-amber-500/30",
+        dotColor: "border-amber-400 bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]",
+      };
+    case "ceremony":
+    case "valedictory":
+      return {
+        label: cat.toUpperCase(),
+        icon: Trophy,
+        badgeClass: "text-amber-300 bg-amber-500/10 border-amber-500/30",
+        dotColor: "border-amber-400 bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]",
+      };
+    case "mentorship":
+    case "interactive":
+      return {
+        label: cat === "mentorship" ? "Mentoring" : "Interactive",
+        icon: MessageSquare,
+        badgeClass: "text-sky-300 bg-sky-500/10 border-sky-500/30",
+        dotColor: "border-sky-400 bg-sky-400 shadow-[0_0_10px_rgba(56,189,248,0.5)]",
       };
     case "networking":
       return {
@@ -78,6 +110,9 @@ function ScheduleCard({ item }: { item: ScheduleItem }) {
     Boolean(item.tag) ||
     item.category === "keynote" ||
     item.category === "panel" ||
+    item.category === "panel discussion" ||
+    item.category === "summit" ||
+    item.category === "valedictory" ||
     item.category === "competition";
 
   return (
@@ -115,7 +150,7 @@ function ScheduleCard({ item }: { item: ScheduleItem }) {
 
         {/* Activity Title */}
         <h4
-          className={`font-sans text-sm sm:text-base tracking-tight leading-snug ${
+          className={`font-sans text-sm sm:text-base tracking-normal leading-snug ${
             isHighPriority
               ? "font-semibold text-white"
               : "font-medium text-neutral-100"
@@ -124,12 +159,45 @@ function ScheduleCard({ item }: { item: ScheduleItem }) {
           {item.activity}
         </h4>
 
-        {/* Speaker / Moderator / Resource Person */}
-        {item.speaker && (
-          <div className="mt-2 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-500/25 text-xs font-sans text-emerald-200">
+        {/* Description */}
+        {item.description && (
+          <p className="mt-1.5 text-xs text-white/70 font-sans leading-relaxed">
+            {item.description}
+          </p>
+        )}
+
+        {/* Moderator */}
+        {item.moderator && (
+          <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-950/60 border border-purple-500/25 text-xs font-sans text-purple-200">
+            <User className="w-3 h-3 text-purple-400 shrink-0" />
+            <span className="font-semibold text-purple-300">Moderator:</span>
+            <span className="font-medium text-purple-100">{item.moderator}</span>
+          </div>
+        )}
+
+        {/* Panelists */}
+        {item.panelists && item.panelists.length > 0 && (
+          <div className="mt-2 flex flex-wrap items-center gap-1.5 text-xs font-sans text-neutral-300">
+            <span className="font-semibold text-[#E2B767]">Panelists:</span>
+            <span className="text-neutral-200">{item.panelists.join(" • ")}</span>
+          </div>
+        )}
+
+        {/* Speakers */}
+        {item.speaker && !item.moderator && (
+          <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-950/60 border border-emerald-500/25 text-xs font-sans text-emerald-200">
             <User className="w-3 h-3 text-[#E2B767] shrink-0" />
             <span className="font-semibold text-[#E2B767]">Speaker:</span>
             <span className="font-medium text-emerald-100">{item.speaker}</span>
+          </div>
+        )}
+
+        {/* Coordinators */}
+        {item.coordinators && item.coordinators.length > 0 && (
+          <div className="mt-2 inline-flex flex-wrap items-center gap-1.5 px-2.5 py-1 rounded-lg bg-pink-950/50 border border-pink-500/25 text-xs font-sans text-pink-200">
+            <User className="w-3 h-3 text-pink-400 shrink-0" />
+            <span className="font-semibold text-pink-300">Coordinators:</span>
+            <span className="text-pink-100">{item.coordinators.join(", ")}</span>
           </div>
         )}
 
@@ -188,9 +256,9 @@ export function Agenda() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-xs sm:text-base text-white/70 max-w-xl mx-auto text-center mt-2.5 font-sans leading-relaxed font-normal"
+            className="text-xs sm:text-base text-white/70 max-w-2xl mx-auto text-center mt-2.5 font-sans leading-relaxed font-normal"
           >
-            8–11 October 2026 • T.P Ganesan Auditorium, Hippocrates Hall, Vendhar Square &amp; Mahabalipuram
+            8–11 October 2026 • T.P. Ganesan Auditorium, TP2 7th Floor, Vendhar Square &amp; Mahabalipuram
           </motion.p>
         </div>
 
@@ -219,7 +287,7 @@ export function Agenda() {
                   </span>
                 </div>
                 <div
-                  className={`text-xs sm:text-sm font-serif font-medium mt-1 tracking-tight truncate ${
+                  className={`text-xs sm:text-sm font-serif font-medium mt-1 tracking-normal truncate ${
                     isActive ? "text-white" : "text-neutral-300"
                   }`}
                 >
