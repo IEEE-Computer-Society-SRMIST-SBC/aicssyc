@@ -65,8 +65,10 @@ export function Speakers() {
             className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full glass-pill border border-[#E2B767]/30 text-[11px] sm:text-xs font-mono text-[#E2B767] uppercase tracking-widest mb-3 sm:mb-4"
           >
             <Sparkles size={13} />
-            <span>
-              OFFICIAL CONGRESS SPEAKERS <span className="text-[#E2B767]">&amp;</span> LUMINARIES
+            <span className="inline-flex items-center gap-1.5">
+              <span>OFFICIAL CONGRESS SPEAKERS</span>
+              <span className="text-[#E2B767]">&amp;</span>
+              <span>LUMINARIES</span>
             </span>
           </motion.div>
 

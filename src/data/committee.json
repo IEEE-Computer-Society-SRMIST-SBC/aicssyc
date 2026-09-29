@@ -150,8 +150,18 @@
     "profileUrl": "https://www.srmist.edu.in/"
   },
   {
-    "id": "vijayakumar-k",
-    "name": "Dr. K. Vijayakumar",
+    "id": "vivek-justus",
+    "name": "Dr. Vivek Justus",
+    "designation": "Assistant Professor",
+    "department": "Dept. of Computing Technologies, SRMIST",
+    "team": "Publicity and Media",
+    "tag": "MEDIA",
+    "image": "/committee/dr-vivek-justus.jpg",
+    "profileUrl": "https://www.srmist.edu.in/"
+  },
+  {
+    "id": "dr-k-vijayakumar",
+    "name": "Dr. Vijiyakumar K",
     "designation": "Assistant Professor",
     "department": "Dept. of Computing Technologies, SRMIST",
     "team": "Publicity and Media",
@@ -251,7 +261,7 @@
   },
   {
     "id": "vidhayalakshmi-a-m",
-    "name": "Dr. A. M. Vidhayalakshmi",
+    "name": "Dr. Vidhyalakshmi A M",
     "designation": "Assistant Professor",
     "department": "Dept. of Computing Technologies, SRMIST",
     "team": "Registration & Participation",
@@ -321,7 +331,7 @@
   },
   {
     "id": "sadhiya-g-k",
-    "name": "Dr. G. K. Sadhiya",
+    "name": "Dr. Sandhia G K",
     "designation": "Associate Professor",
     "department": "Dept. of Computing Technologies, SRMIST",
     "team": "Session Management",
@@ -561,7 +571,7 @@
   },
   {
     "id": "vidhayalakshmi-m-k",
-    "name": "Dr. M.K. Vidhayalakshmi",
+    "name": "Dr. Vidhyalakshmi M K",
     "designation": "Associate Professor",
     "department": "Dept. of Computing Technologies, SRMIST",
     "team": "Networking Dinner",

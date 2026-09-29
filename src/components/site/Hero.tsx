@@ -54,9 +54,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-3xl sm:text-4xl lg:text-7xl font-serif leading-[1.05] sm:leading-[0.98] lg:leading-[0.95] tracking-tight text-white"
+              className="text-3xl sm:text-4xl lg:text-7xl font-serif leading-[1.05] sm:leading-[0.98] lg:leading-[0.95] tracking-normal text-white"
             >
-              <span className="tracking-tight block">AICSSYC 2026</span>
+              <span className="tracking-normal block">AICSSYC 2026</span>
               <span className="font-editorial italic font-semibold text-[#E2B767]">
                 Where Agents
               </span>{" "}
