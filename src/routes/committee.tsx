@@ -67,7 +67,7 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
 
           {/* Tag Badge */}
           <div className="absolute top-2.5 right-2.5">
-            <span className="px-2.5 py-1 rounded-md bg-neutral-950/85 backdrop-blur-md border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+            <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
               {member.tag}
             </span>
           </div>
@@ -125,7 +125,7 @@ function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
 
           {/* Tag Badge */}
           <div className="absolute top-2.5 right-2.5">
-            <span className="px-2.5 py-1 rounded-md bg-neutral-950/85 backdrop-blur-md border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+            <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
               {member.tag}
             </span>
           </div>
@@ -227,8 +227,8 @@ export function CommitteePage() {
       <SiteNav />
 
       {/* Decorative ambient glowing backdrops */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-[40%] -right-40 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute top-[40%] -right-40 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[160px] pointer-events-none transform-gpu will-change-transform" />
 
       <main className="flex-1 pt-32 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
         {/* Header */}
@@ -385,7 +385,7 @@ export function CommitteePage() {
                   placeholder="Search faculty by name, team, or designation..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs sm:text-sm focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-all backdrop-blur-md"
+                  className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs sm:text-sm focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-all backdrop-blur-sm"
                 />
                 {searchQuery && (
                   <button
@@ -448,7 +448,12 @@ export function CommitteePage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4 }}
-                    className="space-y-6"
+                    className="space-y-6 content-auto"
+                    style={{
+                      contain: "content",
+                      contentVisibility: "auto",
+                      containIntrinsicSize: "1px 800px",
+                    }}
                   >
                     {/* Tier Header */}
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-white/10">

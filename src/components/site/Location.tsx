@@ -56,7 +56,7 @@ export function Location() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/70 backdrop-blur-md p-5 sm:p-7 md:p-8"
+              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/95 backdrop-blur-sm p-5 sm:p-7 md:p-8"
             >
               <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-white/5">
                 <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-full bg-[#E2B767]/10 flex items-center justify-center shrink-0">
@@ -107,7 +107,7 @@ export function Location() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/70 backdrop-blur-md p-5 sm:p-7 md:p-8"
+              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/95 backdrop-blur-sm p-5 sm:p-7 md:p-8"
             >
               <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-white/5">
                 <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0">
@@ -149,7 +149,7 @@ export function Location() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/70 backdrop-blur-md p-5 sm:p-7 md:p-8"
+              className="rounded-2xl border border-ivory/10 bg-[#0A120E]/95 backdrop-blur-sm p-5 sm:p-7 md:p-8"
             >
               <div className="flex items-center gap-3.5 mb-5 pb-5 border-b border-white/5">
                 <div className="h-10 sm:h-12 w-10 sm:w-12 rounded-full bg-amber-400/10 flex items-center justify-center shrink-0">

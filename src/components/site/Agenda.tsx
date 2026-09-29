@@ -220,12 +220,17 @@ export function Agenda() {
   return (
     <section
       id="agenda"
-      className="relative w-full py-12 sm:py-20 px-3.5 sm:px-6 lg:px-8 bg-[#040D09] text-emerald-50 overflow-hidden overflow-x-hidden scroll-mt-24 sm:scroll-mt-32"
+      className="relative w-full py-12 sm:py-20 px-3.5 sm:px-6 lg:px-8 bg-[#040D09] text-emerald-50 overflow-hidden overflow-x-hidden scroll-mt-24 sm:scroll-mt-32 content-auto"
+      style={{
+        contain: "content",
+        contentVisibility: "auto",
+        containIntrinsicSize: "1px 800px",
+      }}
     >
       <span id="schedule" className="absolute -top-32" />
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[650px] h-[320px] bg-emerald-600/10 blur-[100px] sm:blur-[160px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-10 right-10 w-[260px] sm:w-[480px] h-[260px] bg-amber-500/5 blur-[90px] sm:blur-[140px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[650px] h-[320px] bg-emerald-600/10 blur-[100px] sm:blur-[160px] pointer-events-none rounded-full transform-gpu will-change-transform" />
+      <div className="absolute bottom-10 right-10 w-[260px] sm:w-[480px] h-[260px] bg-amber-500/5 blur-[90px] sm:blur-[140px] pointer-events-none rounded-full transform-gpu will-change-transform" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Section Heading */}
@@ -309,7 +314,7 @@ export function Agenda() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.25 }}
-            className="rounded-2xl p-4 sm:p-6 mb-6 sm:mb-10 bg-gradient-to-r from-[#071D14]/90 via-[#051710]/90 to-[#040E0A]/95 border border-emerald-800/40 backdrop-blur-md shadow-xl"
+            className="rounded-2xl p-4 sm:p-6 mb-6 sm:mb-10 bg-gradient-to-r from-[#071D14]/95 via-[#051710]/95 to-[#040E0A]/98 border border-emerald-800/40 backdrop-blur-sm shadow-xl"
           >
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>

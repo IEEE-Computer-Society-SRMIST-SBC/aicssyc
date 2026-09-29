@@ -27,7 +27,7 @@ export function Tickets() {
     >
       <span id="passes" className="absolute -top-32" />
       {/* Background glow (Constrained) */}
-      <div className="absolute top-1/2 right-10 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-amber-500/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-amber-500/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}

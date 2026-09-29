@@ -398,8 +398,8 @@ export function AmbassadorDashboard() {
       <InteractiveConstellationCanvas />
 
       {/* Atmospheric Glows */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute top-1/3 -right-20 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] sm:w-[900px] h-[350px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute top-1/3 -right-20 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none transform-gpu will-change-transform" />
 
       {/* ── 1. HERO SECTION ── */}
       <section className="relative z-10 pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center">
@@ -485,7 +485,7 @@ export function AmbassadorDashboard() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.06 }}
-                className="rounded-2xl p-6 bg-gradient-to-b from-[#09241B]/70 via-[#061912]/80 to-[#040D09]/90 border border-emerald-500/20 hover:border-amber-400/40 backdrop-blur-xl shadow-xl transition-all duration-300 flex flex-col justify-between group"
+                className="rounded-2xl p-6 bg-gradient-to-b from-[#09241B]/95 via-[#061912]/95 to-[#040D09]/98 border border-emerald-500/20 hover:border-amber-400/40 backdrop-blur-sm shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
@@ -533,7 +533,7 @@ export function AmbassadorDashboard() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className={`rounded-2xl p-5 sm:p-6 bg-gradient-to-b ${tier.color} backdrop-blur-xl border flex flex-col justify-between relative overflow-hidden`}
+              className={`rounded-2xl p-5 sm:p-6 bg-gradient-to-b ${tier.color} backdrop-blur-sm border flex flex-col justify-between relative overflow-hidden`}
             >
               {tier.popular && (
                 <div className="absolute top-0 right-0">
@@ -638,7 +638,7 @@ export function AmbassadorDashboard() {
 
           {/* Eligibility & Notices */}
           <div className="space-y-6">
-            <div className="rounded-2xl bg-[#061912]/90 border border-emerald-500/20 p-6 sm:p-8 backdrop-blur-xl">
+            <div className="rounded-2xl bg-[#061912]/98 border border-emerald-500/20 p-6 sm:p-8 backdrop-blur-sm">
               <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-emerald-400 font-semibold">
                 WHO IS ELIGIBLE
               </span>
@@ -657,7 +657,7 @@ export function AmbassadorDashboard() {
               </div>
             </div>
 
-            <div className="rounded-2xl bg-gradient-to-br from-rose-950/40 via-[#061912] to-[#040D09] border border-rose-500/30 p-6 sm:p-8 backdrop-blur-xl">
+            <div className="rounded-2xl bg-gradient-to-br from-rose-950/60 via-[#061912]/95 to-[#040D09] border border-rose-500/30 p-6 sm:p-8 backdrop-blur-sm">
               <div className="flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-wider font-semibold mb-3">
                 <ShieldCheck size={16} />
                 <span>Program Guidelines</span>
@@ -678,7 +678,7 @@ export function AmbassadorDashboard() {
       {/* ── 6. FINAL CTA BANNER ── */}
       <section className="relative z-10 px-4 sm:px-6 lg:px-8 pt-8 max-w-4xl mx-auto text-center">
         <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-amber-500/15 via-[#09241B] to-[#061912] border-2 border-amber-400/50 shadow-2xl shadow-amber-500/10 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/15 rounded-full blur-3xl pointer-events-none transform-gpu will-change-transform" />
 
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-[0.2em] font-semibold text-amber-300 bg-amber-400/15 border border-amber-400/30 mb-4">
             <Sparkles size={11} className="text-amber-400" />

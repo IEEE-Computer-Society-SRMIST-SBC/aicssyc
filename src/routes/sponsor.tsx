@@ -123,7 +123,7 @@ function SponsorComponent() {
         </div>
 
         {/* LETS COLLABORATE */}
-        <div className="container-editorial mb-32 py-20 border-y border-ivory/10 bg-midnight-deep/30 backdrop-blur-md">
+        <div className="container-editorial mb-32 py-20 border-y border-ivory/10 bg-midnight-deep/90 backdrop-blur-sm">
           <Reveal direction="up">
             <p className="text-gold uppercase tracking-[0.25em] text-xs font-semibold mb-4">
               Page 2: Let's Collaborate!
@@ -286,7 +286,7 @@ function SponsorComponent() {
 
             {/* DIAMOND SPONSOR */}
             <Reveal direction="up">
-              <div className="relative p-8 md:p-12 rounded-3xl bg-midnight-deep/60 backdrop-blur-md border border-ivory/15 hover:border-emerald/40 transition duration-500 overflow-hidden">
+              <div className="relative p-8 md:p-12 rounded-3xl bg-midnight-deep/90 backdrop-blur-sm border border-ivory/15 hover:border-emerald/40 transition duration-500 overflow-hidden">
                 <div className="md:flex justify-between items-end mb-10 border-b border-ivory/10 pb-8">
                   <div>
                     <span className="inline-block px-3 py-1 bg-emerald/10 text-emerald text-xs font-bold tracking-widest uppercase rounded-full mb-4">
@@ -332,7 +332,7 @@ function SponsorComponent() {
             <div className="grid md:grid-cols-2 gap-8">
               {/* GOLD SPONSOR */}
               <Reveal direction="up">
-                <div className="h-full p-8 rounded-3xl bg-midnight-deep/40 backdrop-blur-md border border-ivory/10 hover:border-ivory/30 transition">
+                <div className="h-full p-8 rounded-3xl bg-midnight-deep/85 backdrop-blur-sm border border-ivory/10 hover:border-ivory/30 transition">
                   <h3 className="font-display text-3xl text-ivory mb-2">Gold Sponsor</h3>
                   <p className="text-2xl font-light text-gold mb-8">₹1,00,000</p>
                   <div className="space-y-3">
@@ -357,7 +357,7 @@ function SponsorComponent() {
 
               {/* SILVER SPONSOR */}
               <Reveal direction="up" delay={0.1}>
-                <div className="h-full p-8 rounded-3xl bg-midnight-deep/40 backdrop-blur-md border border-ivory/10 hover:border-ivory/30 transition">
+                <div className="h-full p-8 rounded-3xl bg-midnight-deep/85 backdrop-blur-sm border border-ivory/10 hover:border-ivory/30 transition">
                   <h3 className="font-display text-3xl text-ivory mb-2">Silver Sponsor</h3>
                   <p className="text-2xl font-light text-ivory/60 mb-8">₹50,000</p>
                   <div className="space-y-3">
@@ -420,7 +420,7 @@ function SponsorComponent() {
         <div className="container-editorial mb-32">
           <Reveal direction="up">
             <h2 className="font-display text-3xl mb-8">Difference Between Sponsor Tiers</h2>
-            <div className="overflow-x-auto rounded-2xl border border-ivory/10 bg-midnight-deep/50 backdrop-blur-md">
+            <div className="overflow-x-auto rounded-2xl border border-ivory/10 bg-midnight-deep/90 backdrop-blur-sm">
               <table className="w-full text-left border-collapse min-w-[800px]">
                 <thead>
                   <tr className="border-b border-ivory/10 bg-midnight-deep">

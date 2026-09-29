@@ -50,7 +50,7 @@ export function HeroCountdown() {
 
   return (
     <div className="w-full max-w-[420px] mx-auto lg:max-w-none">
-      <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-gradient-to-b from-[#081F16]/90 via-[#061811]/90 to-[#040E0A]/95 border border-emerald-500/20 backdrop-blur-xl shadow-2xl shadow-black/60 transition-all duration-300 hover:border-amber-400/30">
+      <div className="relative rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-gradient-to-b from-[#081F16]/95 via-[#061811]/95 to-[#040E0A]/98 border border-emerald-500/20 backdrop-blur-sm shadow-2xl shadow-black/60 transition-all duration-300 hover:border-amber-400/30 transform-gpu">
         {/* Top Header Row */}
         <div className="flex items-center justify-between gap-2 pb-4 border-b border-emerald-900/40">
           <div className="flex items-center gap-2">

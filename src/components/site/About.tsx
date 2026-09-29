@@ -8,7 +8,7 @@ export function About() {
       className="relative scroll-mt-24 sm:scroll-mt-32 pt-6 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12 overflow-hidden text-ivory"
     >
       {/* Ambient background glow (Constrained for mobile) */}
-      <div className="absolute top-1/3 right-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-emerald-500/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 right-0 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-emerald-500/10 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -21,7 +21,7 @@ export function About() {
             className="relative"
           >
             <div className="glass-card rounded-3xl p-6 sm:p-8 border border-white/10 relative overflow-hidden">
-              <div className="absolute -top-12 -right-12 w-40 h-40 bg-gold-glow/20 rounded-full blur-3xl" />
+              <div className="absolute -top-12 -right-12 w-40 h-40 bg-gold-glow/20 rounded-full blur-3xl transform-gpu will-change-transform" />
 
               <span className="text-[11px] sm:text-xs font-mono tracking-widest text-emerald-glow uppercase font-semibold flex items-center gap-2 mb-3 sm:mb-4">
                 <Sparkles size={13} /> ABOUT AICSSYC 2026 • ALL INDIA CONGRESS

@@ -121,9 +121,9 @@ export function SneakPeek() {
       className="relative scroll-mt-24 sm:scroll-mt-32 py-20 sm:py-32 overflow-hidden text-ivory bg-[var(--obsidian)]"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-sky-500/10 via-emerald-500/5 to-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-10 left-10 w-72 h-72 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-sky-500/10 via-emerald-500/5 to-amber-500/10 rounded-full blur-[140px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute top-10 left-10 w-72 h-72 bg-sky-500/10 rounded-full blur-[100px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -201,7 +201,7 @@ export function SneakPeek() {
                   {/* Badge */}
                   <div className="absolute top-4 left-4 z-10">
                     <span
-                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium tracking-wide uppercase backdrop-blur-md border ${item.badgeColor}`}
+                      className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium tracking-wide uppercase bg-[#070c09]/95 backdrop-blur-sm border ${item.badgeColor}`}
                     >
                       <ItemIcon size={12} />
                       {item.badge}
@@ -214,7 +214,7 @@ export function SneakPeek() {
                     type="button"
                     title="View Fullscreen"
                     aria-label={`View fullscreen photo of ${item.title}`}
-                    className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/40 hover:bg-black/70 backdrop-blur-md border border-white/15 text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-95 cursor-pointer"
+                    className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/75 hover:bg-black/90 backdrop-blur-sm border border-white/15 text-white/80 hover:text-white transition-all transform hover:scale-110 active:scale-95 cursor-pointer"
                   >
                     <Expand size={15} />
                   </button>
@@ -274,7 +274,7 @@ export function SneakPeek() {
 
                 {/* Subtle Hover Glow at card bottom */}
                 <div
-                  className={`absolute -bottom-12 -left-12 -right-12 h-24 bg-gradient-to-t ${meta.accentGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full blur-xl`}
+                  className={`absolute -bottom-12 -left-12 -right-12 h-24 bg-gradient-to-t ${meta.accentGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-full blur-xl transform-gpu`}
                 />
               </motion.div>
             );

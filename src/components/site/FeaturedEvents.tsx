@@ -34,8 +34,8 @@ export function FeaturedEvents() {
     >
       <span id="highlights" className="absolute -top-32" />
       {/* Ambient background */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-amber-900/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-amber-900/10 rounded-full blur-[150px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-24">
@@ -135,7 +135,7 @@ export function FeaturedEvents() {
                     <div className="w-full h-full relative z-10 flex items-center justify-center overflow-hidden bg-black/40">
                       {/* Blurred ambient background based on the poster itself */}
                       <div
-                        className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110"
+                        className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-110 transform-gpu"
                         style={{ backgroundImage: `url(${ev.posterUrl})` }}
                       />
 
@@ -150,8 +150,8 @@ export function FeaturedEvents() {
                     /* Custom Interactive Poster Graphic for Call for Host 2027 */
                     <div className="w-full h-full relative z-10 flex flex-col justify-between p-6 sm:p-8 bg-gradient-to-br from-[#0B261C] via-[#061912] to-[#040D09] overflow-hidden">
                       {/* Ambient Glows */}
-                      <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/15 rounded-full blur-[70px] pointer-events-none" />
-                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/15 rounded-full blur-[70px] pointer-events-none" />
+                      <div className="absolute top-0 right-0 w-48 h-48 bg-amber-400/15 rounded-full blur-[70px] pointer-events-none transform-gpu will-change-transform" />
+                      <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/15 rounded-full blur-[70px] pointer-events-none transform-gpu will-change-transform" />
 
                       {/* Top Bar */}
                       <div className="relative z-10 flex items-center justify-between">
@@ -204,7 +204,7 @@ export function FeaturedEvents() {
                         className={`absolute inset-0 bg-gradient-to-br ${ev.gradient} opacity-40 group-hover:opacity-60 transition-opacity duration-700`}
                       />
                       <div
-                        className={`absolute -bottom-10 -right-10 w-64 h-64 ${ev.glow} rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-1000 ease-out`}
+                        className={`absolute -bottom-10 -right-10 w-64 h-64 ${ev.glow} rounded-full blur-[60px] group-hover:scale-150 transition-transform duration-1000 ease-out transform-gpu`}
                       />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <Icon

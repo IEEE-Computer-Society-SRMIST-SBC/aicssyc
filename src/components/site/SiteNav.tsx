@@ -17,6 +17,7 @@ const navItems = [
 export function SiteNav() {
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+  const activeSectionRef = useRef("about");
   const isProgrammaticScroll = useRef(false);
   const scrollLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
@@ -27,6 +28,7 @@ export function SiteNav() {
   // Accurate Scroll-Spy using getBoundingClientRect with triggerZone (upper 35% of screen)
   useEffect(() => {
     if (!isHome) {
+      activeSectionRef.current = "";
       setActiveSection("");
       return;
     }
@@ -46,7 +48,8 @@ export function SiteNav() {
           const rect = el.getBoundingClientRect();
           // Active when the section top has crossed into the upper third of screen
           if (rect.top <= triggerZone) {
-            if (activeSection !== sectionIds[i]) {
+            if (activeSectionRef.current !== sectionIds[i]) {
+              activeSectionRef.current = sectionIds[i];
               setActiveSection(sectionIds[i]);
             }
             break;
@@ -55,9 +58,20 @@ export function SiteNav() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome, activeSection]);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -69,6 +83,7 @@ export function SiteNav() {
 
     // 1. Immediately lock scroll-spy & set active tab
     isProgrammaticScroll.current = true;
+    activeSectionRef.current = id;
     setActiveSection(id);
 
     if (scrollLockTimer.current) clearTimeout(scrollLockTimer.current);
@@ -111,13 +126,13 @@ export function SiteNav() {
 
   return (
     <>
-      <header className="fixed top-3 sm:top-4 inset-x-0 z-50 px-3 sm:px-6 md:px-8 max-w-7xl mx-auto pointer-events-none">
+      <header className="fixed top-3 sm:top-4 inset-x-0 z-50 px-3 sm:px-6 md:px-8 max-w-7xl mx-auto pointer-events-none transform-gpu will-change-transform">
         {/* Unified Outer Floating Pill */}
         <motion.div
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="pointer-events-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full backdrop-blur-xl bg-[#060D0A]/90 border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 w-full"
+          className="pointer-events-auto flex items-center justify-between gap-4 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full backdrop-blur-md bg-[#060D0A]/95 border border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.7)] transition-all duration-300 w-full transform-gpu"
         >
           {/* 1. Left Column: Logos (Balanced flex-1 to keep center aligned) */}
           <div className="flex-1 flex items-center justify-start shrink-0">
@@ -257,7 +272,7 @@ export function SiteNav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.98 }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-x-3 top-16 sm:top-20 z-50 xl:hidden mx-auto max-w-xl rounded-3xl p-5 sm:p-6 bg-[#060D0A]/95 backdrop-blur-xl border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.9)] max-h-[calc(100vh-5rem)] overflow-y-auto"
+              className="fixed inset-x-3 top-16 sm:top-20 z-50 xl:hidden mx-auto max-w-xl rounded-3xl p-5 sm:p-6 bg-[#060D0A]/98 backdrop-blur-md border border-white/10 shadow-[0_24px_60px_rgba(0,0,0,0.9)] max-h-[calc(100vh-5rem)] overflow-y-auto transform-gpu"
             >
               <div className="flex flex-col gap-4">
                 {/* Header inside Sheet */}
