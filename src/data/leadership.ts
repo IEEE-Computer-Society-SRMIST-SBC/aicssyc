@@ -12,10 +12,14 @@ export interface LeadershipMember {
 export interface LeadershipData {
   chiefPatrons: LeadershipMember[];
   patrons: LeadershipMember[];
-  advisoryCommittee: LeadershipMember[];
+  deanCet: LeadershipMember[];
+  schoolDepartmentLeadership: LeadershipMember[];
+  convenorAdvisor: LeadershipMember;
+  // Backwards-compatibility aliases
   convenor?: LeadershipMember;
+  advisoryCommittee?: LeadershipMember[];
 }
 
-export const leadershipData: LeadershipData = leadershipJson as LeadershipData;
+export const leadershipData: LeadershipData = leadershipJson as unknown as LeadershipData;
 
 export default leadershipData;

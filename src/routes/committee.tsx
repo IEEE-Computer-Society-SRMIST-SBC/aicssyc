@@ -79,7 +79,7 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
             {member.name}
           </h3>
           <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-2 min-h-[1.25rem]">
-            {formatRole(member.role)}
+            {member.role}
           </p>
           <div className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
             {member.institution.split("\n").map((line, idx) => (
@@ -261,12 +261,12 @@ export function CommitteePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-sans max-w-2xl mx-auto"
           >
-            The distinguished university leadership, patrons, and advisory committee of SRMIST guiding the execution of AICSSYC 2026.
+            The distinguished university leadership, patrons, deans, department chairs, and congress convenor guiding AICSSYC 2026.
           </motion.p>
         </div>
 
         {/* ========================================================================= */}
-        {/* LEADERSHIP TIERS (Chief Patrons, Patrons, Advisory Committee)             */}
+        {/* LEADERSHIP TIERS (5 Official Hierarchy Tiers)                             */}
         {/* ========================================================================= */}
         <div className="space-y-16 mb-20">
           {/* 1. Chief Patrons Tier */}
@@ -286,7 +286,7 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
               {leadershipData.chiefPatrons.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               ))}
@@ -317,7 +317,7 @@ export function CommitteePage() {
             </div>
           </motion.section>
 
-          {/* 3. Advisory Committee Tier */}
+          {/* 3. Dean (CET) Tier */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -327,17 +327,63 @@ export function CommitteePage() {
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <GraduationCap className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
-                Advisory Committee
+                Dean (CET)
               </h2>
               <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
-                Dean &amp; Department Chairs
+                College of Engineering &amp; Technology
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-              {leadershipData.advisoryCommittee.map((member) => (
+            <div className="grid grid-cols-1 max-w-sm mx-auto gap-5 sm:gap-6">
+              {leadershipData.deanCet.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               ))}
+            </div>
+          </motion.section>
+
+          {/* 4. School & Department Leadership Tier */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
+              <Award className="w-5 h-5 text-[#E2B767]" />
+              <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                School &amp; Department Leadership
+              </h2>
+              <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
+                School of Computing
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
+              {leadershipData.schoolDepartmentLeadership.map((member) => (
+                <LeadershipCard key={member.id} member={member} />
+              ))}
+            </div>
+          </motion.section>
+
+          {/* 5. AICSSYC 2026 Convenor & Advisor Tier */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
+              <Sparkles className="w-5 h-5 text-[#E2B767]" />
+              <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                AICSSYC 2026 Convenor &amp; Advisor
+              </h2>
+              <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
+                Congress Leadership &amp; Student Branch Advisor
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 max-w-sm mx-auto gap-5 sm:gap-6">
+              <LeadershipCard member={leadershipData.convenorAdvisor} />
             </div>
           </motion.section>
         </div>
@@ -357,24 +403,6 @@ export function CommitteePage() {
             <p className="mt-2 text-sm text-white/60">
               Faculty committee members driving the specialized event tracks and operations.
             </p>
-
-            {/* Conference Convenor */}
-            {leadershipData.convenor && (
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="mt-8 max-w-xs sm:max-w-sm mx-auto text-left"
-              >
-                <div className="flex items-center justify-center gap-2 mb-3">
-                  <span className="px-3 py-1 rounded-full border border-[#E2B767]/30 bg-[#E2B767]/10 text-[#E2B767] text-[11px] font-mono font-semibold uppercase tracking-widest shadow-[0_0_15px_rgba(226,183,103,0.15)]">
-                    CONVENOR AICSSYC
-                  </span>
-                </div>
-                <LeadershipCard member={leadershipData.convenor} />
-              </motion.div>
-            )}
 
             {/* Search Bar */}
             <div className="mt-6 max-w-md mx-auto relative">

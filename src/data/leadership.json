@@ -11,7 +11,7 @@
     {
       "id": "ravi-pachamuthu",
       "name": "Dr. Ravi Pachamuthu",
-      "role": "Pro-Chancellor (Administration)",
+      "role": "Pro-chancellor (administration)",
       "institution": "SRMIST",
       "image": "/committee/mr-ravi-pachamuthu.jpg",
       "tag": "CHIEF PATRON"
@@ -19,7 +19,7 @@
     {
       "id": "p-sathyanarayanan",
       "name": "Dr. P. Sathyanarayanan",
-      "role": "Pro-Chancellor (Academics)",
+      "role": "Pro-chancellor (academics)",
       "institution": "SRMIST",
       "image": "/committee/dr-p-sathyanarayanan.jpg",
       "tag": "CHIEF PATRON"
@@ -29,7 +29,7 @@
     {
       "id": "c-muthamizhchelvan",
       "name": "Dr. C. Muthamizhchelvan",
-      "role": "Vice Chancellor",
+      "role": "Vice chancellor",
       "institution": "SRMIST",
       "image": "/committee/dr-c-muthamizhchelvan.jpg",
       "tag": "PATRON"
@@ -43,22 +43,66 @@
       "tag": "PATRON"
     }
   ],
+  "deanCet": [
+    {
+      "id": "leenus-jesu-martin",
+      "name": "Dr. M. Leenus Jesu Martin",
+      "role": "Dean (cet)",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-m-leenus-jesu-martin.jpg",
+      "tag": "DEAN (CET)"
+    }
+  ],
+  "schoolDepartmentLeadership": [
+    {
+      "id": "revathi-venkataraman",
+      "name": "Dr. Revathi Venkataraman",
+      "role": "Professor and Chairperson, School of Computing",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-revathi-venkataraman-new.jpg",
+      "tag": "LEADERSHIP"
+    },
+    {
+      "id": "pushpalatha-m",
+      "name": "Dr. M. Pushpalatha",
+      "role": "Professor and Associate Chairperson, School of Computing",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-m-pushpalatha.jpg",
+      "tag": "LEADERSHIP"
+    },
+    {
+      "id": "niranjana-g",
+      "name": "Dr. G. Niranjana",
+      "role": "Professor and Head, Department of Computing Technologies",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-g-niranjana.jpg",
+      "tag": "LEADERSHIP"
+    }
+  ],
+  "convenorAdvisor": {
+    "id": "dr-godfrey-winster-s",
+    "name": "Dr. Godfrey Winster S",
+    "role": "Associate professor",
+    "institution": "Dept. of Computing Technologies, SRMIST\nIEEE Computer Society Student Branch Advisor, Convenor of AICSSYC 2026",
+    "image": "/committee/dr-godfrey-winster-s.jpg",
+    "tag": "CONVENOR & ADVISOR"
+  },
   "convenor": {
     "id": "dr-godfrey-winster-s",
     "name": "Dr. Godfrey Winster S",
-    "role": "Associate Professor",
-    "institution": "Dept. of Computing Technologies, SRMIST\nIEEE Computer Society Student Branch Advisory",
+    "role": "Associate professor",
+    "institution": "Dept. of Computing Technologies, SRMIST\nIEEE Computer Society Student Branch Advisor, Convenor of AICSSYC 2026",
     "image": "/committee/dr-godfrey-winster-s.jpg",
-    "tag": "CONVENOR"
+    "tag": "CONVENOR & ADVISOR"
   },
   "advisoryCommittee": [
     {
       "id": "leenus-jesu-martin",
       "name": "Dr. M. Leenus Jesu Martin",
-      "role": "Dean (CET)",
+      "role": "Dean (cet)",
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-m-leenus-jesu-martin.jpg",
-      "tag": "ADVISORY"
+      "tag": "DEAN (CET)"
     },
     {
       "id": "revathi-venkataraman",
@@ -66,23 +110,23 @@
       "role": "Professor and Chairperson, School of Computing",
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-revathi-venkataraman-new.jpg",
-      "tag": "ADVISORY"
+      "tag": "LEADERSHIP"
     },
     {
       "id": "pushpalatha-m",
       "name": "Dr. M. Pushpalatha",
-      "role": "Professor and Chairperson, School of Computing",
+      "role": "Professor and Associate Chairperson, School of Computing",
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-m-pushpalatha.jpg",
-      "tag": "ADVISORY"
+      "tag": "LEADERSHIP"
     },
     {
       "id": "niranjana-g",
       "name": "Dr. G. Niranjana",
-      "role": "Professor and Head, CTECH",
+      "role": "Professor and Head, Department of Computing Technologies",
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-g-niranjana.jpg",
-      "tag": "ADVISORY"
+      "tag": "LEADERSHIP"
     }
   ]
 }
