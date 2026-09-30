@@ -39,7 +39,7 @@ export function SponsorFormModal({ isOpen, onClose }: SponsorFormModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-lg overflow-hidden rounded-2xl border border-ivory/10 bg-midnight/80 backdrop-blur-xl shadow-2xl pointer-events-auto"
+              className="w-full max-w-lg overflow-hidden rounded-2xl border border-ivory/10 bg-midnight/95 backdrop-blur-sm shadow-2xl pointer-events-auto transform-gpu"
             >
               {/* Header */}
               <div className="relative border-b border-ivory/10 bg-midnight-deep/50 px-6 py-5">

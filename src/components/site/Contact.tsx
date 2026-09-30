@@ -166,7 +166,7 @@ export function Contact() {
               {pointsOfContact.map((poc) => (
                 <article
                   key={poc.name}
-                  className="group relative overflow-hidden rounded-2xl border border-ivory/10 bg-[#0A120E]/60 backdrop-blur-sm p-5 sm:p-6 transition hover:border-[#E2B767]/40"
+                  className="group relative overflow-hidden rounded-2xl border border-ivory/10 bg-[#0A120E]/95 backdrop-blur-sm p-5 sm:p-6 transition hover:border-[#E2B767]/40"
                 >
                   <div>
                     <p className="text-[10px] uppercase tracking-[0.25em] text-[#E2B767]/80 font-mono">

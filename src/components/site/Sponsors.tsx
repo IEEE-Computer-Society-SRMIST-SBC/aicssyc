@@ -101,7 +101,7 @@ export function Sponsors() {
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,black_40%,transparent_100%)] pointer-events-none" />
 
       {/* Subtle ambient warm glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[250px] sm:h-[350px] bg-[#E2B767]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[500px] h-[250px] sm:h-[350px] bg-[#E2B767]/5 rounded-full blur-[120px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}

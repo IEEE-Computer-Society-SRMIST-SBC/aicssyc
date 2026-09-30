@@ -16,6 +16,7 @@ const navItems = [
 
 export default function Navbar() {
   const [activeTab, setActiveTab] = useState("About");
+  const activeTabRef = useRef("About");
   const isProgrammaticScroll = useRef(false);
   const scrollLockTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -34,7 +35,8 @@ export default function Navbar() {
           // Active when the section top has crossed into the upper third of screen
           if (rect.top <= triggerZone) {
             const match = navItems.find((n) => n.href === `#${sectionIds[i]}`);
-            if (match && match.label !== activeTab) {
+            if (match && activeTabRef.current !== match.label) {
+              activeTabRef.current = match.label;
               setActiveTab(match.label);
             }
             break;
@@ -43,9 +45,20 @@ export default function Navbar() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeTab]);
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -55,6 +68,7 @@ export default function Navbar() {
 
     // 1. Immediately lock scroll-spy & set active tab
     isProgrammaticScroll.current = true;
+    activeTabRef.current = item.label;
     setActiveTab(item.label);
 
     if (scrollLockTimer.current) clearTimeout(scrollLockTimer.current);
@@ -82,8 +96,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <div className="pointer-events-auto flex items-center justify-between w-full max-w-[1220px] rounded-full border border-white/10 bg-[#060a08]/85 px-6 py-2.5 backdrop-blur-xl shadow-2xl">
+    <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none transform-gpu will-change-transform">
+      <div className="pointer-events-auto flex items-center justify-between w-full max-w-[1220px] rounded-full border border-white/10 bg-[#060a08]/95 px-6 py-2.5 backdrop-blur-md shadow-2xl transform-gpu">
         
         {/* Left: Branding Logos */}
         <div className="flex items-center gap-3 shrink-0">

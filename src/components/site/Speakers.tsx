@@ -49,11 +49,16 @@ export function Speakers() {
   return (
     <section
       id="speakers"
-      className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory"
+      className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory content-auto"
+      style={{
+        contain: "content",
+        contentVisibility: "auto",
+        containIntrinsicSize: "1px 800px",
+      }}
     >
       {/* Background glow effects */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] lg:w-[850px] h-[350px] sm:h-[650px] lg:h-[850px] bg-emerald-500/10 rounded-full blur-[110px] sm:blur-[180px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] lg:w-[850px] h-[350px] sm:h-[650px] lg:h-[850px] bg-emerald-500/10 rounded-full blur-[110px] sm:blur-[180px] pointer-events-none transform-gpu will-change-transform" />
+      <div className="absolute bottom-10 right-10 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[140px] pointer-events-none transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Section Header */}
@@ -185,14 +190,14 @@ export function Speakers() {
                             )}
 
                             {/* Poster Sequence Badge */}
-                            <div className="absolute top-2 left-2 px-1.5 py-0.5 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-[9px] font-mono text-white/70">
+                            <div className="absolute top-2 left-2 px-1.5 py-0.5 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-white/10 text-[9px] font-mono text-white/70">
                               #{globalIdx + 1}
                             </div>
 
                             {/* Tag Badge */}
                             {speaker.tag && (
                               <div className="absolute bottom-2 inset-x-2">
-                                <span className="block truncate text-center px-1.5 py-0.5 rounded-md bg-neutral-950/80 backdrop-blur-md border border-[#E2B767]/30 text-[9px] font-mono text-[#E2B767] uppercase tracking-wide">
+                                <span className="block truncate text-center px-1.5 py-0.5 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/30 text-[9px] font-mono text-[#E2B767] uppercase tracking-wide">
                                   {speaker.tag}
                                 </span>
                               </div>

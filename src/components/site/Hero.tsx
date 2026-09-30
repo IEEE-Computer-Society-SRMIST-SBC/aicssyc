@@ -22,8 +22,8 @@ export function Hero() {
       <HeroCanvas3D />
 
       {/* Subtle Ambient Glow Highlights (Constrained to prevent mobile overflow) */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] lg:w-[700px] h-[320px] sm:h-[600px] lg:h-[700px] bg-emerald-500/5 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none glow-emerald-pulse" />
-      <div className="absolute bottom-1/3 right-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none glow-gold-pulse" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[600px] lg:w-[700px] h-[320px] sm:h-[600px] lg:h-[700px] bg-emerald-500/5 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none glow-emerald-pulse transform-gpu will-change-transform" />
+      <div className="absolute bottom-1/3 right-1/4 w-[280px] sm:w-[500px] h-[280px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[90px] sm:blur-[140px] pointer-events-none glow-gold-pulse transform-gpu will-change-transform" />
 
       <div className="container-editorial relative z-10 max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-y-0 gap-x-8 sm:gap-x-12 lg:gap-16 items-center">
@@ -126,7 +126,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-8 sm:mt-10 lg:mt-12 flex justify-center w-full"
         >
-          <div className="glass-pill rounded-2xl sm:rounded-full py-3 sm:py-3.5 px-4 sm:px-6 md:px-8 border border-white/10 shadow-xl flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90 font-medium bg-[#060D0A]/70 backdrop-blur-md">
+          <div className="glass-pill rounded-2xl sm:rounded-full py-3 sm:py-3.5 px-4 sm:px-6 md:px-8 border border-white/10 shadow-xl flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-[11px] sm:text-xs text-white/90 font-medium bg-[#060D0A]/95 backdrop-blur-sm transform-gpu">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <MapPin size={14} className="text-[#E2B767]" />
               <span>SRMIST, Chennai</span>
