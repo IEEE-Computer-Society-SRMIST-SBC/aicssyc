@@ -334,7 +334,7 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 max-w-sm mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto gap-5 sm:gap-6">
               {leadershipData.deanCet.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               ))}
