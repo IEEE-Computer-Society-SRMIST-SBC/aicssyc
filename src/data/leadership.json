@@ -51,6 +51,14 @@
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-m-leenus-jesu-martin.jpg",
       "tag": "DEAN (CET)"
+    },
+    {
+      "id": "s-s-sridhar",
+      "name": "Dr. S. S. Sridhar",
+      "role": "Professor & Associate Dean (Academics - CET)",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-s-s-sridhar.jpg",
+      "tag": "Associate Dean"
     }
   ],
   "schoolDepartmentLeadership": [
@@ -103,6 +111,14 @@
       "institution": "SRMIST, KTR",
       "image": "/committee/dr-m-leenus-jesu-martin.jpg",
       "tag": "DEAN (CET)"
+    },
+    {
+      "id": "s-s-sridhar",
+      "name": "Dr. S. S. Sridhar",
+      "role": "Professor & Associate Dean (Academics - CET)",
+      "institution": "SRMIST, KTR",
+      "image": "/committee/dr-s-s-sridhar.jpg",
+      "tag": "Associate Dean"
     },
     {
       "id": "revathi-venkataraman",
