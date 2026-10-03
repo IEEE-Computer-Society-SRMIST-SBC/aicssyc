@@ -85,7 +85,7 @@ export default function Navbar() {
       window.removeEventListener("scrollend", unlockScroll);
     };
 
-    if ("onscrollend" in window) {
+    if (typeof window !== "undefined" && "onscrollend" in window) {
       window.addEventListener("scrollend", unlockScroll, { once: true });
     }
 

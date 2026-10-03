@@ -43,21 +43,22 @@ const TEAMS = [
   "Heritage Visit",
 ];
 
-const formatRole = (role: string) => {
+const formatRole = (role?: string) => {
   if (!role) return "";
   const trimmed = role.trim();
   return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
 };
 
 function LeadershipCard({ member }: { member: LeadershipMember }) {
+  if (!member) return null;
   return (
     <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10">
       <div>
         {/* Photo Container */}
         <div className="relative aspect-[4/3.8] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
-            src={member.image}
-            alt={member.name}
+            src={member.image || "/committee/placeholder.jpg"}
+            alt={member.name || "Leadership"}
             className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
@@ -66,11 +67,13 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/80 via-transparent to-transparent pointer-events-none" />
 
           {/* Tag Badge */}
-          <div className="absolute top-2.5 right-2.5">
-            <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
-              {member.tag}
-            </span>
-          </div>
+          {member.tag && (
+            <div className="absolute top-2.5 right-2.5">
+              <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+                {member.tag}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Text Info */}
@@ -82,7 +85,7 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
             {member.role}
           </p>
           <div className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
-            {member.institution.split("\n").map((line, idx) => (
+            {(member.institution || "").split("\n").map((line, idx) => (
               <p key={idx} className={idx > 0 ? "mt-0.5 text-white/50" : ""}>
                 {line}
               </p>
@@ -108,14 +111,15 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
 }
 
 function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
+  if (!member) return null;
   return (
     <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10 h-full">
       <div>
         {/* Photo Container */}
         <div className="relative aspect-[4/3.8] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
-            src={member.image}
-            alt={member.name}
+            src={member.image || "/committee/placeholder.jpg"}
+            alt={member.name || "Committee Member"}
             className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
           />
@@ -124,11 +128,13 @@ function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/80 via-transparent to-transparent pointer-events-none" />
 
           {/* Tag Badge */}
-          <div className="absolute top-2.5 right-2.5">
-            <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
-              {member.tag}
-            </span>
-          </div>
+          {member.tag && (
+            <div className="absolute top-2.5 right-2.5">
+              <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+                {member.tag}
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Text Info */}
@@ -192,31 +198,35 @@ export function CommitteePage() {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const filteredMembers = useMemo(() => {
+    if (!Array.isArray(committeeData)) return [];
     return committeeData.filter((member: CommitteeMember) => {
+      if (!member) return false;
+      const team = member.team || "";
       const matchesTab =
         activeTab === "All" ||
-        member.team.toLowerCase().includes(activeTab.toLowerCase()) ||
-        (activeTab === "Stalls" && member.team.toLowerCase().includes("stall")) ||
+        team.toLowerCase().includes(activeTab.toLowerCase()) ||
+        (activeTab === "Stalls" && team.toLowerCase().includes("stall")) ||
         (activeTab === "Stalls & Battle of Chapters" &&
-          (member.team.toLowerCase().includes("stall") ||
-            member.team.toLowerCase().includes("chapter")));
+          (team.toLowerCase().includes("stall") ||
+            team.toLowerCase().includes("chapter")));
 
       const matchesSearch =
         searchQuery.trim() === "" ||
-        member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        member.designation.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        member.team.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        member.tag.toLowerCase().includes(searchQuery.toLowerCase());
+        (member.name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (member.designation || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        team.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (member.tag || "").toLowerCase().includes(searchQuery.toLowerCase());
 
       return matchesTab && matchesSearch;
     });
   }, [activeTab, searchQuery]);
 
   const tieredGroups = useMemo(() => {
+    if (!Array.isArray(filteredMembers)) return [];
     return DESIGNATION_TIERS.map((tier) => ({
       ...tier,
-      members: filteredMembers.filter(
-        (member: CommitteeMember) => member.designation === tier.key
+      members: (filteredMembers || []).filter(
+        (member: CommitteeMember) => member?.designation === tier.key
       ),
     })).filter((group) => group.members.length > 0);
   }, [filteredMembers]);
@@ -287,9 +297,9 @@ export function CommitteePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
-              {leadershipData.chiefPatrons.map((member) => (
+              {leadershipData?.chiefPatrons?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
-              ))}
+              )) ?? null}
             </div>
           </motion.section>
 
@@ -311,9 +321,9 @@ export function CommitteePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto gap-5 sm:gap-6">
-              {leadershipData.patrons.map((member) => (
+              {leadershipData?.patrons?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
-              ))}
+              )) ?? null}
             </div>
           </motion.section>
 
@@ -335,9 +345,9 @@ export function CommitteePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto gap-5 sm:gap-6">
-              {leadershipData.deanCet.map((member) => (
+              {leadershipData?.deanCet?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
-              ))}
+              )) ?? null}
             </div>
           </motion.section>
 
@@ -359,9 +369,9 @@ export function CommitteePage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
-              {leadershipData.schoolDepartmentLeadership.map((member) => (
+              {leadershipData?.schoolDepartmentLeadership?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
-              ))}
+              )) ?? null}
             </div>
           </motion.section>
 
@@ -383,7 +393,9 @@ export function CommitteePage() {
             </div>
 
             <div className="grid grid-cols-1 max-w-sm mx-auto gap-5 sm:gap-6">
-              <LeadershipCard member={leadershipData.convenorAdvisor} />
+              {leadershipData?.convenorAdvisor ? (
+                <LeadershipCard member={leadershipData.convenorAdvisor} />
+              ) : null}
             </div>
           </motion.section>
         </div>
@@ -507,7 +519,7 @@ export function CommitteePage() {
 
                     {/* Member Cards Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
-                      {group.members.map((member: CommitteeMember, index: number) => (
+                      {group.members?.map((member: CommitteeMember, index: number) => (
                         <motion.div
                           key={member.id}
                           layout
@@ -518,7 +530,7 @@ export function CommitteePage() {
                         >
                           <CommitteeMemberCard member={member} />
                         </motion.div>
-                      ))}
+                      )) ?? null}
                     </div>
                   </motion.section>
                 );
@@ -527,7 +539,7 @@ export function CommitteePage() {
           </div>
 
           {/* Empty Search State */}
-          {filteredMembers.length === 0 && (
+          {(filteredMembers?.length ?? 0) === 0 && (
             <div className="text-center py-16 px-4 rounded-3xl border border-white/10 bg-white/[0.02]">
               <p className="text-base text-white/70 font-serif">No committee members found matching your criteria.</p>
               <button
