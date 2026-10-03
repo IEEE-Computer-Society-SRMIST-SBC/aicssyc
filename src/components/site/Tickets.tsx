@@ -26,6 +26,7 @@ export function Tickets() {
       className="relative scroll-mt-24 sm:scroll-mt-32 section-rhythm overflow-hidden text-ivory"
     >
       <span id="passes" className="absolute -top-32" />
+      <span id="register" className="absolute -top-32" />
       {/* Background glow (Constrained) */}
       <div className="absolute top-1/2 right-10 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-amber-500/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none transform-gpu will-change-transform" />
 

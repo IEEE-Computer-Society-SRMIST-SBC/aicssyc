@@ -10,6 +10,7 @@ import {
   Users,
   Award,
   Globe2,
+  Music,
 } from "lucide-react";
 import { majorHighlights, MajorHighlight } from "@/data/highlights";
 
@@ -21,6 +22,8 @@ function getEventIcon(id: string) {
       return Rocket;
     case "call-for-host-2027":
       return Building2;
+    case "noir-dj-night":
+      return Music;
     default:
       return Sparkles;
   }
