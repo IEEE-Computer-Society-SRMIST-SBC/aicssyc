@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { SmoothScroll } from "../components/site/SmoothScroll";
 import { BackgroundFog } from "../components/site/BackgroundFog";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 
@@ -202,6 +203,7 @@ function RootShell({ children }: { children: ReactNode }) {
           <BackgroundFog />
           {children}
         </SmoothScroll>
+        <Analytics />
         <Scripts />
       </body>
     </html>
