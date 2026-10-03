@@ -1,0 +1,53 @@
+[
+  {
+    "id": "noir-dj-night",
+    "title": "NØIR — Flagship DJ Night",
+    "tag": "CULTURAL GALA",
+    "date": "9th October 2026",
+    "time": "07:00 PM – 09:00 PM",
+    "venue": "Vendhar Square, SRMIST KTR",
+    "organizer": "IEEE CS SBC SRMIST",
+    "summary": "An electrifying open-air musical night at Vendhar Square featuring live DJ performances, immersive audio-visuals, and high-energy celebration for congress delegates.",
+    "image": "/highlights/noir.jpg",
+    "ctaText": "Get DJ Night Passes",
+    "ctaLink": "https://konfhub.com/ieee-cs-aicssyc-dj-night"
+  },
+  {
+    "id": "battle-of-chapters",
+    "title": "Battle of Chapters",
+    "tag": "COMPETITION",
+    "date": "9th October 2026",
+    "time": "10:45 AM – 12:30 PM",
+    "venue": "TP2 7th Floor, SRMIST KTR",
+    "organizer": "IEEE CS SBC SRMIST",
+    "summary": "Present your chapter's best events, initiatives, and overall impact. Compete against the top IEEE student chapters across the region for the ultimate title and a chance to win exciting prizes worth $500!",
+    "image": "/boc-poster.png",
+    "ctaText": "Register & Submit",
+    "ctaLink": "https://docs.google.com/forms/d/e/1FAIpQLSdiiY58U8j74rQVQKuI1vyOCrdUaXSPEKV-D8aXNGF0mq65nw/viewform?usp=send_form"
+  },
+  {
+    "id": "startup-summit",
+    "title": "Global Incubation Committee",
+    "tag": "STARTUP SUMMIT",
+    "date": "8th–11th October 2026",
+    "venue": "SRMIST KTR",
+    "organizer": "Global Incubation Committee",
+    "summary": "Pitch your innovative ideas to industry leaders, prominent mentors, and active investors at our dedicated Startup Summit. Compete to secure vital incubation support, feedback, and seed funding to take your startup project to the next level.",
+    "image": "/gic-logo.png",
+    "previewUrl": "https://globalincubation.vercel.app/",
+    "ctaText": "Explore GIC",
+    "ctaLink": "https://globalincubation.vercel.app/"
+  },
+  {
+    "id": "call-for-host-2027",
+    "title": "Call for Host — AICSSYC 2027",
+    "tag": "HOSTING APPLICATION",
+    "date": "Deadline: 1 October 2026",
+    "venue": "Pan-India",
+    "organizer": "IEEE Computer Society",
+    "summary": "Step forward and bring India's flagship IEEE Computer Society congress to your institution. Lead the next convergence of 300+ student leaders, researchers, and innovators.",
+    "image": "/call-for-host-poster.png",
+    "ctaText": "Apply to Host",
+    "ctaLink": "https://docs.google.com/forms/d/e/1FAIpQLScMSV4uBZ5evBHPNZne6F32s49el7YWaA6ycsrEgUEAYos-6Q/viewform"
+  }
+]

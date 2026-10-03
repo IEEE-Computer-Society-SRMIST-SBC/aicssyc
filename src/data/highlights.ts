@@ -1,3 +1,5 @@
+import highlightsJsonData from "./highlights.json";
+
 export interface HighlightLink {
   label: string;
   url: string;
@@ -13,6 +15,10 @@ export interface MajorHighlight {
   description: string;
   highlightTag?: string;
   deadline?: string;
+  date?: string;
+  time?: string;
+  venue?: string;
+  organizer?: string;
   ctaText?: string;
   ctaUrl?: string;
   isFeatured?: boolean;
@@ -27,7 +33,41 @@ export interface MajorHighlight {
   highlights: string[];
 }
 
+export const highlightsJson = highlightsJsonData;
+
 export const majorHighlights: MajorHighlight[] = [
+  {
+    id: "noir-dj-night",
+    badge: "9 OCTOBER • 07:00 PM",
+    title: "NØIR — The Flagship DJ Night",
+    subtitle: "The Flagship DJ Night",
+    description:
+      "An electrifying open-air musical night at Vendhar Square featuring live DJ performances, immersive audio-visuals, and high-energy celebration for congress delegates.",
+    highlightTag: "FLAGSHIP NIGHT / CULTURAL",
+    date: "9th October 2026",
+    time: "07:00 PM – 09:00 PM",
+    venue: "Vendhar Square, SRMIST KTR",
+    organizer: "IEEE CS SBC SRMIST",
+    posterUrl: "/highlights/noir.jpg",
+    isFeatured: true,
+    links: [
+      {
+        label: "Get DJ Night Passes",
+        url: "https://konfhub.com/ieee-cs-aicssyc-dj-night",
+        primary: true,
+      },
+    ],
+    gradient: "from-fuchsia-600/25 via-purple-600/15 to-transparent",
+    glow: "bg-fuchsia-600/20",
+    iconColor: "text-fuchsia-400",
+    borderColor: "border-fuchsia-500/30",
+    highlights: [
+      "9th October 2026 • 07:00 PM – 09:00 PM",
+      "Venue: Vendhar Square, SRMIST KTR",
+      "Organized by IEEE CS SBC SRMIST",
+      "Live DJ Sets & Immersive Audio-Visuals",
+    ],
+  },
   {
     id: "battle-of-chapters",
     title: "Battle of Chapters",
@@ -121,3 +161,5 @@ export const majorHighlights: MajorHighlight[] = [
     ],
   },
 ];
+
+export default majorHighlights;

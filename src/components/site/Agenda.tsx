@@ -208,6 +208,21 @@ function ScheduleCard({ item }: { item: ScheduleItem }) {
             <span>{item.venue}</span>
           </div>
         )}
+
+        {/* Ticket Link if available */}
+        {item.ticketUrl && (
+          <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between">
+            <a
+              href={item.ticketUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-gradient-to-r from-amber-400 to-amber-500 text-black hover:brightness-110 transition-all shadow-md shadow-amber-500/20 active:scale-98"
+            >
+              <span>Get DJ Night Passes</span>
+              <span>→</span>
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ export interface ScheduleItem {
   venue?: string;
   category?: string;
   tag?: string;
+  ticketUrl?: string;
 }
 
 export interface DaySchedule {
@@ -45,6 +46,7 @@ export const timelineData: DaySchedule[] = scheduleJson.map((dayData: any) => ({
     coordinators: event.coordinators,
     description: event.description,
     venue: event.venue,
+    ticketUrl: event.ticketUrl,
     category: event.category ? event.category.toLowerCase() : "general",
     tag: event.tag || (event.category === "KEYNOTE" ? "KEYNOTE" : event.category === "WORKSHOP" ? "WORKSHOP" : undefined),
   })),

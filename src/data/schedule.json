@@ -148,16 +148,17 @@
         "category": "CULTURAL"
       },
       {
-        "time": "7:00 PM – 8:30 PM",
-        "title": "DJ Night (Paid Entry for SRM Students)",
+        "time": "7:00 PM – 9:00 PM",
+        "title": "NØIR — The Flagship DJ Night",
         "coordinators": [
           "Dr. Aswathy K Cherian",
           "Dr. B. Sowmiya",
           "Dr. M.K. Vidhyalakshmi",
           "Dr. B. Ida Seraphim"
         ],
-        "venue": "Inside Vendhar Square",
-        "category": "CULTURAL"
+        "venue": "Vendhar Square, SRMIST KTR",
+        "category": "CULTURAL",
+        "ticketUrl": "https://konfhub.com/ieee-cs-aicssyc-dj-night"
       },
       {
         "time": "7:30 PM – 9:00 PM",
