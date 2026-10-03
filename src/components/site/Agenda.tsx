@@ -320,21 +320,21 @@ export function Agenda() {
               <div>
                 <div className="flex items-center gap-2 mb-1.5">
                   <span className="px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-[0.18em] font-bold bg-emerald-950/90 border border-emerald-500/30 text-emerald-300">
-                    {currentDay.day} • {currentDay.date.split(",")[0]}
+                    {currentDay?.day} • {(currentDay?.date || "").split(",")[0]}
                   </span>
                   <span className="text-[11px] font-mono tracking-wider text-amber-400/90 uppercase">
-                    • {currentDay.date.split(",")[1]?.trim() || currentDay.date}
+                    • {(currentDay?.date || "").split(",")[1]?.trim() || currentDay?.date}
                   </span>
                 </div>
                 <h3 className="text-xl sm:text-3xl font-serif font-normal text-white">
-                  {currentDay.title.includes("&") ? (
+                  {(currentDay?.title || "").includes("&") ? (
                     <>
-                      {currentDay.title.split("&")[0].trim()}
+                      {(currentDay?.title || "").split("&")[0].trim()}
                       <span className="font-serif italic text-amber-300 mx-1.5">&amp;</span>
-                      {currentDay.title.split("&")[1].trim()}
+                      {(currentDay?.title || "").split("&")[1].trim()}
                     </>
                   ) : (
-                    currentDay.title
+                    currentDay?.title
                   )}
                 </h3>
               </div>
@@ -342,7 +342,7 @@ export function Agenda() {
               <div className="flex items-center gap-2 self-start sm:self-auto">
                 <span className="inline-flex items-center gap-1.5 text-xs font-sans font-medium text-emerald-200 bg-[#0A2218] border border-emerald-700/50 px-3.5 py-1.5 rounded-full shadow-sm">
                   <span>📍</span>
-                  <span>{currentDay.venueHighlight}</span>
+                  <span>{currentDay?.venueHighlight}</span>
                 </span>
               </div>
             </div>
@@ -352,18 +352,18 @@ export function Agenda() {
         {/* Main Schedule List */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentDay.day + "-schedule"}
+            key={(currentDay?.day || "day") + "-schedule"}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.3 }}
             className="relative pl-4 sm:pl-6 border-l border-emerald-800/40 space-y-3.5 sm:space-y-4"
           >
-            {currentDay.schedule.map((item, itemIdx) => {
-              const config = getCategoryConfig(item.category);
+            {currentDay?.schedule?.map((item, itemIdx) => {
+              const config = getCategoryConfig(item?.category);
 
               return (
-                <div key={`${currentDay.day}-${itemIdx}`} className="relative group">
+                <div key={`${currentDay?.day || 0}-${itemIdx}`} className="relative group">
                   {/* Timeline Indicator Dot */}
                   <div
                     className={`absolute -left-[21px] sm:-left-[29px] top-5 w-2.5 h-2.5 rounded-full border-2 transition-transform z-10 ${config.dotColor}`}
@@ -372,7 +372,7 @@ export function Agenda() {
                   <ScheduleCard item={item} />
                 </div>
               );
-            })}
+            }) ?? null}
           </motion.div>
         </AnimatePresence>
       </div>
