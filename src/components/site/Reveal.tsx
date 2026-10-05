@@ -33,12 +33,11 @@ export const eyebrowVariants: Variants = {
 };
 
 export const headingVariants: Variants = {
-  hidden: { opacity: 0, y: 32, filter: "blur(14px)" },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
-    transition: { duration: 1.05, ease: EASE },
+    transition: { duration: 0.8, ease: EASE },
   },
 };
 
@@ -211,8 +210,8 @@ const legacyVariant = (dir: Direction, distance: number): Variants => {
       return { hidden: { ...base, scale: 0.86 }, show: { opacity: 1, scale: 1 } };
     case "blur":
       return {
-        hidden: { ...base, filter: "blur(14px)", y: distance },
-        show: { opacity: 1, filter: "blur(0px)", y: 0 },
+        hidden: { ...base, y: distance },
+        show: { opacity: 1, y: 0 },
       };
   }
 };

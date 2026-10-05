@@ -1,24 +1,25 @@
 import React, { useState, useMemo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Search, Layers, Crown, Shield, GraduationCap, Users, Award } from "lucide-react";
+import { Sparkles, Search, Layers, Crown, Shield, GraduationCap, Users, Award, UserCheck } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Footer } from "@/components/site/Footer";
 import { BackgroundFog } from "@/components/site/BackgroundFog";
 import committeeData, { CommitteeMember } from "@/data/committee";
 import leadershipData, { LeadershipMember } from "@/data/leadership";
+import studentCommitteeData, { StudentLeader, StudentOrganiser } from "@/data/studentCommittee";
 
 export const Route = createFileRoute("/committee")({
   component: CommitteePage,
   head: () => ({
     meta: [
       {
-        title: "Advisory Committee — AICSSYC 2026",
+        title: "Organizing & Advisory Committee — AICSSYC 2026",
       },
       {
         name: "description",
         content:
-          "The university leadership, chief patrons, patrons, and advisory committee of SRMIST powering AICSSYC 2026.",
+          "The university leadership, chief patrons, patrons, faculty advisory, and student organizing committee powering AICSSYC 2026 at SRMIST.",
       },
     ],
   }),
@@ -169,6 +170,127 @@ function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
   );
 }
 
+function StudentLeadershipCard({ member }: { member: StudentLeader }) {
+  if (!member) return null;
+
+  const categoryBadgeStyles: Record<string, { border: string; text: string; bg: string }> = {
+    CHAIR: {
+      border: "border-amber-400/50",
+      text: "text-amber-300",
+      bg: "bg-amber-400/10",
+    },
+    "VICE-CHAIR": {
+      border: "border-emerald-400/50",
+      text: "text-emerald-300",
+      bg: "bg-emerald-400/10",
+    },
+    CREATIVE_HEAD: {
+      border: "border-purple-400/50",
+      text: "text-purple-300",
+      bg: "bg-purple-400/10",
+    },
+  };
+
+  const badgeStyle = categoryBadgeStyles[member.category] || {
+    border: "border-[#E2B767]/40",
+    text: "text-[#E2B767]",
+    bg: "bg-[#E2B767]/10",
+  };
+
+  return (
+    <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10">
+      <div>
+        {/* Photo Container */}
+        <div className="relative aspect-[4/4.2] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+
+          {/* Subtle Ambient Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/80 via-transparent to-transparent pointer-events-none" />
+
+          {/* Tag Badge */}
+          <div className="absolute top-2.5 right-2.5">
+            <span
+              className={`px-2.5 py-1 rounded-md backdrop-blur-sm border text-[9px] font-mono uppercase tracking-wider font-semibold shadow-md ${badgeStyle.border} ${badgeStyle.text} ${badgeStyle.bg}`}
+            >
+              {member.role}
+            </span>
+          </div>
+        </div>
+
+        {/* Text Info */}
+        <div className="pt-4 flex flex-col flex-grow">
+          <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-1">
+            {member.name}
+          </h3>
+          <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-1">
+            {member.role}
+          </p>
+          <p className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
+            Student Leadership • AICSSYC 2026
+          </p>
+        </div>
+      </div>
+
+      <div>
+        {/* Hairline Divider */}
+        <div className="my-3.5 border-t border-white/10" />
+
+        {/* Footer */}
+        <div className="flex items-center justify-between text-xs text-white/50">
+          <span className="text-[11px] font-mono text-white/60">IEEE SRM SB</span>
+          <span className="text-[10px] font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
+            {member.role}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function StudentOrganiserCard({ member }: { member: StudentOrganiser }) {
+  if (!member) return null;
+  return (
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/85 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-xl hover:shadow-[#E2B767]/10 h-full">
+      <div>
+        {/* Photo Container */}
+        <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
+
+          {/* Subtle Ambient Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/75 via-transparent to-transparent pointer-events-none" />
+        </div>
+
+        {/* Text Info */}
+        <div className="pt-3 flex flex-col flex-grow">
+          <h4 className="font-serif text-sm sm:text-base font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-1">
+            {member.name}
+          </h4>
+          <p className="mt-0.5 text-[11px] sm:text-xs font-mono text-amber-400/90 font-medium">
+            {member.role}
+          </p>
+        </div>
+      </div>
+
+      <div className="pt-2">
+        <div className="border-t border-white/[0.06] pt-2 flex items-center justify-between text-[10px] font-mono text-white/40">
+          <span>SRMIST</span>
+          <span className="text-[#E2B767]/70">AICSSYC &apos;26</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const DESIGNATION_TIERS = [
   {
     key: "Professor",
@@ -196,8 +318,9 @@ const DESIGNATION_TIERS = [
 export function CommitteePage() {
   const [activeTab, setActiveTab] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
+  const [studentSearchQuery, setStudentSearchQuery] = useState<string>("");
 
-  const filteredMembers = useMemo(() => {
+  const filteredFacultyMembers = useMemo(() => {
     if (!Array.isArray(committeeData)) return [];
     return committeeData.filter((member: CommitteeMember) => {
       if (!member) return false;
@@ -222,14 +345,22 @@ export function CommitteePage() {
   }, [activeTab, searchQuery]);
 
   const tieredGroups = useMemo(() => {
-    if (!Array.isArray(filteredMembers)) return [];
+    if (!Array.isArray(filteredFacultyMembers)) return [];
     return DESIGNATION_TIERS.map((tier) => ({
       ...tier,
-      members: (filteredMembers || []).filter(
+      members: (filteredFacultyMembers || []).filter(
         (member: CommitteeMember) => member?.designation === tier.key
       ),
     })).filter((group) => group.members.length > 0);
-  }, [filteredMembers]);
+  }, [filteredFacultyMembers]);
+
+  const filteredStudentOrganisers = useMemo(() => {
+    const organisers = studentCommitteeData?.organisers || [];
+    if (!studentSearchQuery.trim()) return organisers;
+    return organisers.filter((org) =>
+      org.name.toLowerCase().includes(studentSearchQuery.toLowerCase())
+    );
+  }, [studentSearchQuery]);
 
   return (
     <div className="min-h-screen bg-[#060D0A] text-ivory flex flex-col selection:bg-[#E2B767] selection:text-neutral-950 relative overflow-hidden">
@@ -259,7 +390,7 @@ export function CommitteePage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium text-white tracking-tight text-balance leading-tight"
           >
-            Advisory{" "}
+            Organizing &amp; Advisory{" "}
             <span className="font-editorial italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#E2B767] to-amber-500">
               Committee
             </span>
@@ -271,7 +402,7 @@ export function CommitteePage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-sans max-w-2xl mx-auto"
           >
-            The distinguished university leadership, patrons, deans, department chairs, and congress convenor guiding AICSSYC 2026.
+            The distinguished university leadership, patrons, deans, department chairs, faculty convenors, and student organizing committee driving AICSSYC 2026.
           </motion.p>
         </div>
 
@@ -401,16 +532,16 @@ export function CommitteePage() {
         </div>
 
         {/* ========================================================================= */}
-        {/* DEPARTMENTAL ORGANIZING TEAMS (43 Faculty Members)                        */}
+        {/* DEPARTMENTAL ORGANIZING TEAMS (Faculty Members)                           */}
         {/* ========================================================================= */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-8 border-t border-white/10 mb-20">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-mono font-semibold uppercase tracking-widest mb-3">
               <Users size={12} />
               <span>DEPARTMENT OF COMPUTING TECHNOLOGIES</span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-serif font-medium text-white tracking-tight">
-              Organizing Teams
+              Faculty Organizing Teams
             </h2>
             <p className="mt-2 text-sm text-white/60">
               Faculty committee members driving the specialized event tracks and operations.
@@ -464,7 +595,7 @@ export function CommitteePage() {
           <div className="mb-6 flex items-center justify-between text-xs text-white/50 font-mono border-b border-white/10 pb-3">
             <span className="inline-flex items-center gap-1.5">
               <span>SHOWING</span>
-              <strong className="text-[#E2B767]">{filteredMembers.length}</strong>
+              <strong className="text-[#E2B767]">{filteredFacultyMembers.length}</strong>
               <span>FACULTY COMMITTEE MEMBERS</span>
             </span>
             {activeTab !== "All" && (
@@ -539,9 +670,9 @@ export function CommitteePage() {
           </div>
 
           {/* Empty Search State */}
-          {(filteredMembers?.length ?? 0) === 0 && (
+          {(filteredFacultyMembers?.length ?? 0) === 0 && (
             <div className="text-center py-16 px-4 rounded-3xl border border-white/10 bg-white/[0.02]">
-              <p className="text-base text-white/70 font-serif">No committee members found matching your criteria.</p>
+              <p className="text-base text-white/70 font-serif">No faculty committee members found matching your criteria.</p>
               <button
                 onClick={() => {
                   setActiveTab("All");
@@ -553,6 +684,129 @@ export function CommitteePage() {
               </button>
             </div>
           )}
+        </div>
+
+        {/* ========================================================================= */}
+        {/* STUDENT ORGANISING COMMITTEE SECTION                                      */}
+        {/* ========================================================================= */}
+        <div className="pt-12 border-t border-white/10 space-y-16">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-mono font-semibold uppercase tracking-widest mb-3 shadow-[0_0_15px_rgba(226,183,103,0.1)]">
+              <UserCheck size={13} />
+              <span>IEEE SRM STUDENT BRANCH</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-medium text-white tracking-tight">
+              Student Organising{" "}
+              <span className="font-editorial italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-[#E2B767] to-amber-500">
+                Committee
+              </span>
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-white/60 font-sans max-w-2xl mx-auto">
+              The dedicated student executive leadership and organizing team orchestrating events, logistics, creative operations, and participant experiences for AICSSYC 2026.
+            </p>
+          </div>
+
+          {/* 1. Student Leadership Tier */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
+              <Crown className="w-5 h-5 text-[#E2B767]" />
+              <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                Student Leadership
+              </h3>
+              <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
+                Executive Leads
+              </span>
+            </div>
+
+            <div
+              className={
+                studentCommitteeData?.leadership?.length === 1
+                  ? "flex justify-center max-w-sm mx-auto"
+                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto gap-5 sm:gap-6"
+              }
+            >
+              {studentCommitteeData?.leadership?.map((leader) => (
+                <div key={leader.name} className={studentCommitteeData?.leadership?.length === 1 ? "w-full" : ""}>
+                  <StudentLeadershipCard member={leader} />
+                </div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* 2. Student Organisers Tier */}
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="pt-6"
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-3 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <Users className="w-5 h-5 text-[#E2B767]" />
+                <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                  Student Organisers
+                </h3>
+                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold border border-[#E2B767]/30 text-[#E2B767] bg-[#E2B767]/10">
+                  {studentCommitteeData?.organisers?.length || 35} Members
+                </span>
+              </div>
+
+              {/* Quick Search for Student Organisers */}
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-3 w-3.5 h-3.5 text-white/40 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Search organiser..."
+                  value={studentSearchQuery}
+                  onChange={(e) => setStudentSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-3 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-all backdrop-blur-sm"
+                />
+                {studentSearchQuery && (
+                  <button
+                    onClick={() => setStudentSearchQuery("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-white/50 hover:text-white"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Organisers Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
+              {filteredStudentOrganisers.map((org, index) => (
+                <motion.div
+                  key={org.name}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
+                >
+                  <StudentOrganiserCard member={org} />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Empty Search State */}
+            {filteredStudentOrganisers.length === 0 && (
+              <div className="text-center py-12 px-4 rounded-3xl border border-white/10 bg-white/[0.02]">
+                <p className="text-sm text-white/70 font-serif">No student organisers found matching &ldquo;{studentSearchQuery}&rdquo;.</p>
+                <button
+                  onClick={() => setStudentSearchQuery("")}
+                  className="mt-3 px-3.5 py-1.5 rounded-full bg-[#E2B767] text-[#060D0A] text-xs font-semibold"
+                >
+                  Clear Search
+                </button>
+              </div>
+            )}
+          </motion.section>
         </div>
       </main>
 

@@ -16,6 +16,9 @@ export default defineConfig({
     react(),
   ],
   resolve: {
+    alias: {
+      "@vercel/analytics/next": "@vercel/analytics/react",
+    },
     dedupe: ["react", "react-dom", "@tanstack/react-router"],
   },
 });
