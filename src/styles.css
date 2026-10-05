@@ -88,9 +88,6 @@
     color: var(--ivory);
     font-family: var(--font-sans);
     background-color: var(--obsidian);
-    background-image: var(--gradient-cosmic);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;

@@ -1,0 +1,50 @@
+{
+  "leadership": [
+    {
+      "name": "Ushnish Ghosal",
+      "role": "Chair",
+      "category": "CHAIR",
+      "image": "/committee/students/ushnish-ghosal.png"
+    }
+  ],
+  "organisers": [
+    { "name": "Keshav Gupta", "role": "Organiser", "image": "/committee/students/keshav-gupta.png" },
+    { "name": "Vaibhav Gupta", "role": "Organiser", "image": "/committee/students/vaibhav-gupta.png" },
+    { "name": "Anisha Kumari", "role": "Organiser", "image": "/committee/students/anisha-kumari.png" },
+    { "name": "Shivansh Anand Thakur", "role": "Organiser", "image": "/committee/students/shivansh-anand-thakur.png" },
+    { "name": "Arjun Jha", "role": "Organiser", "image": "/committee/students/arjun-jha.png" },
+    { "name": "Aditi Verma", "role": "Organiser", "image": "/committee/students/aditi-verma.png" },
+    { "name": "Manasi Tiwari", "role": "Organiser", "image": "/committee/students/manasi-tiwari.png" },
+    { "name": "Shreya Das", "role": "Organiser", "image": "/committee/students/shreya-das.png" },
+    { "name": "Gunjan Sharma", "role": "Organiser", "image": "/committee/students/gunjan-sharma.png" },
+    { "name": "Richelle Ranjan", "role": "Organiser", "image": "/committee/students/richelle-ranjan.png" },
+    { "name": "Ayush Dash", "role": "Organiser", "image": "/committee/students/ayush-dash.png" },
+    { "name": "Arpita Ghatge", "role": "Organiser", "image": "/committee/students/arpita-ghatge.png" },
+    { "name": "Stuti Rai", "role": "Organiser", "image": "/committee/students/stuti-rai.png" },
+    { "name": "Vishesh Jhabak", "role": "Organiser", "image": "/committee/students/vishesh-jhabak.png" },
+    { "name": "Sumanta Dash", "role": "Organiser", "image": "/committee/students/sumanta-dash.png" },
+    { "name": "Dipesh Pirojiwala", "role": "Organiser", "image": "/committee/students/dipesh-pirojiwala.png" },
+    { "name": "Devangana Rameshan", "role": "Organiser", "image": "/committee/students/devangana-rameshan.png" },
+    { "name": "Samarth Periwal", "role": "Organiser", "image": "/committee/students/samarth-periwal.png" },
+    { "name": "Ariv Agarwal", "role": "Organiser", "image": "/committee/students/ariv-agarwal.png" },
+    { "name": "Aditya Singh", "role": "Organiser", "image": "/committee/students/aditya-singh.png" },
+    { "name": "Atharv Dorle", "role": "Organiser", "image": "/committee/students/atharv-dorle.png" },
+    { "name": "Shaurya Prakash", "role": "Organiser", "image": "/committee/students/shaurya-prakash.png" },
+    { "name": "Saransh Gandotra", "role": "Organiser", "image": "/committee/students/saransh-gandotra.png" },
+    { "name": "Vishalini P G", "role": "Organiser", "image": "/committee/students/vishalini-pg.png" },
+    { "name": "Urvi Gupta", "role": "Organiser", "image": "/committee/students/urvi-gupta.png" },
+    { "name": "Trisha Kumar", "role": "Organiser", "image": "/committee/students/trisha-kumar.png" },
+    { "name": "Ishee", "role": "Organiser", "image": "/committee/students/ishee.png" },
+    { "name": "Kishan Chauhan", "role": "Organiser", "image": "/committee/students/kishan-chauhan.png" },
+    { "name": "Dhruv Jha", "role": "Organiser", "image": "/committee/students/dhruv-jha.png" },
+    { "name": "Arsh", "role": "Organiser", "image": "/committee/students/arsh.png" },
+    { "name": "Arya Phanase", "role": "Organiser", "image": "/committee/students/arya-phanase.png" },
+    { "name": "Iraa Jayakumar", "role": "Organiser", "image": "/committee/students/iraa-jayakumar.png" },
+    { "name": "Aditya Kumar", "role": "Organiser", "image": "/committee/students/aditya-kumar.png" },
+    { "name": "Tanishka Kumari", "role": "Organiser", "image": "/committee/students/tanishka-kumari.png" },
+    { "name": "Shlok Agarwal", "role": "Organiser", "image": "/committee/students/shlok-agarwal.png" },
+    { "name": "Ayushman Kathayat", "role": "Vice-Chair", "image": "/committee/students/ayushman-kathayat.png" },
+    { "name": "Vrisheeka Mulakala", "role": "Creative Head", "image": "/committee/students/vrisheeka-mulakala.png" },
+    { "name": "Praneetha Gunda Rama", "role": "Creative Head", "image": "/committee/students/praneetha-gunda-rama.png" }
+  ]
+}
