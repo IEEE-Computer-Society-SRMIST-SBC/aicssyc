@@ -266,7 +266,7 @@ const StudentLeadershipCard = memo(function StudentLeadershipCard({ member }: { 
 
         {/* Footer */}
         <div className="flex items-center justify-between text-[10px] text-white/50">
-          <span className="font-mono text-white/60">IEEE SRM SB</span>
+          <span className="font-mono text-white/60">IEEE CS SB SRMIST</span>
           <span className="font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
             {member.role}
           </span>
@@ -700,7 +700,7 @@ function CommitteePage() {
                 Student Leadership
               </h3>
               <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
-                Congress Advisory &amp; Lead Organizer • IEEE SRM SB
+                Congress Advisory &amp; Lead Organizer • IEEE CS SB SRMIST
               </span>
             </div>
 
