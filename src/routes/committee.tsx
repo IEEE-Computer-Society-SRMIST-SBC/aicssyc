@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, memo } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Sparkles, Search, Layers, Crown, Shield, GraduationCap, Users, Award, UserCheck } from "lucide-react";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Footer } from "@/components/site/Footer";
@@ -50,18 +50,31 @@ const formatRole = (role?: string) => {
   return trimmed.charAt(0).toUpperCase() + trimmed.slice(1).toLowerCase();
 };
 
-function LeadershipCard({ member }: { member: LeadershipMember }) {
+const LeadershipCard = memo(function LeadershipCard({
+  member,
+  isPriority = false,
+}: {
+  member: LeadershipMember;
+  isPriority?: boolean;
+}) {
   if (!member) return null;
   return (
-    <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10">
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-xl hover:shadow-[#E2B767]/10 h-full">
       <div>
         {/* Photo Container */}
-        <div className="relative aspect-[4/3.8] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
+        <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
             src={member.image || "/committee/placeholder.jpg"}
             alt={member.name || "Leadership"}
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
+            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+            loading={isPriority ? "eager" : "lazy"}
+            decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== "/committee/placeholder.jpg") {
+                target.src = "/committee/placeholder.jpg";
+              }
+            }}
           />
 
           {/* Subtle Ambient Gradient Overlay */}
@@ -69,8 +82,8 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
 
           {/* Tag Badge */}
           {member.tag && (
-            <div className="absolute top-2.5 right-2.5">
-              <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+            <div className="absolute top-2 right-2">
+              <span className="px-2 py-0.5 rounded-md bg-[#070c09]/95 border border-[#E2B767]/40 text-[8px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
                 {member.tag}
               </span>
             </div>
@@ -78,14 +91,14 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
         </div>
 
         {/* Text Info */}
-        <div className="pt-4 flex flex-col flex-grow">
-          <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
+        <div className="pt-3 flex flex-col flex-grow">
+          <h3 className="font-serif text-sm sm:text-base font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
             {member.name}
           </h3>
           <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-2 min-h-[1.25rem]">
             {member.role}
           </p>
-          <div className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
+          <div className="mt-1 text-[11px] text-white/60 leading-relaxed font-sans line-clamp-2">
             {(member.institution || "").split("\n").map((line, idx) => (
               <p key={idx} className={idx > 0 ? "mt-0.5 text-white/50" : ""}>
                 {line}
@@ -95,43 +108,50 @@ function LeadershipCard({ member }: { member: LeadershipMember }) {
         </div>
       </div>
 
-      <div>
+      <div className="pt-2">
         {/* Hairline Divider */}
-        <div className="my-3.5 border-t border-white/10" />
+        <div className="my-2 border-t border-white/10" />
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-white/50">
-          <span className="text-[11px] font-mono text-white/60">SRM Leadership</span>
-          <span className="text-[10px] font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
+        <div className="flex items-center justify-between text-[10px] text-white/50">
+          <span className="font-mono text-white/60">SRM Leadership</span>
+          <span className="font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
             {member.tag}
           </span>
         </div>
       </div>
     </div>
   );
-}
+});
 
-function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
+const CommitteeMemberCard = memo(function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
   if (!member) return null;
   return (
-    <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10 h-full">
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/85 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-lg hover:shadow-[#E2B767]/10 h-full">
       <div>
         {/* Photo Container */}
-        <div className="relative aspect-[4/3.8] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
+        <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
             src={member.image || "/committee/placeholder.jpg"}
             alt={member.name || "Committee Member"}
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== "/committee/placeholder.jpg") {
+                target.src = "/committee/placeholder.jpg";
+              }
+            }}
           />
 
           {/* Subtle Ambient Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/80 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/75 via-transparent to-transparent pointer-events-none" />
 
           {/* Tag Badge */}
           {member.tag && (
-            <div className="absolute top-2.5 right-2.5">
-              <span className="px-2.5 py-1 rounded-md bg-[#070c09]/95 backdrop-blur-sm border border-[#E2B767]/40 text-[9px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
+            <div className="absolute top-2 right-2">
+              <span className="px-2 py-0.5 rounded-md bg-[#070c09]/95 border border-[#E2B767]/40 text-[8px] font-mono text-[#E2B767] uppercase tracking-wider font-semibold shadow-md">
                 {member.tag}
               </span>
             </div>
@@ -139,38 +159,30 @@ function CommitteeMemberCard({ member }: { member: CommitteeMember }) {
         </div>
 
         {/* Text Info */}
-        <div className="pt-4 flex flex-col flex-grow">
-          <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-2">
+        <div className="pt-3 flex flex-col flex-grow">
+          <h4 className="font-serif text-sm sm:text-base font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-1">
             {member.name}
-          </h3>
-          <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-1">
+          </h4>
+          <p className="mt-0.5 text-[11px] sm:text-xs font-mono text-amber-400/90 font-medium line-clamp-1">
             {formatRole(member.designation)}
           </p>
-          <p className="mt-1 text-xs text-white/60 leading-relaxed font-sans line-clamp-1">
+          <p className="mt-0.5 text-[11px] text-white/50 font-sans line-clamp-1">
             {member.department}
           </p>
         </div>
       </div>
 
-      <div>
-        {/* Hairline Divider */}
-        <div className="my-3.5 border-t border-white/10" />
-
-        {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-white/50">
-          <span className="text-[11px] font-mono text-[#E2B767]/90 uppercase tracking-wider font-semibold">
-            {member.team}
-          </span>
-          <span className="text-[10px] font-mono tracking-wider uppercase text-white/40">
-            SRMIST
-          </span>
+      <div className="pt-2">
+        <div className="border-t border-white/[0.06] pt-2 flex items-center justify-between text-[10px] font-mono text-white/40">
+          <span className="text-[#E2B767]/80 truncate max-w-[110px]">{member.team}</span>
+          <span>SRMIST</span>
         </div>
       </div>
     </div>
   );
-}
+});
 
-function StudentLeadershipCard({ member }: { member: StudentLeader }) {
+const StudentLeadershipCard = memo(function StudentLeadershipCard({ member }: { member: StudentLeader }) {
   if (!member) return null;
 
   const categoryBadgeStyles: Record<string, { border: string; text: string; bg: string }> = {
@@ -178,6 +190,11 @@ function StudentLeadershipCard({ member }: { member: StudentLeader }) {
       border: "border-amber-400/50",
       text: "text-amber-300",
       bg: "bg-amber-400/10",
+    },
+    STUDENT_ADVISOR: {
+      border: "border-sky-400/50",
+      text: "text-sky-300",
+      bg: "bg-sky-400/10",
     },
     "VICE-CHAIR": {
       border: "border-emerald-400/50",
@@ -198,24 +215,31 @@ function StudentLeadershipCard({ member }: { member: StudentLeader }) {
   };
 
   return (
-    <div className="group relative flex flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#E2B767]/40 hover:shadow-2xl hover:shadow-[#E2B767]/10">
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/90 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-xl hover:shadow-[#E2B767]/10 h-full">
       <div>
         {/* Photo Container */}
-        <div className="relative aspect-[4/4.2] w-full overflow-hidden rounded-2xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
+        <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
-            src={member.image}
+            src={member.image || "/committee/placeholder.jpg"}
             alt={member.name}
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== "/committee/placeholder.jpg") {
+                target.src = "/committee/placeholder.jpg";
+              }
+            }}
           />
 
           {/* Subtle Ambient Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#070c09]/80 via-transparent to-transparent pointer-events-none" />
 
           {/* Tag Badge */}
-          <div className="absolute top-2.5 right-2.5">
+          <div className="absolute top-2 right-2">
             <span
-              className={`px-2.5 py-1 rounded-md backdrop-blur-sm border text-[9px] font-mono uppercase tracking-wider font-semibold shadow-md ${badgeStyle.border} ${badgeStyle.text} ${badgeStyle.bg}`}
+              className={`px-2 py-0.5 rounded-md border text-[8px] font-mono uppercase tracking-wider font-semibold shadow-md ${badgeStyle.border} ${badgeStyle.text} ${badgeStyle.bg}`}
             >
               {member.role}
             </span>
@@ -223,47 +247,54 @@ function StudentLeadershipCard({ member }: { member: StudentLeader }) {
         </div>
 
         {/* Text Info */}
-        <div className="pt-4 flex flex-col flex-grow">
-          <h3 className="font-serif text-lg sm:text-xl font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-1">
+        <div className="pt-3 flex flex-col flex-grow">
+          <h3 className="font-serif text-sm sm:text-base font-medium text-white group-hover:text-[#E2B767] transition-colors leading-tight line-clamp-1">
             {member.name}
           </h3>
           <p className="mt-1 text-xs font-semibold normal-case text-amber-400 line-clamp-1">
             {member.role}
           </p>
-          <p className="mt-1 text-xs text-white/60 leading-relaxed font-sans">
+          <p className="mt-0.5 text-[11px] text-white/60 leading-relaxed font-sans">
             Student Leadership • AICSSYC 2026
           </p>
         </div>
       </div>
 
-      <div>
+      <div className="pt-2">
         {/* Hairline Divider */}
-        <div className="my-3.5 border-t border-white/10" />
+        <div className="my-2 border-t border-white/10" />
 
         {/* Footer */}
-        <div className="flex items-center justify-between text-xs text-white/50">
-          <span className="text-[11px] font-mono text-white/60">IEEE SRM SB</span>
-          <span className="text-[10px] font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
+        <div className="flex items-center justify-between text-[10px] text-white/50">
+          <span className="font-mono text-white/60">IEEE SRM SB</span>
+          <span className="font-mono tracking-wider uppercase text-[#E2B767]/90 font-semibold">
             {member.role}
           </span>
         </div>
       </div>
     </div>
   );
-}
+});
 
-function StudentOrganiserCard({ member }: { member: StudentOrganiser }) {
+const StudentOrganiserCard = memo(function StudentOrganiserCard({ member }: { member: StudentOrganiser }) {
   if (!member) return null;
   return (
-    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/85 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-all duration-300 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-xl hover:shadow-[#E2B767]/10 h-full">
+    <div className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#070c09]/85 hover:bg-[#09110d]/95 p-3 sm:p-3.5 transition-[transform,border-color,box-shadow] duration-200 hover:-translate-y-1 hover:border-[#E2B767]/40 hover:shadow-lg hover:shadow-[#E2B767]/10 h-full">
       <div>
         {/* Photo Container */}
         <div className="relative aspect-square w-full overflow-hidden rounded-xl bg-neutral-900/80 border border-white/10 flex items-center justify-center">
           <img
-            src={member.image}
+            src={member.image || "/committee/placeholder.jpg"}
             alt={member.name}
-            className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
             loading="lazy"
+            decoding="async"
+            onError={(e) => {
+              const target = e.currentTarget;
+              if (target.src !== "/committee/placeholder.jpg") {
+                target.src = "/committee/placeholder.jpg";
+              }
+            }}
           />
 
           {/* Subtle Ambient Gradient Overlay */}
@@ -289,7 +320,7 @@ function StudentOrganiserCard({ member }: { member: StudentOrganiser }) {
       </div>
     </div>
   );
-}
+});
 
 const DESIGNATION_TIERS = [
   {
@@ -315,13 +346,14 @@ const DESIGNATION_TIERS = [
   },
 ];
 
-export function CommitteePage() {
+function CommitteePage() {
   const [activeTab, setActiveTab] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [studentSearchQuery, setStudentSearchQuery] = useState<string>("");
 
   const filteredFacultyMembers = useMemo(() => {
     if (!Array.isArray(committeeData)) return [];
+    const q = searchQuery.trim().toLowerCase();
     return committeeData.filter((member: CommitteeMember) => {
       if (!member) return false;
       const team = member.team || "";
@@ -333,14 +365,15 @@ export function CommitteePage() {
           (team.toLowerCase().includes("stall") ||
             team.toLowerCase().includes("chapter")));
 
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        (member.name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (member.designation || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
-        team.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (member.tag || "").toLowerCase().includes(searchQuery.toLowerCase());
+      if (!matchesTab) return false;
+      if (!q) return true;
 
-      return matchesTab && matchesSearch;
+      return (
+        (member.name || "").toLowerCase().includes(q) ||
+        (member.designation || "").toLowerCase().includes(q) ||
+        team.toLowerCase().includes(q) ||
+        (member.tag || "").toLowerCase().includes(q)
+      );
     });
   }, [activeTab, searchQuery]);
 
@@ -348,7 +381,7 @@ export function CommitteePage() {
     if (!Array.isArray(filteredFacultyMembers)) return [];
     return DESIGNATION_TIERS.map((tier) => ({
       ...tier,
-      members: (filteredFacultyMembers || []).filter(
+      members: filteredFacultyMembers.filter(
         (member: CommitteeMember) => member?.designation === tier.key
       ),
     })).filter((group) => group.members.length > 0);
@@ -356,10 +389,9 @@ export function CommitteePage() {
 
   const filteredStudentOrganisers = useMemo(() => {
     const organisers = studentCommitteeData?.organisers || [];
-    if (!studentSearchQuery.trim()) return organisers;
-    return organisers.filter((org) =>
-      org.name.toLowerCase().includes(studentSearchQuery.toLowerCase())
-    );
+    const q = studentSearchQuery.trim().toLowerCase();
+    if (!q) return organisers;
+    return organisers.filter((org) => org.name.toLowerCase().includes(q));
   }, [studentSearchQuery]);
 
   return (
@@ -367,9 +399,11 @@ export function CommitteePage() {
       <BackgroundFog />
       <SiteNav />
 
-      {/* Decorative ambient glowing backdrops */}
-      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[400px] sm:w-[800px] h-[400px] sm:h-[600px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none transform-gpu will-change-transform" />
-      <div className="absolute top-[40%] -right-40 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#E2B767]/5 rounded-full blur-[160px] pointer-events-none transform-gpu will-change-transform" />
+      {/* Lightweight GPU-accelerated decorative ambient glows */}
+      <div className="fixed inset-0 pointer-events-none -z-40 overflow-hidden">
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(16,185,129,0.08)_0%,_transparent_70%)]" />
+        <div className="absolute top-[40%] -right-20 w-[500px] h-[500px] bg-[radial-gradient(circle_at_center,_rgba(226,183,103,0.05)_0%,_transparent_70%)]" />
+      </div>
 
       <main className="flex-1 pt-32 sm:pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
         {/* Header */}
@@ -377,8 +411,8 @@ export function CommitteePage() {
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full glass-pill border border-[#E2B767]/30 text-[11px] sm:text-xs font-mono text-[#E2B767] uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(226,183,103,0.15)]"
+            transition={{ duration: 0.4 }}
+            className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full border border-[#E2B767]/30 bg-[#070c09]/80 text-[11px] sm:text-xs font-mono text-[#E2B767] uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(226,183,103,0.15)]"
           >
             <Sparkles size={13} />
             <span>SRMIST KATTANKULATHUR • AICSSYC 2026</span>
@@ -387,7 +421,7 @@ export function CommitteePage() {
           <motion.h1
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+            transition={{ duration: 0.4, delay: 0.05 }}
             className="text-3xl sm:text-5xl lg:text-6xl font-serif font-medium text-white tracking-tight text-balance leading-tight"
           >
             Organizing &amp; Advisory{" "}
@@ -399,7 +433,7 @@ export function CommitteePage() {
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
             className="mt-4 text-sm sm:text-base md:text-lg text-white/60 leading-relaxed font-sans max-w-2xl mx-auto"
           >
             The distinguished university leadership, patrons, deans, department chairs, faculty convenors, and student organizing committee driving AICSSYC 2026.
@@ -411,12 +445,7 @@ export function CommitteePage() {
         {/* ========================================================================= */}
         <div className="space-y-16 mb-20">
           {/* 1. Chief Patrons Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Crown className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
@@ -427,20 +456,15 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto gap-4 sm:gap-5">
               {leadershipData?.chiefPatrons?.map((member) => (
-                <LeadershipCard key={member.id} member={member} />
+                <LeadershipCard key={member.id} member={member} isPriority={true} />
               )) ?? null}
             </div>
-          </motion.section>
+          </section>
 
           {/* 2. Patrons Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Shield className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
@@ -451,20 +475,15 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-5">
               {leadershipData?.patrons?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               )) ?? null}
             </div>
-          </motion.section>
+          </section>
 
           {/* 3. Dean (CET) Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <GraduationCap className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
@@ -475,20 +494,15 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-5">
               {leadershipData?.deanCet?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               )) ?? null}
             </div>
-          </motion.section>
+          </section>
 
           {/* 4. School & Department Leadership Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Award className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
@@ -499,20 +513,15 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 max-w-4xl mx-auto gap-4 sm:gap-5">
               {leadershipData?.schoolDepartmentLeadership?.map((member) => (
                 <LeadershipCard key={member.id} member={member} />
               )) ?? null}
             </div>
-          </motion.section>
+          </section>
 
           {/* 5. AICSSYC 2026 Convenor & Advisor Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Sparkles className="w-5 h-5 text-[#E2B767]" />
               <h2 className="text-xl sm:text-2xl font-serif text-white font-medium">
@@ -523,12 +532,12 @@ export function CommitteePage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 max-w-sm mx-auto gap-5 sm:gap-6">
+            <div className="grid grid-cols-1 max-w-xs mx-auto gap-4">
               {leadershipData?.convenorAdvisor ? (
                 <LeadershipCard member={leadershipData.convenorAdvisor} />
               ) : null}
             </div>
-          </motion.section>
+          </section>
         </div>
 
         {/* ========================================================================= */}
@@ -556,7 +565,7 @@ export function CommitteePage() {
                   placeholder="Search faculty by name, team, or designation..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs sm:text-sm focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-all backdrop-blur-sm"
+                  className="w-full pl-11 pr-4 py-2.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs sm:text-sm focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-colors"
                 />
                 {searchQuery && (
                   <button
@@ -578,9 +587,9 @@ export function CommitteePage() {
                 <button
                   key={team}
                   onClick={() => setActiveTab(team)}
-                  className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
+                  className={`px-4 py-2 rounded-full text-xs font-mono whitespace-nowrap transition-colors duration-150 flex items-center gap-1.5 ${
                     isSelected
-                      ? "bg-[#E2B767] text-[#060D0A] font-semibold shadow-lg shadow-[#E2B767]/25 border border-[#E2B767]"
+                      ? "bg-[#E2B767] text-[#060D0A] font-semibold shadow-md shadow-[#E2B767]/20 border border-[#E2B767]"
                       : "bg-white/[0.04] text-white/70 border border-white/10 hover:border-[#E2B767]/40 hover:text-white"
                   }`}
                 >
@@ -608,65 +617,41 @@ export function CommitteePage() {
 
           {/* Member Grid by Designation Tiers */}
           <div className="space-y-16">
-            <AnimatePresence mode="popLayout">
-              {tieredGroups.map((group) => {
-                const TierIcon = group.icon;
-                return (
-                  <motion.section
-                    key={group.key}
-                    layout
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.4 }}
-                    className="space-y-6 content-auto"
-                    style={{
-                      contain: "content",
-                      contentVisibility: "auto",
-                      containIntrinsicSize: "1px 800px",
-                    }}
-                  >
-                    {/* Tier Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-white/10">
-                      <div className="flex items-center gap-3">
-                        <div className={`p-2 rounded-xl border ${group.badgeColor}`}>
-                          <TierIcon className="w-5 h-5" />
+            {tieredGroups.map((group) => {
+              const TierIcon = group.icon;
+              return (
+                <section key={group.key} className="space-y-6">
+                  {/* Tier Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pb-3 border-b border-white/10">
+                    <div className="flex items-center gap-3">
+                      <div className={`p-2 rounded-xl border ${group.badgeColor}`}>
+                        <TierIcon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2.5">
+                          <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                            {group.title}
+                          </h3>
+                          <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold border ${group.badgeColor}`}>
+                            {`${group.members.length} ${group.members.length === 1 ? "Member" : "Members"}`}
+                          </span>
                         </div>
-                        <div>
-                          <div className="flex items-center gap-2.5">
-                            <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
-                              {group.title}
-                            </h3>
-                            <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold border ${group.badgeColor}`}>
-                              {`${group.members.length} ${group.members.length === 1 ? "Member" : "Members"}`}
-                            </span>
-                          </div>
-                          <p className="text-xs text-white/50 font-sans mt-0.5">
-                            {group.subtitle}
-                          </p>
-                        </div>
+                        <p className="text-xs text-white/50 font-sans mt-0.5">
+                          {group.subtitle}
+                        </p>
                       </div>
                     </div>
+                  </div>
 
-                    {/* Member Cards Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
-                      {group.members?.map((member: CommitteeMember, index: number) => (
-                        <motion.div
-                          key={member.id}
-                          layout
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.3, delay: Math.min(index * 0.03, 0.25) }}
-                        >
-                          <CommitteeMemberCard member={member} />
-                        </motion.div>
-                      )) ?? null}
-                    </div>
-                  </motion.section>
-                );
-              })}
-            </AnimatePresence>
+                  {/* Member Cards Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
+                    {group.members?.map((member: CommitteeMember) => (
+                      <CommitteeMemberCard key={member.id} member={member} />
+                    )) ?? null}
+                  </div>
+                </section>
+              );
+            })}
           </div>
 
           {/* Empty Search State */}
@@ -707,46 +692,50 @@ export function CommitteePage() {
             </p>
           </div>
 
-          {/* 1. Student Leadership Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          {/* 1. Student Chair Tier */}
+          <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Crown className="w-5 h-5 text-[#E2B767]" />
               <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
-                Student Leadership
+                Student Chair
               </h3>
               <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
-                Executive Leads
+                Lead Organizer • IEEE SRM SB
               </span>
             </div>
 
-            <div
-              className={
-                studentCommitteeData?.leadership?.length === 1
-                  ? "flex justify-center max-w-sm mx-auto"
-                  : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto gap-5 sm:gap-6"
-              }
-            >
-              {studentCommitteeData?.leadership?.map((leader) => (
-                <div key={leader.name} className={studentCommitteeData?.leadership?.length === 1 ? "w-full" : ""}>
-                  <StudentLeadershipCard member={leader} />
+            <div className="flex justify-center max-w-xs mx-auto">
+              {studentCommitteeData?.chair ? (
+                <div className="w-full">
+                  <StudentLeadershipCard member={studentCommitteeData.chair} />
                 </div>
-              ))}
+              ) : null}
             </div>
-          </motion.section>
+          </section>
 
-          {/* 2. Student Organisers Tier */}
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="pt-6"
-          >
+          {/* 2. Student Advisor Tier */}
+          <section className="pt-2">
+            <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
+              <Shield className="w-5 h-5 text-sky-400" />
+              <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
+                Student Advisor
+              </h3>
+              <span className="text-xs font-mono text-sky-400/70 uppercase tracking-wider ml-auto">
+                Congress Advisory • IEEE SRM SB
+              </span>
+            </div>
+
+            <div className="flex justify-center max-w-xs mx-auto">
+              {studentCommitteeData?.studentAdvisor ? (
+                <div className="w-full">
+                  <StudentLeadershipCard member={studentCommitteeData.studentAdvisor} />
+                </div>
+              ) : null}
+            </div>
+          </section>
+
+          {/* 3. Student Organisers Tier */}
+          <section className="pt-6">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 pb-3 border-b border-white/10">
               <div className="flex items-center gap-2.5">
                 <Users className="w-5 h-5 text-[#E2B767]" />
@@ -766,7 +755,7 @@ export function CommitteePage() {
                   placeholder="Search organiser..."
                   value={studentSearchQuery}
                   onChange={(e) => setStudentSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-3 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-all backdrop-blur-sm"
+                  className="w-full pl-9 pr-3 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#E2B767]/60 focus:bg-white/[0.08] transition-colors"
                 />
                 {studentSearchQuery && (
                   <button
@@ -781,16 +770,8 @@ export function CommitteePage() {
 
             {/* Organisers Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 lg:gap-5">
-              {filteredStudentOrganisers.map((org, index) => (
-                <motion.div
-                  key={org.name}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
-                >
-                  <StudentOrganiserCard member={org} />
-                </motion.div>
+              {filteredStudentOrganisers.map((org) => (
+                <StudentOrganiserCard key={org.name} member={org} />
               ))}
             </div>
 
@@ -806,7 +787,7 @@ export function CommitteePage() {
                 </button>
               </div>
             )}
-          </motion.section>
+          </section>
         </div>
       </main>
 
