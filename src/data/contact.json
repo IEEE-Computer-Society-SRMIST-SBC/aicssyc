@@ -1,16 +1,16 @@
 [
   {
-    "name": "Ushnish Ghosal",
-    "role": "Chair",
-    "phone": "+91 78109 82910",
-    "phoneHref": "+917810982910",
-    "email": "ug9320@srmist.edu.in"
-  },
-  {
     "name": "Keshav Gupta",
     "role": "Core-Coordinator",
     "phone": "+91 94117 82595",
     "phoneHref": "+919411782595",
     "email": "kg9687@srmist.edu.in"
+  },
+  {
+    "name": "Ushnish Ghosal",
+    "role": "Chair",
+    "phone": "+91 78109 82910",
+    "phoneHref": "+917810982910",
+    "email": "ug9320@srmist.edu.in"
   }
 ]
