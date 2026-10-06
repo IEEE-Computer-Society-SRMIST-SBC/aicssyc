@@ -13,25 +13,24 @@
   },
   "leadership": [
     {
-      "name": "Ushnish Ghosal",
-      "role": "Chair",
-      "category": "CHAIR",
-      "image": "/committee/students/ushnish-ghosal.png"
-    },
-    {
       "name": "Keshav Gupta",
       "role": "Student Advisor",
       "category": "STUDENT_ADVISOR",
       "image": "/committee/students/keshav-gupta.png"
+    },
+    {
+      "name": "Ushnish Ghosal",
+      "role": "Chair",
+      "category": "CHAIR",
+      "image": "/committee/students/ushnish-ghosal.png"
     }
   ],
   "organisers": [
-    { "name": "Ayushman Kathayat", "role": "Vice-Chair", "image": "/committee/students/ayushman-kathayat.png" },
     { "name": "Dhruv Jha", "role": "Organiser", "image": "/committee/students/dhruv-jha.png" },
-    { "name": "Atharv Dorle", "role": "Organiser", "image": "/committee/students/atharv-dorle.png" },
-    { "name": "Vaibhav Gupta", "role": "Organiser", "image": "/committee/students/vaibhav-gupta.png" },
     { "name": "Vrisheeka Mulakala", "role": "Creative Head", "image": "/committee/students/vrisheeka-mulakala.png" },
     { "name": "Praneetha Gunda Rama", "role": "Creative Head", "image": "/committee/students/praneetha-gunda-rama.png" },
+    { "name": "Atharv Dorle", "role": "Organiser", "image": "/committee/students/atharv-dorle.png" },
+    { "name": "Vaibhav Gupta", "role": "Organiser", "image": "/committee/students/vaibhav-gupta.png" },
     { "name": "Vishesh Jhabak", "role": "Organiser", "image": "/committee/students/vishesh-jhabak.png" },
     { "name": "Sumanta Dash", "role": "Organiser", "image": "/committee/students/sumanta-dash.png" },
     { "name": "Dipesh Pirojiwala", "role": "Organiser", "image": "/committee/students/dipesh-pirojiwala.png" },
@@ -60,6 +59,7 @@
     { "name": "Ishee", "role": "Organiser", "image": "/committee/students/ishee.png" },
     { "name": "Arsh", "role": "Organiser", "image": "/committee/students/arsh.png" },
     { "name": "Aditya Kumar", "role": "Organiser", "image": "/committee/students/aditya-kumar.png" },
-    { "name": "Shlok Agarwal", "role": "Organiser", "image": "/committee/students/shlok-agarwal.png" }
+    { "name": "Shlok Agarwal", "role": "Organiser", "image": "/committee/students/shlok-agarwal.png" },
+    { "name": "Ayushman Kathayat", "role": "Vice-Chair", "image": "/committee/students/ayushman-kathayat.png" }
   ]
 }

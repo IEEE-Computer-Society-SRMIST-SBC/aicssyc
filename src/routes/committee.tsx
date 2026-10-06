@@ -692,45 +692,39 @@ function CommitteePage() {
             </p>
           </div>
 
-          {/* 1. Student Chair Tier */}
+          {/* 1. Student Leadership Tier */}
           <section>
             <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
               <Crown className="w-5 h-5 text-[#E2B767]" />
               <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
-                Student Chair
+                Student Leadership
               </h3>
               <span className="text-xs font-mono text-white/40 uppercase tracking-wider ml-auto">
-                Lead Organizer • IEEE SRM SB
+                Congress Advisory &amp; Lead Organizer • IEEE SRM SB
               </span>
             </div>
 
-            <div className="flex justify-center max-w-xs mx-auto">
-              {studentCommitteeData?.chair ? (
-                <div className="w-full">
-                  <StudentLeadershipCard member={studentCommitteeData.chair} />
-                </div>
-              ) : null}
-            </div>
-          </section>
-
-          {/* 2. Student Advisor Tier */}
-          <section className="pt-2">
-            <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-white/10">
-              <Shield className="w-5 h-5 text-sky-400" />
-              <h3 className="text-xl sm:text-2xl font-serif text-white font-medium">
-                Student Advisor
-              </h3>
-              <span className="text-xs font-mono text-sky-400/70 uppercase tracking-wider ml-auto">
-                Congress Advisory • IEEE SRM SB
-              </span>
-            </div>
-
-            <div className="flex justify-center max-w-xs mx-auto">
-              {studentCommitteeData?.studentAdvisor ? (
-                <div className="w-full">
-                  <StudentLeadershipCard member={studentCommitteeData.studentAdvisor} />
-                </div>
-              ) : null}
+            <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-4 sm:gap-6">
+              {studentCommitteeData?.leadership ? (
+                studentCommitteeData.leadership.map((member) => (
+                  <div key={member.name} className="w-full">
+                    <StudentLeadershipCard member={member} />
+                  </div>
+                ))
+              ) : (
+                <>
+                  {studentCommitteeData?.studentAdvisor ? (
+                    <div className="w-full">
+                      <StudentLeadershipCard member={studentCommitteeData.studentAdvisor} />
+                    </div>
+                  ) : null}
+                  {studentCommitteeData?.chair ? (
+                    <div className="w-full">
+                      <StudentLeadershipCard member={studentCommitteeData.chair} />
+                    </div>
+                  ) : null}
+                </>
+              )}
             </div>
           </section>
 
